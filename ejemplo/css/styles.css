@@ -430,6 +430,11 @@ mark,
   height: auto;
 }
 
+.img-logo {
+  max-width: 20%;
+  height: auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -10072,9 +10077,9 @@ h3 {
 .masthead .masthead-subheading {
   font-size: 1.25rem;
 }
-.masthead .masthead-avatar {
+/*.masthead .masthead-avatar { !!!!!!!!!!!!!!!
   width: 15rem;
-}
+}*/
 
 @media (min-width: 992px) {
   .masthead {
@@ -10195,3 +10200,6 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #1a252f;
 }
+
+
+
