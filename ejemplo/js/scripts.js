@@ -65,11 +65,6 @@
     });
   });
 
-  //Playing sounds 
-  $('.portfolio .portfolio-item').click(function () {
-    document.getElementById("myAudio").play(); 
-  });
-
 
 //Carousel
 $(document).ready(function () {
