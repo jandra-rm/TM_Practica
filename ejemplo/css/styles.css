@@ -18,10 +18,6 @@
   box-sizing: border-box;   /* ESTO NO SE QUITA */
 }
 
-.sport {
-  font-weight: bolder;
-  font-size: 80%;
-}
 
 .cabecera { 
   position:relative; 
@@ -134,12 +130,12 @@ sup {
 }
 
 a {
-  color: #FF6B6B;
+  color: #102d64;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #FF6B6B;
+  color: #102d64;
   text-decoration: underline;
 }
 
@@ -2425,6 +2421,7 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #FF6B6B;
   border-color: #FF6B6B;
+  
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -9765,11 +9762,11 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #1abc9c !important;
+  color: #FF6B6B !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #117964 !important;
+  color: #FF6B6B !important;
 }
 
 .text-secondary {
@@ -10050,6 +10047,9 @@ h3 {
 #mainNav .navbar-brand {
   color: #fff;
 }
+#mainNav .navbar-brand:hover{
+  color: #f5ce7b;
+}
 #mainNav .navbar-nav {
   margin-top: 1rem;
 }
@@ -10057,7 +10057,7 @@ h3 {
   color: #fff;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #FF6B6B;
+  color:#f5ce7b;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
   color: #fff;
@@ -10138,8 +10138,7 @@ h3 {
 }
 
 .portfolio .portfolio-item:hover {
-  background-color: #000;
-  opacity:0.5;
+  opacity: 0.7;
 }
 .portfolio .portfolio-item .portfolio-item-caption {
   position: absolute;
@@ -10154,7 +10153,9 @@ h3 {
 
 }
 .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: bolder;
+  font-family: "Montserrat";
 }
 
 .portfolio-modal .portfolio-modal-title {
