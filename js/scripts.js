@@ -149,7 +149,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   var xmlhttp = new XMLHttpRequest();
-  var url = "myTutorials.txt";
+  var url = "datos.txt";
 
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
