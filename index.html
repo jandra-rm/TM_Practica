@@ -79,7 +79,7 @@
                 <!-- PORTFOLIO GRID ITEMS, AQUI VAN LOS DEPORTES -->
                 <div class="row justify-content-center">
                     <!-- Gimnasio -->
-                    <div id="catalogo"></div>
+                    <div id="fidiop"></div>
                     <script>
                         var xmlhttp = new XMLHttpRequest();
                         var url = "datos.txt";
@@ -100,13 +100,13 @@
                             out += '<div class="col-md-6 col-lg-4 mb-5">'+
                                         '<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">'+
                                             '<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">'
-                                                '<div class="portfolio-item-caption-content text-center text-white sport">'+arr[i].deporte+'</div>'+
+                                                '<div class="portfolio-item-caption-content text-center text-white sport">'+arr[i].deporte.display+'</div>'+
                                             '</div>'+
-                                        '<img class="img-fluid" src="'+arr[i].imagen+'" alt="" />'
+                                        '<img class="img-fluid" src="'+arr[i].imagen.display+'" alt="" />'
                                         '</div>'+
                                         '</div>';
                             }
-                        document.getElementById("catalogo").innerHTML = out;
+                        document.getElementById("fidiop").innerHTML = out;
                         }
                     </script>
                     
