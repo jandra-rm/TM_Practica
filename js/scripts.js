@@ -96,7 +96,7 @@
 
 })(jQuery); // End of use strict
 
-
+/*
 // Prueba de imágenes con JSON
 function myFunction(arr) {
   var i;
@@ -144,4 +144,35 @@ $(document).ready(function () {
   xmlhttp.send();
 
 //}, false);
+}); */
+
+
+$(document).ready(function () {
+  var xmlhttp = new XMLHttpRequest();
+  var url = "myTutorials.txt";
+
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myArr = JSON.parse(this.responseText);
+      myFunction(myArr);
+    }
+  };
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+
+  function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+      out += '<div class="col-md-6 col-lg-4 mb-5">'+
+                '<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">'+
+                    '<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">'
+                        '<div class="portfolio-item-caption-content text-center text-white sport">'+arr[i].deporte+'</div>'+
+                    '</div>'+
+                '<img class="img-fluid" src="'+arr[i].imagen+'" alt="" />'
+                '</div>'+
+                '</div>';
+      }
+    document.getElementById("catalogo").innerHTML = out;
+  }
 });
