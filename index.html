@@ -81,7 +81,7 @@
                     <!-- Gimnasio -->
                     <div id="fidiop"></div>
                     <script>
-                        var xmlhttp = new XMLHttpRequest();
+                        var request = new XMLHttpRequest();
                         var url = "js/datos.json";
 
                         xmlhttp.onreadystatechange = function() {
@@ -90,14 +90,15 @@
                             myFunction(myArr);
                             }
                         };
-                        xmlhttp.open("GET", url, true);
-                        xmlhttp.send();
+                        request.open("GET", url, true);
+                        request.responseType = 'json';
+                        request.send();
 
                         function myFunction(arr) {
                             var out = "";
                             var i;
                             for(i = 0; i < arr.length; i++) {
-                            out += '<div class="col-md-6 col-lg-4 mb-5">'+
+                            /*out += '<div class="col-md-6 col-lg-4 mb-5">'+
                                         '<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">'+
                                             '<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">'
                                                 '<div class="portfolio-item-caption-content text-center text-white sport">'+arr[i].deporte+'</div>'+
@@ -105,8 +106,8 @@
                                         '<img class="img-fluid" src="'+arr[i].imagen+'" alt="" />'
                                         '</div>'+
                                         '</div>';
-                            
-                           //out += arr[i].imagen.display + "<br>" + arr[i].deporte.display;
+                            */
+                           out += arr[i].imagen.display + "<br>" + arr[i].deporte.display;
                             }
                         document.getElementById("fidiop").innerHTML = out;
                         }
