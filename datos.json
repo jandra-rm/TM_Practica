@@ -1,0 +1,26 @@
+{
+    "imagenes":[ 
+        "assets/img/portfolio/gym.png",
+        "assets/img/portfolio/padel.png",
+        "assets/img/portfolio/natacion.png",
+        "assets/img/portfolio/tenis.png",
+        "assets/img/portfolio/golf.png",
+        "assets/img/portfolio/futbol.png",
+        "assets/img/portfolio/basket.png",
+        "assets/img/portfolio/volleybol.png",
+        "assets/img/portfolio/balonmano.png"
+    ],
+
+    "deportes":[
+        "GIMNASIO",
+        "PÁDEL",
+        "NATACIÓN",
+        "TENIS",
+        "GOLF",
+        "FÚTBOL",
+        "BALONCESTO",
+        "VOLEIBOL",
+        "BALONMANO"
+    ]
+
+}
