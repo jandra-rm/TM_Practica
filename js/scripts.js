@@ -128,7 +128,8 @@ function myFunction(arr) {
   }
 }
 
-$(document).addEventListener('DOMContentLoaded', function () {
+//$(document).addEventListener('DOMContentLoaded', function () {
+  function prueba(){
   var xmlhttp = new XMLHttpRequest();
   var url = "datos.txt";
 
@@ -142,4 +143,5 @@ $(document).addEventListener('DOMContentLoaded', function () {
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 
-}, false);
+//}, false);
+}
