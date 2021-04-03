@@ -100,7 +100,8 @@
 // Prueba de imágenes con JSON
 function myFunction(arr) {
   var i;
-  for (i = 0; i < arr[0].length; i++) {
+
+  for (i = 0; i < arr.length; i++) {
     var a = document.createElement('div');
     a.className = 'col-md-6 col-lg-4 mb-5';
 
@@ -111,7 +112,7 @@ function myFunction(arr) {
     a.appendChild(b);
 
     var img = document.createElement('img');
-    img.src = arr[0][i];
+    img.src = arr[i].imagen;
     b.appendChild(img);
 
     var c = document.createElement('div');
@@ -120,17 +121,16 @@ function myFunction(arr) {
 
     var d = document.createElement('div');
     d.className = 'portfolio-item-caption-content text-center text-white sport';
-    d.innerHTML = arr[1][i].display;
+    d.innerHTML = arr[i].deporte;
     c.appendChild(d);
 
     document.getElementById("catalogo").appendChild(a);
   }
 }
 
-//$(document).addEventListener('DOMContentLoaded', function () {
-function prueba(){
+$(document).addEventListener('DOMContentLoaded', function () {
   var xmlhttp = new XMLHttpRequest();
-  var url = "datos.json";
+  var url = "datos.txt";
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -142,5 +142,4 @@ function prueba(){
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 
-//}, false);
-}
+}, false);

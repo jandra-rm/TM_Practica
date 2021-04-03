@@ -1,0 +1,38 @@
+[
+{
+"imagen": "assets/img/portfolio/gym.png",
+"deporte": "GIMNASIO"
+},
+{
+"imagen": "assets/img/portfolio/padel.png",
+"deporte": "PÁDEL"
+},
+{
+"imagen": "assets/img/portfolio/natacion.png",
+"deporte": "NATACIÓN"
+},
+{
+"imagen": "assets/img/portfolio/tenis.png",
+"deporte": "TENIS"
+},
+{
+"imagen": "assets/img/portfolio/golf.png",
+"deporte": "GOLF"
+},
+{
+"imagen": "assets/img/portfolio/futbol.png",
+"deporte": "FÚTBOL"
+},
+{
+"imagen": "assets/img/portfolio/basket.png",
+"deporte": "BALONCESTO"
+},
+{
+"imagen": "VOLEIBOL",
+"deporte": "assets/img/portfolio/volleyball.png"
+},
+{
+"imagen": "assets/img/portfolio/balonmano.png",
+"deporte": "BALONMANO"
+}
+]
