@@ -10,7 +10,7 @@ request.onreadystatechange = function () {
     const deportesText = request.response; //cogemos la cadena de response
     const deportes = JSON.parse(deportesText); //la convertimos a objeto
     showSports(deportes);
-    showVideo(deportes);
+    //showVideo(deportes);
   }
 }
 
