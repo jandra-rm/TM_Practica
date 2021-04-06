@@ -1,89 +1,108 @@
-[
-    {
-    "imagen": "assets/img/portfolio/gym.png",
-    "deporte": "GIMNASIO"
-    },
-    {
-    "imagen": "assets/img/portfolio/padel.png",
-    "deporte": "PÁDEL"
-    },
-    {
-    "imagen": "assets/img/portfolio/natacion.png",
-    "deporte": "NATACIÓN"
-    },
-    {
-    "imagen": "assets/img/portfolio/tenis.png",
-    "deporte": "TENIS"
-    },
-    {
-    "imagen": "assets/img/portfolio/golf.png",
-    "deporte": "GOLF"
-    },
-    {
-    "imagen": "assets/img/portfolio/futbol.png",
-    "deporte": "FÚTBOL"
-    },
-    {
-    "imagen": "assets/img/portfolio/basket.png",
-    "deporte": "BALONCESTO"
-    },
-    {
-    "imagen": "VOLEIBOL",
-    "deporte": "assets/img/portfolio/volleyball.png"
-    },
-    {
-    "imagen": "assets/img/portfolio/balonmano.png",
-    "deporte": "BALONMANO"
+
+  {
+  "nom":"",
+  "descripcio": "",
+  "detall": "",
+  "tipus": "",
+  "identificador":"",
+  "comentari": "exemple: posar tipus de menjar del restaurante",
+  "preu":{
+    "-import":"",
+    "coment-preu":""
+  },
+  "contacte":{
+    "telf": "", 
+    "email": "",
+    "xarxes": [ 
+      {"facebook": ""},
+      {"twitter": ""},
+      {"tripadvisor": ""}
+    ]
+  },
+  "puntuacio":"",
+  "visualitzacions":"",
+  "likes":0,
+  
+
+  "icones": [
+  " ",
+  " "
+  ],
+  "imatges": [
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/gym.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/padel.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/natacion.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/tenis.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/golf.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/futbol.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/basket.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/volleyball.png?raw=true",
+  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/balonmano.png?raw=true"
+  ],
+  "videos": [
+  {"tipus": "youtube"},
+  {"url": ""}
+  ],
+  "audio": [
+  {"tipus": "youtube"},
+  {"url": ""}
+  ],
+
+  
+  "geo1":{
+  "address": "carrer ...",
+  "lat": 39.235432,
+  "long":2.6765454,
+  "city":"Palma",
+  "Country":"",
+  "zip": ""
+  },
+  "geo2":{
+  "address": "carrer ...",
+  "lat": 39.235432,
+  "long":2.6765454,
+  "city":"Palma",
+  "Country":"",
+  "zip":""
+  },
+  "ruta":[{
+    "lat": 343,
+    "long": 123,
+    "imatge":{
+      "link":"",
+      "descripcio":""
     }
+  }],
+
+  
+  "horari":{
+  "di":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "dm":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "dx":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "dj":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "dv":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "ds":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}],
+  "dg":[{"in": "-", "out": "-"},{"in": "-", "out": "-"}]
+  },
+  "calendari" :{
+  "startDataEvent": "",
+  "startTimeEvent": "",
+  "endDataEvent":"",
+  "endTimeEvent":""
+  },
+
+  
+  "dadesPropies" :{ 
+    "esports":[
+      "GIMNASIO",
+      "PÁDEL",
+      "NATACIÓN",
+      "TENIS",
+      "GOLF",
+      "FÚTBOL",
+      "BALONCESTO",
+      "VOLEIBOL",
+      "BALONMANO"
     ]
-
-
-    "deportes" : [
-        {
-          "nombre" : "Molecule Man",
-          "imagen" : 29,
-          "secretIdentity" : "Dan Jukes",
-          "powers" : [
-            "Radiation resistance",
-            "Turning tiny",
-            "Radiation blast"
-          ]
-        },
-        {
-          "name" : "Madame Uppercut",
-          "age" : 39,
-          "secretIdentity" : "Jane Wilson",
-          "powers" : [
-            "Million tonne punch",
-            "Damage resistance",
-            "Superhuman reflexes"
-          ]
-        },
-
-        
-{
-    "imagenes":[ 
-        "assets/img/portfolio/gym.png",  
-        "assets/img/portfolio/padel.png",
-        "assets/img/portfolio/natacion.png",
-        "assets/img/portfolio/tenis.png",
-        "assets/img/portfolio/golf.png",
-        "assets/img/portfolio/futbol.png",
-        "assets/img/portfolio/basket.png",
-        "assets/img/portfolio/volleybol.png",
-        "assets/img/portfolio/balonmano.png"
-    ],
-
-    "deportes":[
-        "GIMNASIO",
-        "PÁDEL",
-        "NATACIÓN",
-        "TENIS",
-        "GOLF",
-        "FÚTBOL",
-        "BALONCESTO",
-        "VOLEIBOL",
-        "BALONMANO"
-    ]
-
+  }
 }
