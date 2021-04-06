@@ -41,31 +41,6 @@ function showSports(d) {
   //Siguientes iteraciones
   for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
-    /*
-    var clnb = b.cloneNode(false);
-    //b.attr("data-toggle", "modal");
-    //b.attr("data-target", "#portfolioModal1");
-
-    
-        
-          
-        
-    
-   function showSports(d) {
-  
-    
-    var clnim = im.cloneNode(false);
-    clnim.src = imatges[i];
-    //catalogo.appendChild(im);
-    
-    var clnc = c.cloneNode(false);
-    var clnd = d.cloneNode(false);
-    clnd.innerHTML = sports[i];
-    clnc.appendChild(clnd);
-    clnb.appendChild(clnc);
-    clnb.appendChild(clnim);
-    clna.appendChild(clnb);
-    */
     document.getElementById('catalogo').appendChild(clna);
   }
 
