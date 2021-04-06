@@ -47,19 +47,19 @@ function showSports(d) {
 
   //Siguientes iteraciones
   for (i=1; i < sports.length; i++) {
-    var clna = a.cloneNode(true);
+    var clna = a.cloneNode(false);
 
-    var clnb = b.cloneNode(true);
+    var clnb = b.cloneNode(false);
     //b.attr("data-toggle", "modal");
     //b.attr("data-target", "#portfolioModal1");
     
-    var clnim = im.cloneNode(true);
+    var clnim = im.cloneNode(false);
     clnim.src = imatges[i];
     //catalogo.appendChild(im);
     
-    var clnc = c.cloneNode(true);
+    var clnc = c.cloneNode(false);
 
-    var clnd = d.cloneNode(true);
+    var clnd = d.cloneNode(false);
     clnd.innerHTML = sports[i];
 
     clnc.appendChild(clnd);
