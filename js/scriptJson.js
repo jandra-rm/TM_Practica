@@ -18,19 +18,17 @@ function showSports(d) {
   const sports = d['dadesPropies']['esports'];
   const imatges = d['imatges'];
   var i=0;
+  
   //Primera iteración
   var a = document.createElement("div");
   a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
 
   var b = document.createElement("div");
   b.classList.add('portfolio-item', 'mx-auto');
-  //b.attr("data-toggle", "modal");
-  //b.attr("data-target", "#portfolioModal1");
   
   var im = document.createElement("img");
   im.className = 'img-fluid';
   im.src = imatges[i];
-  //catalogo.appendChild(im);
   
   var c = document.createElement("div");
   c.classList.add('portfolio-item-caption', 'd-flex', 'align-items-center', 'justify-content-center', 'h-100', 'w-100');
@@ -45,28 +43,9 @@ function showSports(d) {
   a.appendChild(b);
   document.getElementById('catalogo').appendChild(a);
 
-  //Siguientes iteraciones
+  //Siguientes iteraciones --> Al clonar a, se clonan también sus hijos con parámetro [i] que va cambiando a lo largo del bucle for
   for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
-    /*
-    var clnb = b.cloneNode(false);
-    //b.attr("data-toggle", "modal");
-    //b.attr("data-target", "#portfolioModal1");
-    
-    var clnim = im.cloneNode(false);
-    clnim.src = imatges[i];
-    //catalogo.appendChild(im);
-    
-    var clnc = c.cloneNode(false);
-
-    var clnd = d.cloneNode(false);
-    clnd.innerHTML = sports[i];
-
-    clnc.appendChild(clnd);
-    clnb.appendChild(clnc);
-    clnb.appendChild(clnim);
-    clna.appendChild(clnb);
-    */
     document.getElementById('catalogo').appendChild(clna);
   }
   
