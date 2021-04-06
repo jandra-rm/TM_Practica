@@ -15,7 +15,8 @@ request.onreadystatechange = function () {
 
 function showVideo(d){
   var vid = document.createElement("video");
-  vid.src= d['videos'][0][url];
+  //vid.src= d['videos'][0][url];
+  vid.src= "https://youtu.be/_-MchSiyDxw";
   vid.muted = true;
   vid.autoplay = true;
   vid.loop = true;
