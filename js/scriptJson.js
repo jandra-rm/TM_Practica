@@ -47,7 +47,7 @@ function showSports(d) {
     
   }*/
 
-    a = document.createElement("div");
+    /*a = document.createElement("div");
     a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
 
     b = document.createElement("div");
@@ -71,8 +71,8 @@ function showSports(d) {
     b.appendChild(c);
     b.appendChild(im);
     a.appendChild(b);
-    catalogo.appendChild(a);
-
+    catalogo.appendChild(a);*/
+  
 
     var e = document.createElement("div");
     e.classList.add('col-md-6', 'col-lg-4', 'mb-5');
@@ -98,6 +98,6 @@ function showSports(d) {
     f.appendChild(g);
     f.appendChild(im2);
     e.appendChild(f);
-    a.append(e);
+    catalogo.appendChild(e);
   
 }
