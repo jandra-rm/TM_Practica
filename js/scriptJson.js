@@ -9,8 +9,19 @@ request.onreadystatechange = function () {
     const deportesText = request.response; //cogemos la cadena de response
     const deportes = JSON.parse(deportesText); //la convertimos a objeto
     showSports(deportes);
+    showVideo(deportes);
   }
 }
+
+function showVideo(d){
+  var vid = document.createElement("video");
+  vid.src= (d['videos'][0]).url;
+  vid.muted = true;
+  vid.autoplay = true;
+  vid.loop = true;
+  document.getElementById('intro').appendChild(vid);
+}
+
 function showSports(d) {
   const sports = d['dadesPropies']['esports'];
   const imatges = d['imatges'];
