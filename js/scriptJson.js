@@ -18,8 +18,6 @@ function showSports(d) {
   const sports = d['dadesPropies']['esports'];
   const imatges = d['imatges'];
   var i=0;
-
-
   //Primera iteración
   var a = document.createElement("div");
   a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
@@ -48,7 +46,7 @@ function showSports(d) {
   document.getElementById('catalogo').appendChild(a);
 
   //Siguientes iteraciones
-  for (i; i < sports.length; i++) {
+  for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(true);
 
     var clnb = b.cloneNode(true);
