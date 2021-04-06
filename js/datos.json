@@ -1,5 +1,5 @@
 
-[
+
   {
   "nom":"",
   "descripcio": "",
@@ -30,19 +30,19 @@
   " "
   ],
   "imatges": [
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/gym.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/padel.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/natacion.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/tenis.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/golf.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/futbol.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/basket.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/volleyball.png?raw=true",
-  "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/balonmano.png?raw=true"
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/gym.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/padel.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/natacion.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/tenis.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/golf.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/futbol.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/basket.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/volleyball.png?raw=true",
+  "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/balonmano.png?raw=true"
   ],
   "videos": [
-  {"tipus": "youtube"},
-  {"url": ""}
+  {"tipus": "mp4"},
+  {"url": "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/videos/video-deportes.mp4?raw=true"}
   ],
   "audio": [
   {"tipus": "youtube"},
@@ -107,4 +107,4 @@
     ]
   }
 }
-]
+
