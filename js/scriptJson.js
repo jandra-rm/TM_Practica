@@ -18,7 +18,7 @@ function showSports(d) {
   const sports = d['dadesPropies']['esports'];
   var a,b,c,d;
   for (var i = 0; i < sports.length; i++) {
-    /*
+    
     a = document.createElement("div");
     a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
 
@@ -26,7 +26,7 @@ function showSports(d) {
     b.classList.add('portfolio-item', 'mx-auto');
     //b.attr("data-toggle", "modal");
     //b.attr("data-target", "#portfolioModal1");
-    */
+    
     var im = document.createElement("img");
     im.className = 'img-fluid';
     im.src = d['imatges'][i];
