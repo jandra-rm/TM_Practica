@@ -98,6 +98,6 @@ function showSports(d) {
     f.appendChild(g);
     f.appendChild(im2);
     e.appendChild(f);
-    catalogo.appendChild(e);
+    a.append(e);
   
 }
