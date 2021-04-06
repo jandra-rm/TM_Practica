@@ -54,7 +54,7 @@ function showSports(d) {
   document.getElementById('catalogo').appendChild(a);
 
   //Siguientes iteraciones --> Al clonar a, se clonan también sus hijos con parámetro [i] que va cambiando a lo largo del bucle for
-  for (i=1; i < sports.length; i++) {
+  for (i=1; i < imatges.length; i++) {
     var clna = a.cloneNode(false);
     document.getElementById('catalogo').appendChild(clna);
   }
