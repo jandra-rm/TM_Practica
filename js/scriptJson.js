@@ -16,7 +16,7 @@ request.onreadystatechange = function () {
 function showVideo(d){
   var vid = document.createElement("video");
   //vid.src= d['videos'][0][url];
-  vid.src= "https://github.com/andreamorey/pruebasTM/blob/main/assets/videos/video-deportes.mp4";
+  vid.src= "assets/videos/video-deportes.mp4";
   vid.muted = true;
   vid.autoplay = true;
   vid.loop = true;
