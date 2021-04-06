@@ -41,8 +41,8 @@
   "https://github.com/andreamorey/pruebasTM/blob/main/assets/img/portfolio/balonmano.png?raw=true"
   ],
   "videos": [
-    {"tipus": "youtube",
-    "url": "https://youtu.be/_-MchSiyDxw"}
+    {"tipus": "youtube"},
+    {"url": "https://youtu.be/_-MchSiyDxw"}
   ],
   "audio": [
   {"tipus": "youtube"},

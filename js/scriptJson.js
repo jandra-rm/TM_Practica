@@ -14,7 +14,7 @@ request.onreadystatechange = function () {
   }
 }
 
-
+/*
 function showVideo(d){
   var vid = document.createElement("video");
   vid.src= (d['videos'][0]).url;
@@ -23,6 +23,7 @@ function showVideo(d){
   vid.loop = true;
   document.getElementById('intro').appendChild(vid);
 }
+*/
 
 function showSports(d) {
   const sports = d['dadesPropies']['esports'];
@@ -54,9 +55,14 @@ function showSports(d) {
   document.getElementById('catalogo').appendChild(a);
 
   //Siguientes iteraciones --> Al clonar a, se clonan también sus hijos con parámetro [i] que va cambiando a lo largo del bucle for
-  for (i=1; i < imatges.length; i++) {
+  for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
     document.getElementById('catalogo').appendChild(clna);
   }
   
 }
+
+
+
+
+
