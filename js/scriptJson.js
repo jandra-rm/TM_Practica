@@ -13,7 +13,7 @@ request.onreadystatechange = function () {
   }
 }
 
-function showVideo(d){
+function showVideo(d){ // F
   var vid = document.createElement("video");
   vid.src= d['videos'][0]['url'];
   vid.muted = true;
