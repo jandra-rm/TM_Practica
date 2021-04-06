@@ -40,7 +40,7 @@ function showSports(d) {
   document.getElementById('catalogo').appendChild(a);
   //Siguientes iteraciones
   for (i=1; i < sports.length; i++) {
-    var clna = a.cloneNode(true);
+    var clna = a.cloneNode(false);
     document.getElementById('catalogo').appendChild(clna);
   }
 
