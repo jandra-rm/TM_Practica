@@ -22,9 +22,9 @@ function showVideo(d){
   } else {
     //vid.setAttribute("src","movie.ogg");
   }
-  vid.setAttribute('muted','muted');
-  vid.setAttribute('autoplay','autoplay');
-  vid.setAttribute('loop','loop');
+  vid.muted = true;
+  vid.autoplay = true;
+  vid.loop = true;
   document.getElementById('intro').appendChild(vid);
 }
 
