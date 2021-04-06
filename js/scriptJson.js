@@ -16,8 +16,8 @@ request.onreadystatechange = function () {
 }
 
 function showSports(d) {
-  const sports = d['dadesPropies']['esports'];
-  const imatges = d['imatges'];
+  const sports = d.dadespropies.esports;
+  const imatges = d.imatges;
   var i=0;
 
   //Primera iteración
