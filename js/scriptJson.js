@@ -10,14 +10,14 @@ request.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     const deportesText = request.response; //cogemos la cadena de response
     //const deportes = JSON.parse(deportesText); //la convertimos a objeto
-    const array =  JSON.parse(deportesText); 
+    var array =  JSON.parse(deportesText); 
     showSports(array[0]);
   }
 }
 
 function showSports(d) {
-  const sports = d.dadespropies.esports;
-  const imatges = d.imatges;
+  const sports = d['dadesPropies']['esports'];
+  const imatges = d['imatges'];
   var i=0;
 
   //Primera iteración
