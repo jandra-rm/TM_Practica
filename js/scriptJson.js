@@ -9,19 +9,15 @@ request.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     const deportesText = request.response; //cogemos la cadena de response
     const deportes = JSON.parse(deportesText); //la convertimos a objeto
-    showVideo(deportes);
     showSports(deportes);
+    showVideo(deportes);
   }
 }
 
 
 function showVideo(d){
   var vid = document.createElement("video");
-  if (vid.canPlayType("video/mp4")) {
-    vid.src= d['videos'][0].url;
-  } else {
-    //vid.setAttribute("src","movie.ogg");
-  }
+  vid.src= d['videos'][0][url];
   vid.muted = true;
   vid.autoplay = true;
   vid.loop = true;
