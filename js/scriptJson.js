@@ -8,10 +8,9 @@ request.send();
 
 request.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
-    //const deportesText = request.response; //cogemos la cadena de response
-    //const deportes = JSON.parse(deportesText); //la convertimos a objeto
-    var array =  JSON.parse(request.responseText); 
-    showSports(array[0]);
+    const deportesText = request.response; //cogemos la cadena de response
+    const deportes = JSON.parse(deportesText); //la convertimos a objeto
+    showSports(deportes[0]);
   }
 }
 
@@ -45,7 +44,7 @@ function showSports(d) {
   document.getElementById('catalogo').appendChild(a);
 
   //Siguientes iteraciones --> Al clonar a, se clonan también sus hijos con parámetro [i] que va cambiando a lo largo del bucle for
-  for (i=1; i < imatges.length; i++) {
+  for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
     document.getElementById('catalogo').appendChild(clna);
   }

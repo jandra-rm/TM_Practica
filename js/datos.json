@@ -1,5 +1,6 @@
 
-[{
+[
+  {
   "nom":"",
   "descripcio": "",
   "detall": "",
@@ -105,4 +106,5 @@
       "BALONMANO"
     ]
   }
-}]
+}
+]
