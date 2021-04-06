@@ -38,7 +38,7 @@ function showSports(d) {
   b.appendChild(im);
   a.appendChild(b);
   document.getElementById('catalogo').appendChild(a);
-  //Siguientes iteraciones
+  //Siguientes iteraciones F
   for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
    
@@ -60,5 +60,5 @@ function showSports(d) {
     
     document.getElementById('catalogo').appendChild(clna);
   }
-
+ 
 }
