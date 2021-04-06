@@ -1,4 +1,3 @@
-//const catalogo = document.getElementById('catalogo');
 var request = new XMLHttpRequest();
 var url = "js/datos.json";
 
@@ -16,8 +15,17 @@ request.onreadystatechange = function () {
 }
 
 
-functionshowVideo(d){
-
+function showVideo(d){
+  var vid = document.createElement("video");
+  if (vid.canPlayType("video/mp4")) {
+    vid.setAttribute("src", d['videos'][0]['url']);
+  } else {
+    //vid.setAttribute("src","movie.ogg");
+  }
+  vid.setAttribute('muted','muted');
+  vid.setAttribute('autoplay','autoplay');
+  vid.setAttribute('loop','loop');
+  document.getElementById('intro').appendChild(vid);
 }
 
 function showSports(d) {
