@@ -42,7 +42,7 @@ function showSports(d) {
   for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
    
-    /*var clnb = b.cloneNode(false);
+    var clnb = b.cloneNode(false);
     //b.attr("data-toggle", "modal");
     //b.attr("data-target", "#portfolioModal1");
   
@@ -56,7 +56,7 @@ function showSports(d) {
     clnc.appendChild(clnd);
     clnb.appendChild(clnc);
     clnb.appendChild(clnim);
-    clna.appendChild(clnb);*/
+    clna.appendChild(clnb);
     
     document.getElementById('catalogo').appendChild(clna);
   }
