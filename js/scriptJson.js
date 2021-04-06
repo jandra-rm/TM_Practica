@@ -10,7 +10,7 @@ request.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     //const deportesText = request.response; //cogemos la cadena de response
     //const deportes = JSON.parse(deportesText); //la convertimos a objeto
-    var array =  JSON.parse(request.responseText); 
+    var array = JSON.parse(request.responseText);
     showSports(array[0]);
   }
 }
@@ -18,9 +18,10 @@ request.onreadystatechange = function () {
 function showSports(d) {
   const sports = d['dadesPropies']['esports'];
   const imatges = d['imatges'];
-  var i=0;
+  var i;
 
   //Primera iteración
+  /*
   var a = document.createElement("div");
   a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
 
@@ -43,11 +44,15 @@ function showSports(d) {
   b.appendChild(im);
   a.appendChild(b);
   document.getElementById('catalogo').appendChild(a);
+  */
 
   //Siguientes iteraciones --> Al clonar a, se clonan también sus hijos con parámetro [i] que va cambiando a lo largo del bucle for
-  for (i=1; i < sports.length; i++) {
-    var clna = a.cloneNode(false);
-    document.getElementById('catalogo').appendChild(clna);
+  for (i = 0; i < sports.length; i++) {
+    //var clna = a.cloneNode(false);
+    var im = document.createElement("img");
+    im.className = 'img-fluid';
+    im.src = imatges[i];
+    document.getElementById('catalogo').appendChild(im);
   }
-  
+
 }
