@@ -18,7 +18,7 @@ request.onreadystatechange = function () {
 function showVideo(d){
   var vid = document.createElement("video");
   if (vid.canPlayType("video/mp4")) {
-    vid.setAttribute("src", d['videos'][0].url);
+    vid.src= d['videos'][0].url;
   } else {
     //vid.setAttribute("src","movie.ogg");
   }

@@ -41,8 +41,8 @@
   "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/img/portfolio/balonmano.png?raw=true"
   ],
   "videos": [
-    {"tipus": "mp4",
-    "url": "https://github.com/jandra-rm/TM_PRACTICA/blob/main/assets/videos/video-deportes.mp4"}
+    {"tipus": "youtube",
+    "url": "https://youtu.be/_-MchSiyDxw"}
   ],
   "audio": [
   {"tipus": "youtube"},
