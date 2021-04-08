@@ -211,8 +211,8 @@ function createNavBar(){
 
   nav.appendChild(div1);
 
-  document.querySelector("#BarraNavegacion").appendChild(nav);
-  //document.getElementById('BarraNavegacion').appendChild(nav);
+  //document.querySelector("#BarraNavegacion").appendChild(nav);
+  document.getElementById('BarraNavegacion').appendChild(nav);
 
   /*<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
