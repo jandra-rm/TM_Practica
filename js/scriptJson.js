@@ -290,8 +290,8 @@ function createFooter() {
   p2.classList.add('lead', 'mb-0');
   p2.innerHTML = "Alejandra Ribas Marí <br> Andrea Morey Sánchez";
 
-  div5.appendChild(p2);
   div5.appendChild(h4);
+  div5.appendChild(p2);
   div3.appendChild(div4);
   div2.appendChild(h);
   div2.appendChild(p1);
