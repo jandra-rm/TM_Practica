@@ -268,8 +268,8 @@ function createFooter() {
   h.classList.add('text-uppercase', 'mb-4');
   h.innerHTML = "LOCALIZACIÓN";
   var p1 = document.createElement("p");
-  p.classList.add('lead', 'mb-0');
-  p.innerHTML = "Palma de Mallorca";
+  p1.classList.add('lead', 'mb-0');
+  p1.innerHTML = "Palma de Mallorca";
 
 
   var div3 = document.createElement("div");
