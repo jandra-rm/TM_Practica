@@ -3,11 +3,11 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
     */
-(function ($) {
+(function($) {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -21,7 +21,7 @@
   });
 
   // Scroll to top button appear
-  $(document).scroll(function () {
+  $(document).scroll(function() {
     var scrollDistance = $(this).scrollTop();
     if (scrollDistance > 100) {
       $('.scroll-to-top').fadeIn();
@@ -31,7 +31,7 @@
   });
 
   // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function () {
+  $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
   });
 
@@ -42,7 +42,7 @@
   });
 
   // Collapse Navbar
-  var navbarCollapse = function () {
+  var navbarCollapse = function() {
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {
@@ -55,12 +55,12 @@
   $(window).scroll(navbarCollapse);
 
   // Floating label headings for the contact form
-  $(function () {
-    $("body").on("input propertychange", ".floating-label-form-group", function (e) {
+  $(function() {
+    $("body").on("input propertychange", ".floating-label-form-group", function(e) {
       $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-    }).on("focus", ".floating-label-form-group", function () {
+    }).on("focus", ".floating-label-form-group", function() {
       $(this).addClass("floating-label-form-group-with-focus");
-    }).on("blur", ".floating-label-form-group", function () {
+    }).on("blur", ".floating-label-form-group", function() {
       $(this).removeClass("floating-label-form-group-with-focus");
     });
   });
