@@ -50,6 +50,7 @@ function createPortada(d) { // F
   div2.classList.add('overlay');
 
   var img = document.createElement("img");
+  img.className = "logo";
   img.src = "assets/img/logo.png";
 
   div2.appendChild(img);
