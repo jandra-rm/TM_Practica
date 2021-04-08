@@ -191,11 +191,11 @@ function createNavBar(){
   var button2 = document.createElement("button");
   button2.classList.add('nav-item', 'btn btn-outline-success', 'my-2 my-sm-0', 'rounded');
   
-  var i2 = docuemnt.createElement("i");
+  var i2 = document.createElement("i");
   i2.classList.add('fas', 'fa-search');
 
   button2.appendChild(i2);
-  form.append(inp);
+  form.appendChild(inp);
   form.appendChild(button2);
   li.appendChild(a2);
   ul.appendChild(li);
