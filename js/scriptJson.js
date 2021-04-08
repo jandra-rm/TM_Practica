@@ -1,6 +1,20 @@
 //function addPage(){
 
-document.addEventListener("DOMContentLoaded", function () {
+
+if( document.readyState !== 'loading' ) {
+    console.log( 'document is already ready, just execute code here' );
+    myInitCode();
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log( 'document was not ready, place code here' );
+        myInitCode();
+    });
+}
+
+function myInitCode() {
+
+//document.addEventListener("DOMContentLoaded", function (event) {
+  console.log('Contenido cargado');
   createNavBar();
   var request = new XMLHttpRequest();
   var url = "js/datos.json";
@@ -16,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   createFooter();
-
-});
+//});
+}
 
 
 function createPortada(d) { // F
-
+  console.log('Entra dentro de createPortada');
   var div = document.createElement("div");
   div.classList.add('cabecera');
   div.id = "intro";
@@ -63,7 +77,7 @@ function createPortada(d) { // F
 }
 
 function createPortfolio(d) {
-
+  console.log('Entra dentro de createPortfolio');
   /*
   <div class="container">
       <!-- PORTFOLIO GRID ITEMS, AQUI VAN LOS DEPORTES -->
@@ -138,7 +152,7 @@ function createPortfolio(d) {
 
 // BARRA DE NAVEGACION
 function createNavBar() {
-
+  console.log('Entra dentro de createNavBar');
   var nav = document.createElement("nav");
   nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'fixed-top', 'text-uppercase');
   nav.id = "mainNav";
