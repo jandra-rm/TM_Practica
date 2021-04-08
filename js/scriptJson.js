@@ -1,6 +1,6 @@
-createNavBar();
+window.onload = function(){
 
-/*
+createNavBar();
 var request = new XMLHttpRequest();
 var url = "js/datos.json";
 request.open("GET", url, true);
@@ -14,8 +14,7 @@ request.onreadystatechange = function () {
     createPortfolio(deportes);
   }
 }
-*/
-//createFooter();
+createFooter();
 
 
 function createPortada(d){ // F
@@ -315,5 +314,6 @@ function createFooter(){
             </div>
         </footer>
         */
+}
 }
 
