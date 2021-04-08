@@ -205,7 +205,7 @@ function createNavBar() {
   inp.placeholder = "Búsqueda";
 
   var button2 = document.createElement("button");
-  button2.classList.add('nav-item', 'btn btn-outline-success', 'my-2 my-sm-0', 'rounded');
+  button2.classList.add('nav-item', 'btn', 'btn-outline-success', 'my-2', 'my-sm-0', 'rounded');
 
   var i2 = document.createElement("i");
   i2.classList.add('fas', 'fa-search');
