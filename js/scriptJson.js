@@ -168,7 +168,7 @@ function createNavBar() {
   i.classList.add('fas', 'fa-home', 'fa-1x');
 
   var button = document.createElement("button");
-  button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white rounded');
+  button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white', 'rounded');
   button.type = "button";
   /*
   button.setAttribute("data-toggle", "collapse");
