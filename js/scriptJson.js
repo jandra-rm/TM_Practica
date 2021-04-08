@@ -154,11 +154,13 @@ function createNavBar(){
   var button =  document.createElement("button");
   button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white rounded');
   button.type = "button";
+  /*
   button.setAttribute("data-toggle", "collapse");
   button.setAttribute("data-target", "navbarResponsive");
   button.setAttribute("aria-controls", "navbarResponsive");
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Toggle navigation");
+  */
   button.innerHTML = "Menu";
   var ib = document.createElement("i");
   ib.classList.add('fas', 'fa-bars');
