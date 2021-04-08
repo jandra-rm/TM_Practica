@@ -1,13 +1,33 @@
+//function addPage(){
+
+document.addEventListener("DOMContentLoaded", function () {
+  createNavBar();
+  var request = new XMLHttpRequest();
+  var url = "js/datos.json";
+  request.open("GET", url, true);
+  request.responseType = 'text';
+  request.send();
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const deportesText = request.response; //cogemos la cadena de response
+      const deportes = JSON.parse(deportesText); //la convertimos a objeto
+      createPortada(deportes);
+      createPortfolio(deportes);
+    }
+  }
+  createFooter();
+
+});
 
 
-function createPortada(d){ // F
+function createPortada(d) { // F
 
   var div = document.createElement("div");
   div.classList.add('cabecera');
   div.id = "intro";
 
   var vid = document.createElement("video");
-  vid.src= d['videos'][0]['url'];
+  vid.src = d['videos'][0]['url'];
   vid.muted = true;
   vid.autoplay = true;
   vid.loop = true;
@@ -64,7 +84,7 @@ function createPortfolio(d) {
 
   const sports = d['dadesPropies']['esports'];
   const imatges = d['imatges'];
-  var i=0;
+  var i = 0;
   //Primera iteración
   var a = document.createElement("div");
   a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
@@ -72,12 +92,12 @@ function createPortfolio(d) {
   b.classList.add('portfolio-item', 'mx-auto');
   //b.attr("data-toggle", "modal");
   //b.attr("data-target", "#portfolioModal1");
-  
+
   var im = document.createElement("img");
   im.className = 'img-fluid';
   im.src = imatges[i];
   //catalogo.appendChild(im);
-  
+
   var c = document.createElement("div");
   c.classList.add('portfolio-item-caption', 'd-flex', 'align-items-center', 'justify-content-center', 'h-100', 'w-100');
   var d = document.createElement("div");
@@ -89,16 +109,16 @@ function createPortfolio(d) {
   a.appendChild(b);
   div3.appendChild(a);
   //Siguientes iteraciones F
-  for (i=1; i < sports.length; i++) {
+  for (i = 1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
-   
+
     var clnb = b.cloneNode(false);
     //b.setAttribute("data-toggle", "modal");
     //b.setAttribute("data-target", "#portfolioModal1");
-  
+
     var clnim = im.cloneNode(false);
     clnim.src = imatges[i];
-    
+
     var clnc = c.cloneNode(false);
     var clnd = d.cloneNode(false);
     clnd.innerHTML = sports[i];
@@ -106,10 +126,10 @@ function createPortfolio(d) {
     clnb.appendChild(clnc);
     clnb.appendChild(clnim);
     clna.appendChild(clnb);
-    
+
     div3.appendChild(clna);
   }
-  
+
   div2.appendChild(div3);
   div1.appendChild(div2);
   document.querySelector("#Portfolio").appendChild(div1);
@@ -117,23 +137,23 @@ function createPortfolio(d) {
 
 
 // BARRA DE NAVEGACION
-function createNavBar(){
+function createNavBar() {
 
   var nav = document.createElement("nav");
-  nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'fixed-top','text-uppercase');
+  nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'fixed-top', 'text-uppercase');
   nav.id = "mainNav";
-  
+
   var div1 = document.createElement("div");
   div1.classList.add('container');
 
-  var a =  document.createElement("a");
+  var a = document.createElement("a");
   a.classList.add('navbar-brand', 'js-scroll-trigger');
   a.href = "#page-top";
 
   var i = document.createElement("i");
   i.classList.add('fas', 'fa-home', 'fa-1x');
-  
-  var button =  document.createElement("button");
+
+  var button = document.createElement("button");
   button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white rounded');
   button.type = "button";
   /*
@@ -146,7 +166,7 @@ function createNavBar(){
   button.innerHTML = "Menu";
   var ib = document.createElement("i");
   ib.classList.add('fas', 'fa-bars');
-  
+
   var div2 = document.createElement("div");
   div2.classList.add('collapse', 'navbar-collapse');
   div2.id = "navbarResponsive";
@@ -172,7 +192,7 @@ function createNavBar(){
 
   var button2 = document.createElement("button");
   button2.classList.add('nav-item', 'btn btn-outline-success', 'my-2 my-sm-0', 'rounded');
-  
+
   var i2 = document.createElement("i");
   i2.classList.add('fas', 'fa-search');
 
@@ -214,11 +234,11 @@ function createNavBar(){
                 </div>
             </div>
   </nav> */
- 
+
 }
 
 
-function createFooter(){
+function createFooter() {
   var f = document.createElement("footer");
   f.classList.add('footer', 'text-center');
 
