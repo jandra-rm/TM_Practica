@@ -1,4 +1,4 @@
-document.onload = function(){
+function addPage(){
     createNavBar();
     var request = new XMLHttpRequest();
     var url = "js/datos.json";
