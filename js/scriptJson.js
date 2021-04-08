@@ -1,5 +1,6 @@
 createNavBar();
 
+/*
 var request = new XMLHttpRequest();
 var url = "js/datos.json";
 request.open("GET", url, true);
@@ -13,8 +14,8 @@ request.onreadystatechange = function () {
     createPortfolio(deportes);
   }
 }
-
-createFooter();
+*/
+//createFooter();
 
 
 function createPortada(d){ // F
@@ -104,7 +105,7 @@ function createPortfolio(d) {
   b.appendChild(c);
   b.appendChild(im);
   a.appendChild(b);
-  document.getElementById('catalogo').appendChild(a);
+  div3.appendChild(a);
   //Siguientes iteraciones F
   for (i=1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
@@ -209,6 +210,7 @@ function createNavBar(){
   nav.appendChild(div1);
 
   document.querySelector("#BarraNavegacion").appendChild(nav);
+  //document.getElementById('BarraNavegacion').appendChild(nav);
 
   /*<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -249,7 +251,7 @@ function createFooter(){
   h.innerHTML = "LOCALIZACIÓN";
   var p1 = document.createElement("p");
   p.classList.add('lead', 'mb-0');
-  p.iinnerHTML = "Palma de Mallorca";
+  p.innerHTML = "Palma de Mallorca";
 
 
   var div3 = document.createElement("div");
