@@ -193,29 +193,7 @@ function createNavBar() {
   div1.appendChild(div2);
 
   nav.appendChild(div1);
-
-  //document.querySelector("#BarraNavegacion").appendChild(nav);
   document.getElementById('BarraNavegacion').appendChild(nav);
-
-  /*<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fas fa-home fa-1x"></i></a> 
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Cátalogo</a></li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2 rounded" type="search" placeholder="Búsqueda">
-                        <button class="nav-item btn btn-outline-success my-2 my-sm-0 rounded" type="submit"><i class="fas fa-search"></i></button>
-                      </form>
-                </div>
-            </div>
-  </nav> */
-
 }
 
 
@@ -237,7 +215,6 @@ function createFooter() {
   var p1 = document.createElement("p");
   p1.classList.add('lead', 'mb-0');
   p1.innerHTML = "Palma de Mallorca";
-
 
   var div3 = document.createElement("div");
   div3.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
@@ -267,37 +244,6 @@ function createFooter() {
   div.appendChild(div1);
   f.appendChild(div);
   document.querySelector("#Footer").appendChild(f);
-
-  /*
-  <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">LOCALIZACIÓN</h4>
-                        <p class="lead mb-0">
-                            Palma de Mallorca
-                            
-                        </p>
-                    </div>
-                    <!-- Footer Copyright-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <br>
-                        <div class="container">Copyright © Mallorca Sports</div>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Creadoras</h4>
-                        <p class="lead mb-0">
-                            Alejandra Ribas Marí
-                            <br>
-                            Andrea Morey Sánchez
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        */
 }
 
 
