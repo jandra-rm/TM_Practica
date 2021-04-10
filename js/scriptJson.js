@@ -79,19 +79,12 @@ function createPortada(d) { // F
 
 function createPortfolio(d) {
   console.log('Entra dentro de createPortfolio');
-  /*
-  <div class="container">
-      <!-- PORTFOLIO GRID ITEMS, AQUI VAN LOS DEPORTES -->
-      <div class="row justify-content-center"></div>
-          <div id="catalogo"></div>
-  </div>
-  */
   var div1 = document.createElement("div");
-  div1.classList.add('container');
+  div1.classNAme = "container";
   var div2 = document.createElement("div");
   div2.classList.add('row', 'justify-content-center');
-  var div3 = document.createElement("div");
-  div3.id = "catalogo";
+  //var div3 = document.createElement("div");
+  //div3.id = "catalogo";
 
 
 
@@ -105,47 +98,46 @@ function createPortfolio(d) {
   a.classList.add('col-md-6', 'col-lg-4', 'mb-5');
   var b = document.createElement("div");
   b.classList.add('portfolio-item', 'mx-auto');
-  //b.attr("data-toggle", "modal");
-  //b.attr("data-target", "#portfolioModal1");
 
-  var im = document.createElement("img");
-  im.className = 'img-fluid';
-  im.src = imatges[i];
-  //catalogo.appendChild(im);
+ 
 
   var c = document.createElement("div");
   c.classList.add('portfolio-item-caption', 'd-flex', 'align-items-center', 'justify-content-center', 'h-100', 'w-100');
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
+
+  var im = document.createElement("img");
+  im.className = 'img-fluid';
+  im.src = imatges[i];
+
   c.appendChild(d);
   b.appendChild(c);
   b.appendChild(im);
   a.appendChild(b);
-  div3.appendChild(a);
+  div2.appendChild(a);
   //Siguientes iteraciones F
   for (i = 1; i < sports.length; i++) {
     var clna = a.cloneNode(false);
 
     var clnb = b.cloneNode(false);
-    //b.setAttribute("data-toggle", "modal");
-    //b.setAttribute("data-target", "#portfolioModal1");
-
-    var clnim = im.cloneNode(false);
-    clnim.src = imatges[i];
 
     var clnc = c.cloneNode(false);
     var clnd = d.cloneNode(false);
     clnd.innerHTML = sports[i];
+
+    var clnim = im.cloneNode(false);
+    clnim.src = imatges[i];
+
     clnc.appendChild(clnd);
     clnb.appendChild(clnc);
     clnb.appendChild(clnim);
     clna.appendChild(clnb);
 
-    div3.appendChild(clna);
+    div2.appendChild(clna);
   }
 
-  div2.appendChild(div3);
+  //div2.appendChild(div3);
   div1.appendChild(div2);
   document.querySelector("#Portfolio").appendChild(div1);
 }
@@ -155,11 +147,11 @@ function createPortfolio(d) {
 function createNavBar() {
   console.log('Entra dentro de createNavBar');
   var nav = document.createElement("nav");
-  nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'fixed-top', 'text-uppercase');
+  nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
   nav.id = "mainNav";
 
   var div1 = document.createElement("div");
-  div1.classList.add('container');
+  div1.className = "container";
 
   var a = document.createElement("a");
   a.classList.add('navbar-brand', 'js-scroll-trigger');

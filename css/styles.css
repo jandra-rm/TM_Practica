@@ -552,8 +552,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 .no-gutters {
@@ -574,9 +574,8 @@ pre code {
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
   width: 100%;
-  /*padding-right: 3rem; /*esto es la distancia entre cada foto*/
-  /*padding-left: 3rem;*/
-  margin-bottom: 3rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
 }
 
 .col {
