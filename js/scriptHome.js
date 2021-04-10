@@ -63,15 +63,15 @@ function createPortfolio() {
     "VOLEIBOL",
     "BALONMANO"
   ];
-  const imatges = ["jandra-rm/TM_Practica/blob/main/assets/img/portfolio/gym.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/padel.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/natacion.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/tenis.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/golf.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/futbol.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/basket.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/volleyball.png",
-                    "jandra-rm/TM_Practica/blob/main/assets/img/portfolio/balonmano.png"];
+  const imatges = ["assets/img/portfolio/gym.png",
+                    "assets/img/portfolio/padel.png",
+                    "assets/img/portfolio/natacion.png",
+                    "assets/img/portfolio/tenis.png",
+                    "assets/img/portfolio/golf.png",
+                    "assets/img/portfolio/futbol.png",
+                    "assets/img/portfolio/basket.png",
+                    "assets/img/portfolio/volleyball.png",
+                    "assets/img/portfolio/balonmano.png"];
   
   var i = 0;
   //Primera iteración
