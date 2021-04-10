@@ -1,4 +1,4 @@
-/*
+/* Funciona - probado con imágenes y texto de datos propios de prueba
   var request = new XMLHttpRequest();
   var url = "js/datos.json";
   request.open("GET", url, true);

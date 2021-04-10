@@ -45,6 +45,7 @@ function createPortada() {
   document.querySelector("#Portada").appendChild(div);
 }
 
+//CATALOGO
 function createPortfolio() {
   console.log('Entra dentro de createPortfolio');
   var div1 = document.createElement("div");
@@ -196,7 +197,7 @@ function createNavBar() {
   document.getElementById('BarraNavegacion').appendChild(nav);
 }
 
-
+//FOOTER
 function createFooter() {
   var f = document.createElement("footer");
   f.classList.add('footer', 'text-center');
