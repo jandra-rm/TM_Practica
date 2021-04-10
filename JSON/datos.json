@@ -34,7 +34,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":["",""] 
+    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
   }
 },
 {
@@ -72,7 +72,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":["",""] 
+    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
   }
 },
 {
@@ -110,7 +110,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":["",""] 
+    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}] 
   }
 },
 
@@ -148,7 +148,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":["",""] 
+    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
   }
 },
 {
@@ -186,7 +186,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":["",""] 
+    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
   }
 }
 
