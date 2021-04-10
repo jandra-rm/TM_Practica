@@ -13,14 +13,13 @@ if( document.readyState !== 'loading' ) {
 function myInitCode() {
   console.log('Contenido cargado');
   createNavBar();
-  
   createPortada();
   createPortfolio();
   createFooter();
 }
 
 //VIDEO CON LOGO
-function createPortada(d) { // F
+function createPortada() { 
   console.log('Entra dentro de createPortada');
   var div = document.createElement("div");
   div.classList.add('cabecera');
@@ -46,7 +45,7 @@ function createPortada(d) { // F
   document.querySelector("#Portada").appendChild(div);
 }
 
-function createPortfolio(d) {
+function createPortfolio() {
   console.log('Entra dentro de createPortfolio');
   var div1 = document.createElement("div");
   div1.classNAme = "container";
