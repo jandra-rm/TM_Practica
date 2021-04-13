@@ -138,14 +138,15 @@ function createNavBar() {
   var button = document.createElement("button");
   button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white', 'rounded');
   button.type = "button";
+  button.innerHTML = "MENÚ";
   
   button.setAttribute("data-toggle", "collapse");
-  button.setAttribute("data-target", "navbarResponsive");
+  button.setAttribute("data-target", "#navbarResponsive");
   button.setAttribute("aria-controls", "navbarResponsive");
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Toggle navigation");
   
-  button.innerHTML = "Menu";
+  
   var ib = document.createElement("i");
   ib.classList.add('fas', 'fa-bars');
 
@@ -164,6 +165,8 @@ function createNavBar() {
   a2.href = "#Portfolio";
   a2.innerHTML = "Catálogo";
 
+  var li2 = document.createElement("li");
+  li2.classList.add('nav-item', 'mx-0', 'mx-lg-1');
   var form = document.createElement("form");
   form.classList.add('form-inline', 'my-2', 'my-lg-0');
 
@@ -177,11 +180,15 @@ function createNavBar() {
 
   var i2 = document.createElement("i");
   i2.classList.add('fas', 'fa-search');
+  
 
   button2.appendChild(i2);
   form.appendChild(inp);
   form.appendChild(button2);
+  li2.appendChild(form);
+  
   li.appendChild(a2);
+  ul.appendChild(li);
   ul.appendChild(li);
   div2.appendChild(ul);
   div2.appendChild(form);
