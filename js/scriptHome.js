@@ -22,8 +22,8 @@ function myInitCode() {
 }
 
 function show(shown, hidden) {
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden).style.display='none';
+  document.getElementById(shown).style = "display:show";
+  document.getElementById(hidden).style= "display:none";
   return false;
 }
 
@@ -95,7 +95,7 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
-  c.onclick = show('SportPage', 'HomePage');
+  b.onclick = function() {show('SportPage', 'HomePage')};
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
