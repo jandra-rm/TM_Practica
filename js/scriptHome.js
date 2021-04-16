@@ -9,6 +9,9 @@ if( document.readyState !== 'loading' ) {
     });
 }
 
+
+// FUNCIONES
+
 //Código inicial, crea la página principal
 function myInitCode() {
   console.log('Contenido cargado');
@@ -16,6 +19,12 @@ function myInitCode() {
   createPortada();
   createPortfolio();
   createFooter();
+}
+
+function show(shown, hidden) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden).style.display='none';
+  return false;
 }
 
 //VIDEO CON LOGO
@@ -86,6 +95,7 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
+  c.onclick = show('SportPage', 'HomePage');
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
