@@ -34,7 +34,22 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
+    "suscripcio":[
+      {"categoria":"",
+        "familia":"",
+        "preu":0,
+        "periodo":""}
+    ],
+    "festiu":[
+      {"es-festiu":"","in": "07:00", "out": "21:15"}
+    ],
+    "serveis":[
+      {"nom":"","icono":""}
+    ],
+    "espais":[
+      {"nom":"","esport":""}
+    ]
+    
   }
 },
 {
@@ -72,7 +87,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
+   
   }
 },
 {
@@ -110,7 +125,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}] 
+    
   }
 },
 
@@ -148,7 +163,6 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
   }
 },
 {
@@ -186,7 +200,7 @@
   },
   "calendari" :{"startDataEvent": "","startTimeEvent": "","endDataEvent":"","endTimeEvent":""},
   "dadesPropies" :{
-    "comentaris":[{"nom":"","email":"","comentari":"","valoracio":0}]
+    
   }
 }
 

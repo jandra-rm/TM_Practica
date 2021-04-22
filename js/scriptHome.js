@@ -95,7 +95,7 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
-  b.onclick = function() {show('SportPage', 'HomePage')};
+  b.onclick = function() {show('SportPage', 'HomePage');createNavBar()};
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
