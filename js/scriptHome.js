@@ -9,16 +9,30 @@ if( document.readyState !== 'loading' ) {
     });
 }
 
-
 // FUNCIONES
 
 //Código inicial, crea la página principal
 function myInitCode() {
+  // Cargamos los datos del JSON
+  var request = new XMLHttpRequest();
+  var url = "JSON/datos.json";
+  request.responseType = 'text';
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const instalaciones = JSON.parse(this.responseText); 
+      createCarousel(instalaciones);
+    }
+  };
+  request.open("GET", url, true);
+  request.send();
+  
   console.log('Contenido cargado');
+  // Cargamos las pantallas
   createNavBar();
   createPortada();
   createPortfolio();
   createFooter();
+  
 }
 
 function show(shown, hidden) {
@@ -95,7 +109,8 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
-  b.onclick = function() {show('SportPage', 'HomePage');createNavBar()};
+  b.onclick = function() {show('SportPage', 'HomePage');
+                          createCarousel();};
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
@@ -141,6 +156,8 @@ function createNavBar() {
   var a = document.createElement("a");
   a.classList.add('navbar-brand', 'js-scroll-trigger');
   a.href = "#page-top";
+  a.onclick = function() {show('HomePage', 'SportPage');};
+
 
   var i = document.createElement("i");
   i.classList.add('fas', 'fa-home', 'fa-1x');
@@ -262,6 +279,71 @@ function createFooter() {
   div.appendChild(div1);
   f.appendChild(div);
   document.querySelector("#Footer").appendChild(f);
+}
+
+function createCarousel(d){
+  var instalaciones = d;
+  /*var divC = document.createElement("div");
+  divC.classList.add('carousel');
+
+  var divR = document.createElement("div");
+  divR.classList.add('reel');
+  */
+
+  // Primera iteración del bucle del JSON
+  var i=0;
+  var article = document.createElement("article");
+  var a = document.createElement("a");
+  a.href="#";
+  a.classList.add('image','featured');
+  var img = document.createElement("img");
+  img.src= instalaciones[i].imatges[i];
+  //img.alt="";
+
+  var header = document.createElement("header");
+  var h3 = document.createElement("h3");
+  var ah = document.createElement("a");
+  ah.href="#";
+  ah.textContent= instalaciones[i].nom;
+
+  var p = document.createElement("p");
+  p.textContent= instalaciones[i].geo1.address;
+
+  h3.appendChild(ah);
+  header.appendChild(h3);
+  a.appendChild(img);
+  article.appendChild(a);
+  article.appendChild(header);
+  article.appendChild(p);
+  //divR.appendChild(article);
+  document.getElementById('prueba').appendChild(article);
+
+  // Siguientes iteraciones
+  for(i=1; i<instalaciones.length; i++){
+      var clnArticle = article.cloneNode(false);
+      var clnA = a.cloneNode(false);
+      var clnImg = img.cloneNode(false);
+      clnImg.src= instalaciones[i].imatges[i];
+      var clnHeader = header.cloneNode(false);
+      var clnH3 = h3.cloneNode(false);
+      var clnAh = ah.cloneNode(false);
+      clnAh.textContent= instalaciones[i].nom;
+      var clnP = p.cloneNode(false);
+      clnP.textContent= instalaciones[i].geo1.address;
+  
+      clnH3.appendChild(clnAh);
+      clnHeader.appendChild(clnH3);
+      clnA.appendChild(clnImg);
+      clnArticle.appendChild(clnA);
+      clnArticle.appendChild(clnHeader);
+      clnArticle.appendChild(clnP);
+      //divR.appendChild(clnArticle);
+      document.getElementById('prueba').appendChild(clnArticle);
+  }
+
+  //divC.appendChild(divR);
+  //document.getElementById('Carousel').appendChild(divC);
+  //document.querySelector("#CarouselInst").appendChild(divC);
 }
 
 
