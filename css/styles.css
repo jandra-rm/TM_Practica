@@ -9924,6 +9924,7 @@ h3 {
 
   .container {
     min-width: 992px !important;
+    position:relative;
   }
 
   .navbar {
@@ -10041,6 +10042,7 @@ h3 {
   padding-bottom: 1rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
+  /*position:relative;*/
 }
 #mainNav .navbar-brand {
   color: #fff;
@@ -10299,52 +10301,7 @@ footer, header, section {
 
 /* Container */
 
-	.container {
-		margin: 0 auto;
-		max-width: 100%;
-		width: 1400px;
-	}
-
-		@media screen and (max-width: 1680px) {
-
-			.container {
-				width: 1200px;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
-
-			.container {
-				width: 100%;
-			}
-
-		}
-
-		@media screen and (max-width: 960px) {
-
-			.container {
-				width: 100%;
-			}
-
-		}
-
-		@media screen and (max-width: 840px) {
-
-			.container {
-				width: 100%;
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			.container {
-				width: 100%;
-			}
-
-		}
-
+	
 /* Row */
 
 	

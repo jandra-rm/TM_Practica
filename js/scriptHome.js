@@ -109,8 +109,7 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
-  b.onclick = function() {show('SportPage', 'HomePage');
-                          createCarousel();};
+  b.onclick = function() {show('SportPage', 'HomePage');};
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
@@ -146,9 +145,9 @@ function createPortfolio() {
 // BARRA DE NAVEGACION
 function createNavBar() {
   console.log('Entra dentro de createNavBar');
-  var nav = document.createElement("nav");
-  nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
-  nav.id = "mainNav";
+  //var nav = document.createElement("nav");
+  //nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
+  //nav.id = "mainNav";
 
   var div1 = document.createElement("div");
   div1.className = "container";
@@ -227,8 +226,9 @@ function createNavBar() {
   div1.appendChild(button);
   div1.appendChild(div2);
 
-  nav.appendChild(div1);
-  document.getElementById('BarraNavegacion').appendChild(nav);
+  //nav.appendChild(div1);
+  //document.getElementById('BarraNavegacion').appendChild(nav);
+  document.getElementById('mainNav').appendChild(div1);
 }
 
 //FOOTER

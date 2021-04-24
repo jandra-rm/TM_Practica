@@ -1,8 +1,8 @@
 /*!
-  * Start Bootstrap - Freelancer v6.0.5 (https://startbootstrap.com/theme/freelancer)
-  * Copyright 2013-2020 Start Bootstrap
-  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
+    * Start Bootstrap - Freelancer v6.0.5 (https://startbootstrap.com/theme/freelancer)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
+    */
 (function($) {
   "use strict"; // Start of use strict
 
@@ -43,7 +43,7 @@
 
   // Collapse Navbar
   var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
+    if ($("#mainNav").offset() > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {
       $("#mainNav").removeClass("navbar-shrink");
