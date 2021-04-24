@@ -27,38 +27,107 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
-    <!-- <link href="css/SportPage.css" rel="stylesheet" /> -->
+
+    <!-- MAPBOX -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
     <!-- HomePage JS-->
     <script src="js/scriptHome.js" type="text/javascript"></script>
     <!-- Json reading JS-->
     <script src="js/scriptJson.js" type="text/javascript"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <!-- MODAL BOX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
 <body id="page-top">
-    
     <!-- Barra de navegación que se encontrará en todas las pantallas -->
-    <!-- <section id="BarraNavegacion">
-    </section> -->
+    <section id="BarraNavegacion"> </section>
 
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav"></nav>
-</nav>
+    <!--<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav"></nav>-->
     <div id="HomePage">
         <section id="Portada"></section>
         <section class="page-section portfolio" id="Portfolio"></section>
     </div>
 
     <div id="SportPage" style="display:none">
+        <div id='map-container'>
+            <div id='map'></div>
+        </div>
+
+        <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYWxlLXJtIiwiYSI6ImNrbnZrdHBycDAzOXoydm1wcW9qYzgxbngifQ.Aj8rXdMUqmfNkQBb0Y29Hg';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v9', // style URL
+                center: [2.646393874157131, 39.64276117908073], // starting position [lng, lat]
+                zoom: 9 // starting zoom
+            });
+            map.addControl(new mapboxgl.NavigationControl());
+            map.addControl(new mapboxgl.FullscreenControl());
+            map.addControl(new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            }));
+            // Create a default Marker and add it to the map.
+            var marker = new mapboxgl.Marker()
+                .setLngLat([2.646393874157131, 39.64276117908073])
+                .addTo(map);
+            map.resize();
+        </script>
+
         <!-- Carousel de las diferentes instalaciones deportivas -->
+
         <div class="carousel">
             <div class="reel" id="prueba">
 
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                        <!-- ----------------------------------------------------- -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-10">
+
+                                </div>
+                                <div class="col">
+                                    <a class="twitter-timeline" data-lang="es" data-width="300" data-height="1000"
+                                        data-theme="light"
+                                        href="https://twitter.com/Campusesport?ref_src=twsrc%5Etfw%22%3E">Tweets by
+                                        Campusesport</a>
+                                    <script async src="https://platform.twitter.com/widgets.js"
+                                        charset="utf-8"></script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -------------------------------------------------------->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col">

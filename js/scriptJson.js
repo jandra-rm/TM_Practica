@@ -1,4 +1,4 @@
-//Funciona - probado con imágenes y texto de datos propios de prueba
+
 /*
   var request = new XMLHttpRequest();
   var url = "JSON/datos.json";
@@ -13,17 +13,17 @@
       instalaciones = JSON.parse(instalacionesText); //la convertimos a objeto
     }
   }
-
-  function getInstalacionesBySport(sport){
+*/
+  function getInstalacionesBySport(instalaciones, sport){
     var instSport = [];
-    for(var i = 0; i < instalaciones.length(); i++){
+    for(var i = 0; i < instalaciones.length; i++){
       if (instalaciones[i].detall.localeCompare(sport) == 0){
         instSport.push(instalaciones[i]);
       }
     }
     return instSport;
   }
-*/
+
 
 
 

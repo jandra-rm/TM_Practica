@@ -20,17 +20,18 @@ function myInitCode() {
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       const instalaciones = JSON.parse(this.responseText); 
-      createCarousel(instalaciones);
+      createPortfolio(instalaciones);
     }
   };
   request.open("GET", url, true);
   request.send();
   
+
   console.log('Contenido cargado');
   // Cargamos las pantallas
   createNavBar();
   createPortada();
-  createPortfolio();
+  //createPortfolio();
   createFooter();
   
 }
@@ -69,7 +70,7 @@ function createPortada() {
 }
 
 //CATALOGO
-function createPortfolio() {
+function createPortfolio(datosJson) {
   console.log('Entra dentro de createPortfolio');
   var div1 = document.createElement("div");
   div1.classNAme = "container";
@@ -109,7 +110,9 @@ function createPortfolio() {
   var d = document.createElement("div");
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
   d.innerHTML = sports[i];
-  b.onclick = function() {show('SportPage', 'HomePage');};
+  b.onclick = function() {show('SportPage', 'HomePage');
+                          createCarousel(getInstalacionesBySport(datosJson, sports[i]))};
+                          
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
@@ -128,6 +131,8 @@ function createPortfolio() {
     var clnc = c.cloneNode(false);
     var clnd = d.cloneNode(false);
     clnd.innerHTML = sports[i];
+    clnb.onclick = function() {show('SportPage', 'HomePage');
+                          createCarousel(getInstalacionesBySport(datosJson, sports[i]))};
     var clnim = im.cloneNode(false);
     clnim.src = imatges[i];
     clnc.appendChild(clnd);
@@ -145,9 +150,9 @@ function createPortfolio() {
 // BARRA DE NAVEGACION
 function createNavBar() {
   console.log('Entra dentro de createNavBar');
-  //var nav = document.createElement("nav");
-  //nav.classList.add('navbar', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
-  //nav.id = "mainNav";
+  var nav = document.createElement("nav");
+  nav.classList.add('navbar-nav','.navbar-nav-scroll', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
+  nav.id = "mainNav";
 
   var div1 = document.createElement("div");
   div1.className = "container";
@@ -226,9 +231,9 @@ function createNavBar() {
   div1.appendChild(button);
   div1.appendChild(div2);
 
-  //nav.appendChild(div1);
-  //document.getElementById('BarraNavegacion').appendChild(nav);
-  document.getElementById('mainNav').appendChild(div1);
+  nav.appendChild(div1);
+  document.getElementById('BarraNavegacion').appendChild(nav);
+ // document.getElementById('mainNav').appendChild(div1);
 }
 
 //FOOTER
@@ -281,8 +286,9 @@ function createFooter() {
   document.querySelector("#Footer").appendChild(f);
 }
 
-function createCarousel(d){
-  var instalaciones = d;
+function createCarousel(instalaciones){
+  
+  //var instalaciones = d;
   /*var divC = document.createElement("div");
   divC.classList.add('carousel');
 
@@ -297,19 +303,28 @@ function createCarousel(d){
   a.href="#";
   a.classList.add('image','featured');
   var img = document.createElement("img");
-  img.src= instalaciones[i].imatges[i];
+  img.src= instalaciones[i].imatges[0];
   //img.alt="";
 
   var header = document.createElement("header");
   var h3 = document.createElement("h3");
+  /*
   var ah = document.createElement("a");
   ah.href="#";
   ah.textContent= instalaciones[i].nom;
+  */
+  var button = document.createElement("button");
+button.classList.add('btn','btn-info','btn-lg');
+button.setAttribute("data-toggle","modal");
+button.setAttribute("data-target","#myModal");
+button.textContent=instalaciones[i].nom;
+
 
   var p = document.createElement("p");
   p.textContent= instalaciones[i].geo1.address;
 
-  h3.appendChild(ah);
+  //h3.appendChild(ah);
+  h3.appendChild(button);
   header.appendChild(h3);
   a.appendChild(img);
   article.appendChild(a);
@@ -323,15 +338,18 @@ function createCarousel(d){
       var clnArticle = article.cloneNode(false);
       var clnA = a.cloneNode(false);
       var clnImg = img.cloneNode(false);
-      clnImg.src= instalaciones[i].imatges[i];
+      clnImg.src= instalaciones[i].imatges[0];
       var clnHeader = header.cloneNode(false);
       var clnH3 = h3.cloneNode(false);
-      var clnAh = ah.cloneNode(false);
-      clnAh.textContent= instalaciones[i].nom;
+      //var clnAh = ah.cloneNode(false);
+      //clnAh.textContent= instalaciones[i].nom;
+      var clnButton = button.cloneNode(false);
+      clnButton.textContent= instalaciones[i].nom;
       var clnP = p.cloneNode(false);
       clnP.textContent= instalaciones[i].geo1.address;
   
-      clnH3.appendChild(clnAh);
+      //clnH3.appendChild(clnAh);
+      clnH3.appendChild(clnButton);
       clnHeader.appendChild(clnH3);
       clnA.appendChild(clnImg);
       clnArticle.appendChild(clnA);
@@ -344,6 +362,41 @@ function createCarousel(d){
   //divC.appendChild(divR);
   //document.getElementById('Carousel').appendChild(divC);
   //document.querySelector("#CarouselInst").appendChild(divC);
+}
+
+
+function createModal(){
+  /*
+  <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  */
+
+        /*
+  var div = document.createElement("div");
+divModal.classList.add('modal','fade');
+divModal.id = "myModal";
+divModal.role = "dialog";
+*/
+
+
+
 }
 
 
