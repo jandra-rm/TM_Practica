@@ -1,12 +1,12 @@
 //Cuando la página esté cargada, ejecuta myInitCode
-if( document.readyState !== 'loading' ) {
-    console.log( 'document is already ready, just execute code here' );
-    myInitCode();
+if (document.readyState !== 'loading') {
+  console.log('document is already ready, just execute code here');
+  myInitCode();
 } else {
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log( 'document was not ready, place code here' );
-        myInitCode();
-    });
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('document was not ready, place code here');
+    myInitCode();
+  });
 }
 
 // FUNCIONES
@@ -19,13 +19,13 @@ function myInitCode() {
   request.responseType = 'text';
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      const instalaciones = JSON.parse(this.responseText); 
+      const instalaciones = JSON.parse(this.responseText);
       createPortfolio(instalaciones);
     }
   };
   request.open("GET", url, true);
   request.send();
-  
+
 
   console.log('Contenido cargado');
   // Cargamos las pantallas
@@ -33,17 +33,17 @@ function myInitCode() {
   createPortada();
   //createPortfolio();
   createFooter();
-  
+
 }
 
 function show(shown, hidden) {
   document.getElementById(shown).style = "display:show";
-  document.getElementById(hidden).style= "display:none";
+  document.getElementById(hidden).style = "display:none";
   return false;
 }
 
 //VIDEO CON LOGO
-function createPortada() { 
+function createPortada() {
   console.log('Entra dentro de createPortada');
   var div = document.createElement("div");
   div.classList.add('cabecera');
@@ -89,15 +89,15 @@ function createPortfolio(datosJson) {
     "BALONMANO"
   ];
   const imatges = ["assets/img/portfolio/gym.png",
-                    "assets/img/portfolio/padel.png",
-                    "assets/img/portfolio/natacion.png",
-                    "assets/img/portfolio/tenis.png",
-                    "assets/img/portfolio/golf.png",
-                    "assets/img/portfolio/futbol.png",
-                    "assets/img/portfolio/basket.png",
-                    "assets/img/portfolio/volleyball.png",
-                    "assets/img/portfolio/balonmano.png"];
-  
+    "assets/img/portfolio/padel.png",
+    "assets/img/portfolio/natacion.png",
+    "assets/img/portfolio/tenis.png",
+    "assets/img/portfolio/golf.png",
+    "assets/img/portfolio/futbol.png",
+    "assets/img/portfolio/basket.png",
+    "assets/img/portfolio/volleyball.png",
+    "assets/img/portfolio/balonmano.png"];
+
   var i = 0;
   //Primera iteración
   var a = document.createElement("div");
@@ -108,11 +108,19 @@ function createPortfolio(datosJson) {
   var c = document.createElement("div");
   c.classList.add('portfolio-item-caption', 'd-flex', 'align-items-center', 'justify-content-center', 'h-100', 'w-100');
   var d = document.createElement("div");
-  d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white', 'sport');
+  d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white');
   d.innerHTML = sports[i];
-  b.onclick = function() {show('SportPage', 'HomePage');
-                          createCarousel(getInstalacionesBySport(datosJson, sports[i]))};
-                          
+  b.onclick = function () {
+  show('SportPage', 'HomePage');
+  const myNode = document.getElementById("car");
+  if(myNode.hasChildNodes() == true){
+    while (myNode.firstChild) {
+      myNode.removeChild(myNode.lastChild);
+    }
+  }
+    createCarousel(getInstalacionesBySport(datosJson, d.innerHTML));
+  };
+
 
   var im = document.createElement("img");
   im.className = 'img-fluid';
@@ -131,8 +139,16 @@ function createPortfolio(datosJson) {
     var clnc = c.cloneNode(false);
     var clnd = d.cloneNode(false);
     clnd.innerHTML = sports[i];
-    clnb.onclick = function() {show('SportPage', 'HomePage');
-                          createCarousel(getInstalacionesBySport(datosJson, sports[i]))};
+    clnb.onclick = function () {
+      show('SportPage', 'HomePage');
+      const myNode = document.getElementById("car");
+      if(myNode.hasChildNodes() == true){
+        while (myNode.firstChild) {
+          myNode.removeChild(myNode.lastChild);
+        }
+      }
+      createCarousel(getInstalacionesBySport(datosJson, "NATACIÓN"));
+    };
     var clnim = im.cloneNode(false);
     clnim.src = imatges[i];
     clnc.appendChild(clnd);
@@ -151,7 +167,7 @@ function createPortfolio(datosJson) {
 function createNavBar() {
   console.log('Entra dentro de createNavBar');
   var nav = document.createElement("nav");
-  nav.classList.add('navbar-nav','.navbar-nav-scroll', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
+  nav.classList.add('navbar-nav', '.navbar-nav-scroll', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
   nav.id = "mainNav";
 
   var div1 = document.createElement("div");
@@ -160,7 +176,7 @@ function createNavBar() {
   var a = document.createElement("a");
   a.classList.add('navbar-brand', 'js-scroll-trigger');
   a.href = "#page-top";
-  a.onclick = function() {show('HomePage', 'SportPage');};
+  a.onclick = function () { show('HomePage', 'SportPage'); };
 
 
   var i = document.createElement("i");
@@ -170,14 +186,14 @@ function createNavBar() {
   button.classList.add('navbar-toggler', 'navbar-toggler-right', 'text-uppercase', 'font-weight-bold', 'bg-primary', 'text-white', 'rounded');
   button.type = "button";
   button.innerHTML = "MENÚ";
-  
+
   button.setAttribute("data-toggle", "collapse");
   button.setAttribute("data-target", "#navbarResponsive");
   button.setAttribute("aria-controls", "navbarResponsive");
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Toggle navigation");
-  
-  
+
+
   var ib = document.createElement("i");
   ib.classList.add('fas', 'fa-bars');
 
@@ -211,13 +227,13 @@ function createNavBar() {
 
   var i2 = document.createElement("i");
   i2.classList.add('fas', 'fa-search');
-  
+
 
   button2.appendChild(i2);
   form.appendChild(inp);
   form.appendChild(button2);
   li2.appendChild(form);
-  
+
   li.appendChild(a2);
   ul.appendChild(li);
   ul.appendChild(li);
@@ -233,7 +249,7 @@ function createNavBar() {
 
   nav.appendChild(div1);
   document.getElementById('BarraNavegacion').appendChild(nav);
- // document.getElementById('mainNav').appendChild(div1);
+  // document.getElementById('mainNav').appendChild(div1);
 }
 
 //FOOTER
@@ -286,8 +302,8 @@ function createFooter() {
   document.querySelector("#Footer").appendChild(f);
 }
 
-function createCarousel(instalaciones){
-  
+function createCarousel(instalaciones) {
+  //console.log(instalaciones);
   //var instalaciones = d;
   /*var divC = document.createElement("div");
   divC.classList.add('carousel');
@@ -297,13 +313,13 @@ function createCarousel(instalaciones){
   */
 
   // Primera iteración del bucle del JSON
-  var i=0;
+  var i = 0;
   var article = document.createElement("article");
   var a = document.createElement("a");
-  a.href="#";
-  a.classList.add('image','featured');
+  a.href = "#";
+  a.classList.add('image', 'featured');
   var img = document.createElement("img");
-  img.src= instalaciones[i].imatges[0];
+  img.src = instalaciones[i].imatges[0];
   //img.alt="";
 
   var header = document.createElement("header");
@@ -314,14 +330,14 @@ function createCarousel(instalaciones){
   ah.textContent= instalaciones[i].nom;
   */
   var button = document.createElement("button");
-button.classList.add('btn','btn-info','btn-lg');
-button.setAttribute("data-toggle","modal");
-button.setAttribute("data-target","#myModal");
-button.textContent=instalaciones[i].nom;
+  button.classList.add('btn', 'btn-info', 'btn-lg');
+  button.setAttribute("data-toggle", "modal");
+  button.setAttribute("data-target", "#myModal");
+  button.textContent = instalaciones[i].nom;
 
 
   var p = document.createElement("p");
-  p.textContent= instalaciones[i].geo1.address;
+  p.textContent = instalaciones[i].geo1.address;
 
   //h3.appendChild(ah);
   h3.appendChild(button);
@@ -331,32 +347,32 @@ button.textContent=instalaciones[i].nom;
   article.appendChild(header);
   article.appendChild(p);
   //divR.appendChild(article);
-  document.getElementById('prueba').appendChild(article);
+  document.getElementById('car').appendChild(article);
 
   // Siguientes iteraciones
-  for(i=1; i<instalaciones.length; i++){
-      var clnArticle = article.cloneNode(false);
-      var clnA = a.cloneNode(false);
-      var clnImg = img.cloneNode(false);
-      clnImg.src= instalaciones[i].imatges[0];
-      var clnHeader = header.cloneNode(false);
-      var clnH3 = h3.cloneNode(false);
-      //var clnAh = ah.cloneNode(false);
-      //clnAh.textContent= instalaciones[i].nom;
-      var clnButton = button.cloneNode(false);
-      clnButton.textContent= instalaciones[i].nom;
-      var clnP = p.cloneNode(false);
-      clnP.textContent= instalaciones[i].geo1.address;
-  
-      //clnH3.appendChild(clnAh);
-      clnH3.appendChild(clnButton);
-      clnHeader.appendChild(clnH3);
-      clnA.appendChild(clnImg);
-      clnArticle.appendChild(clnA);
-      clnArticle.appendChild(clnHeader);
-      clnArticle.appendChild(clnP);
-      //divR.appendChild(clnArticle);
-      document.getElementById('prueba').appendChild(clnArticle);
+  for (i = 1; i < instalaciones.length; i++) {
+    var clnArticle = article.cloneNode(false);
+    var clnA = a.cloneNode(false);
+    var clnImg = img.cloneNode(false);
+    clnImg.src = instalaciones[i].imatges[0];
+    var clnHeader = header.cloneNode(false);
+    var clnH3 = h3.cloneNode(false);
+    //var clnAh = ah.cloneNode(false);
+    //clnAh.textContent= instalaciones[i].nom;
+    var clnButton = button.cloneNode(false);
+    clnButton.textContent = instalaciones[i].nom;
+    var clnP = p.cloneNode(false);
+    clnP.textContent = instalaciones[i].geo1.address;
+
+    //clnH3.appendChild(clnAh);
+    clnH3.appendChild(clnButton);
+    clnHeader.appendChild(clnH3);
+    clnA.appendChild(clnImg);
+    clnArticle.appendChild(clnA);
+    clnArticle.appendChild(clnHeader);
+    clnArticle.appendChild(clnP);
+    //divR.appendChild(clnArticle);
+    document.getElementById('car').appendChild(clnArticle);
   }
 
   //divC.appendChild(divR);
@@ -365,7 +381,7 @@ button.textContent=instalaciones[i].nom;
 }
 
 
-function createModal(){
+function createModal() {
   /*
   <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -388,8 +404,8 @@ function createModal(){
         </div>
   */
 
-        /*
-  var div = document.createElement("div");
+  /*
+var div = document.createElement("div");
 divModal.classList.add('modal','fade');
 divModal.id = "myModal";
 divModal.role = "dialog";
