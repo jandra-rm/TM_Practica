@@ -1,4 +1,24 @@
-var map = null;
+const sports = [
+  "GIMNASIO",
+  "PÁDEL",
+  "NATACIÓN",
+  "TENIS",
+  "GOLF",
+  "FÚTBOL",
+  "BALONCESTO",
+  "VOLEIBOL",
+  "BALONMANO"
+];
+const imatges = ["assets/img/portfolio/gym.png",
+  "assets/img/portfolio/padel.png",
+  "assets/img/portfolio/natacion.png",
+  "assets/img/portfolio/tenis.png",
+  "assets/img/portfolio/golf.png",
+  "assets/img/portfolio/futbol.png",
+  "assets/img/portfolio/basket.png",
+  "assets/img/portfolio/volleyball.png",
+  "assets/img/portfolio/balonmano.png"];
+
 //Cuando la página esté cargada, ejecuta myInitCode
 if (document.readyState !== 'loading') {
   myInitCode();
@@ -20,6 +40,7 @@ function myInitCode() {
     if (this.readyState == 4 && this.status == 200) {
       const instalaciones = JSON.parse(this.responseText);
       createPortfolio(instalaciones);
+      createNavBar(instalaciones);
     }
   };
   request.open("GET", url, true);
@@ -27,9 +48,7 @@ function myInitCode() {
 
 
   // Cargamos las pantallas
-  createNavBar();
   createPortada();
-  //createPortfolio();
   createFooter();
 
 }
@@ -72,28 +91,6 @@ function createPortfolio(datosJson) {
   div1.classNAme = "container";
   var div2 = document.createElement("div");
   div2.classList.add('row', 'justify-content-center');
-
-  const sports = [
-    "GIMNASIO",
-    "PÁDEL",
-    "NATACIÓN",
-    "TENIS",
-    "GOLF",
-    "FÚTBOL",
-    "BALONCESTO",
-    "VOLEIBOL",
-    "BALONMANO"
-  ];
-  const imatges = ["assets/img/portfolio/gym.png",
-    "assets/img/portfolio/padel.png",
-    "assets/img/portfolio/natacion.png",
-    "assets/img/portfolio/tenis.png",
-    "assets/img/portfolio/golf.png",
-    "assets/img/portfolio/futbol.png",
-    "assets/img/portfolio/basket.png",
-    "assets/img/portfolio/volleyball.png",
-    "assets/img/portfolio/balonmano.png"];
-
   var i = 0;
   //Primera iteración
   var a = document.createElement("div");
@@ -117,8 +114,7 @@ function createPortfolio(datosJson) {
         }
       }
       createCarousel(instBySport);
-      //createMap(instBySport);
-      createMap2(instBySport);
+      createMap(instBySport);
     } else {
       alert("No hay instalaciones del deporte seleccionado");
     }
@@ -153,8 +149,7 @@ function createPortfolio(datosJson) {
           }
         }
         createCarousel(instBySport);
-        //createMap(instBySport);
-        createMap2(instBySport);
+        createMap(instBySport);
       } else {
         alert("No hay instalaciones del deporte seleccionado");
       }
@@ -175,7 +170,7 @@ function createPortfolio(datosJson) {
 
 
 // BARRA DE NAVEGACION
-function createNavBar() {
+function createNavBar(datosJson) {
   var nav = document.createElement("nav");
   nav.classList.add('navbar-nav', '.navbar-nav-scroll', 'navbar-expand-lg', 'bg-secondary', 'text-uppercase', 'fixed-top');
   nav.id = "mainNav";
@@ -217,38 +212,72 @@ function createNavBar() {
   var li = document.createElement("li");
   li.classList.add('nav-item', 'mx-0', 'mx-lg-1');
 
+  var divli = document.createElement("div");
+  divli.className = "dropdown";
+  var butli = document.createElement("button");
+  butli.className = "dropbtn";
+  butli.textContent = "CATÁLOGO";
+  var divcat = document.createElement("div");
+  divcat.className = "dropdown-content";
+  for(var k=0; k<sports.length; k++){
+    var acat = document.createElement("a");
+    acat.textContent = sports[k];
+    const adep = acat;
+    adep.onclick = function () {
+      const instBySport = getInstalacionesBySport(datosJson, adep.textContent);
+      if (instBySport.length > 0) {
+        show('SportPage', 'HomePage');
+        const myCar = document.getElementById("car");
+        if (myCar.hasChildNodes() == true) {
+          while (myCar.firstChild) {
+            myCar.removeChild(myCar.lastChild);
+          }
+        }
+        createCarousel(instBySport);
+        createMap(instBySport);
+      } else {
+        alert("No hay instalaciones del deporte seleccionado");
+      }
+    };
+    divcat.appendChild(acat);
+  }
+
+  divli.appendChild(butli);
+  divli.appendChild(divcat);
+  li.appendChild(divli);
+  
+  /*
   var a2 = document.createElement("a");
   a2.classList.add('nav-link', 'py-3', 'px-0', 'px-lg-3', 'rounded', 'js-scroll-trigger');
   a2.href = "#Portfolio";
   a2.innerHTML = "Catálogo";
-
+  */
   var li2 = document.createElement("li");
   li2.classList.add('nav-item', 'mx-0', 'mx-lg-1');
+  
+
+  //Make sure the form has the autocomplete function switched off
   var form = document.createElement("form");
-  form.classList.add('form-inline', 'my-2', 'my-lg-0');
-
+  form.autocomplete = "off";
+  //form.action = ; no entiendo qué es esto, pone que es a dónde manda la info per idk
+  var div3 = document.createElement("div");
+  div3.className = "autocomplete";
   var inp = document.createElement("input");
-  inp.classList.add('form-control', 'mr-sm-2', 'rounded');
-  inp.type = "search";
-  inp.placeholder = "Búsqueda";
+  inp.id = "myInput";
+  inp.type = "text";
+  inp.placeholder = "Instalación";
+  div3.appendChild(inp);
 
-  var button2 = document.createElement("button");
-  button2.classList.add('nav-item', 'btn', 'btn-outline-success', 'my-2', 'my-sm-0', 'rounded');
+  var input = document.createElement("input");
+  input.type = "submit";
 
-  var i2 = document.createElement("i");
-  i2.classList.add('fas', 'fa-search');
-
-
-  button2.appendChild(i2);
-  form.appendChild(inp);
-  form.appendChild(button2);
+  form.appendChild(div3);
+  form.appendChild(input);
   li2.appendChild(form);
-
-  li.appendChild(a2);
+  //li.appendChild(a2);
   ul.appendChild(li);
-  ul.appendChild(li);
+  ul.appendChild(li2);
   div2.appendChild(ul);
-  div2.appendChild(form);
 
   button.appendChild(ib);
   a.appendChild(i);
@@ -259,7 +288,10 @@ function createNavBar() {
 
   nav.appendChild(div1);
   document.getElementById('BarraNavegacion').appendChild(nav);
-  // document.getElementById('mainNav').appendChild(div1);
+
+
+  /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
 }
 
 //FOOTER
@@ -310,235 +342,6 @@ function createFooter() {
   div.appendChild(div1);
   f.appendChild(div);
   document.querySelector("#Footer").appendChild(f);
-}
-
-function createCarousel(instalaciones) {
-  //console.log(instalaciones);
-  //var instalaciones = d;
-  /*var divC = document.createElement("div");
-  divC.classList.add('carousel');
-
-  var divR = document.createElement("div");
-  divR.classList.add('reel');
-  */
-
-  // Primera iteración del bucle del JSON
-  var i = 0;
-  var article = document.createElement("article");
-  var a = document.createElement("a");
-  //a.href = "#";
-  a.classList.add('image', 'featured');
-  var img = document.createElement("img");
-  img.src = instalaciones[i].imatges[0];
-  //img.alt="";
-
-  var header = document.createElement("header");
-  var h3 = document.createElement("h3");
-  /*
-  var ah = document.createElement("a");
-  ah.href="#";
-  ah.textContent= instalaciones[i].nom;
-  */
-  var button = document.createElement("button");
-  button.classList.add('btn', 'btn-info', 'btn-lg');
-  button.setAttribute("data-toggle", "modal");
-  button.setAttribute("data-target", "#myModal");
-  button.textContent = instalaciones[i].nom;
-
-
-  var p = document.createElement("p");
-  p.textContent = instalaciones[i].geo1.address;
-
-  //h3.appendChild(ah);
-  h3.appendChild(button);
-  header.appendChild(h3);
-  a.appendChild(img);
-  article.appendChild(a);
-  article.appendChild(header);
-  article.appendChild(p);
-  //divR.appendChild(article);
-  document.getElementById('car').appendChild(article);
-
-  // Siguientes iteraciones
-  for (i = 1; i < instalaciones.length; i++) {
-    var clnArticle = article.cloneNode(false);
-    var clnA = a.cloneNode(false);
-    var clnImg = img.cloneNode(false);
-    clnImg.src = instalaciones[i].imatges[0];
-    var clnHeader = header.cloneNode(false);
-    var clnH3 = h3.cloneNode(false);
-    //var clnAh = ah.cloneNode(false);
-    //clnAh.textContent= instalaciones[i].nom;
-    var clnButton = button.cloneNode(false);
-    clnButton.textContent = instalaciones[i].nom;
-    var clnP = p.cloneNode(false);
-    clnP.textContent = instalaciones[i].geo1.address;
-
-    //clnH3.appendChild(clnAh);
-    clnH3.appendChild(clnButton);
-    clnHeader.appendChild(clnH3);
-    clnA.appendChild(clnImg);
-    clnArticle.appendChild(clnA);
-    clnArticle.appendChild(clnHeader);
-    clnArticle.appendChild(clnP);
-    //divR.appendChild(clnArticle);
-    document.getElementById('car').appendChild(clnArticle);
-  }
-
-  //divC.appendChild(divR);
-  //document.getElementById('Carousel').appendChild(divC);
-  //document.querySelector("#CarouselInst").appendChild(divC);
-
-}
-
-function createMap(instalaciones) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYWxlLXJtIiwiYSI6ImNrbnZrdHBycDAzOXoydm1wcW9qYzgxbngifQ.Aj8rXdMUqmfNkQBb0Y29Hg';
-
-  var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', // style URL
-    center: [3.0069055189508664, 39.66366548429903], // starting position [lng, lat]
-    zoom: 8.3 // starting zoom
-  });
-
-  map.addControl(new mapboxgl.NavigationControl());
-  map.addControl(new mapboxgl.FullscreenControl());
-  map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true
-    },
-    trackUserLocation: true
-  }));
-
-  var marker;
-  for (var i = 0; i < instalaciones.length; i++) {
-    marker = new mapboxgl.Marker()
-      .setLngLat([instalaciones[i].geo1.long, instalaciones[i].geo1.lat])
-      .addTo(map);
-  }
-
-}
-
-function createMap2(instalaciones) {
-  L.mapbox.accessToken = 'pk.eyJ1IjoiYWxlLXJtIiwiYSI6ImNrbnZrdHBycDAzOXoydm1wcW9qYzgxbngifQ.Aj8rXdMUqmfNkQBb0Y29Hg';
-
-  if (map !== undefined && map !== null) {
-    map.remove(); // should remove the map from UI and clean the inner children of DOM element
-  }
-  map = L.mapbox.map('map')
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
-
-  var myLayer = L.mapbox.featureLayer().addTo(map);
-
-  map.scrollWheelZoom.disable();
-
-  var geoJson = creategeoJSON(instalaciones);
-
-  myLayer.on('layeradd', function (e) {
-    var marker = e.layer;
-    var feature = marker.feature;
-    var images = feature.properties.images
-    var slideshowContent = '';
-
-    for (var i = 0; i < images.length; i++) {
-      var img = images[i];
-
-      slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
-        '<img src="' + img[0] + '" />' +
-        '<div class="caption">' + '</div>' +
-        '</div>';
-    }
-
-    // Create custom popup content
-    var popupContent = '<div id="' + feature.properties.id + '" class="popup">' +
-      '<h2>' + feature.properties.title + '</h2>' +
-      '<div class="slideshow">' +
-      slideshowContent +
-      '</div>' +
-      '<div class="cycle">' +
-      '<a href="#" class="prev">&laquo; Anterior</a>' +
-      '<a href="#" class="next">Siguiente &raquo;</a>' +
-      '</div>' +
-      '</div>';
-
-    marker.bindPopup(popupContent, {
-      closeButton: true,
-      minWidth: 400
-    });
-  });
-
-  // Add features to the map
-  myLayer.setGeoJSON(geoJson);
-
-  $('#map').on('click', '.popup .cycle a', function () {
-    var $slideshow = $('.slideshow'),
-      $newSlide;
-
-    if ($(this).hasClass('prev')) {
-      $newSlide = $slideshow.find('.active').prev();
-      if ($newSlide.index() < 0) {
-        $newSlide = $('.image').last();
-      }
-    } else {
-      $newSlide = $slideshow.find('.active').next();
-      if ($newSlide.index() < 0) {
-        $newSlide = $('.image').first();
-      }
-    }
-
-    $slideshow.find('.active').removeClass('active').hide();
-    $newSlide.addClass('active').show();
-    return false;
-  });
-  map.setView([39.66366548429903, 3.0069055189508664], 9);
-
-
-// This uses the HTML5 geolocation API, which is available on
-// most mobile browsers and modern browsers, but not in Internet Explorer
-//
-// See this chart of compatibility for details:
-// http://caniuse.com/#feat=geolocation
-var myLayer2 = L.mapbox.featureLayer().addTo(map);
-
-var geolocate = document.getElementById('geolocate');
-if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-} else {
-    geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-    };
-}
-
-// Once we've got a position, zoom and center the map
-// on it, and add a single marker.
-map.on('locationfound', function(e) {
-    map.flyTo([e.latlng.lat, e.latlng.lng], 15);
-    myLayer2.setGeoJSON({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [e.latlng.lng, e.latlng.lat]
-        },
-        properties: {
-            'title': 'Estoy aquí',
-            'marker-color': '#FF6B6B',
-            'marker-size' : 'medium',
-            'marker-symbol': 'pitch'
-        }
-    });
-
-
-
-
-});
-// If the user chooses not to allow their location
-// to be shared, display an error message.
-map.on('locationerror', function() {
-  alert("La geolocalización no está disponible");
-});
-
 }
 
 function createModal() {
@@ -617,5 +420,106 @@ function createModal() {
 
 
 }
+
+
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+
+
 
 

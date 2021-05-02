@@ -52,6 +52,14 @@
     return jsonObj;
 }
 
+function getInstalacionandSport(instalaciones){
+  var instSport = [];
+    for(var i = 0; i < instalaciones.length; i++){
+      instSport.push(instalaciones[i].nom + ' - ' + instalaciones[i].detall);
+    }
+    return instSport;
+}
+
 
 
 
