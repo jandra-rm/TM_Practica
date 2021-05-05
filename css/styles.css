@@ -327,7 +327,7 @@ template {
   display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4, h5, h6
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -348,7 +348,9 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-size: 3rem;
+  color:white;
+  
 }
 
 h5, .h5 {
@@ -358,6 +360,7 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem;
 }
+
 
 .lead {
   font-size: 1.25rem;
@@ -2503,32 +2506,30 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  font-weight: bold;
+  font-size: medium;
+  background-color: #f5ce7b;
+  border-color: #f5ce7b;
 }
 .btn-info:hover {
   color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
+  background-color: #f5ce7b;
+  border-color: #f5ce7b;
 }
 .btn-info:focus, .btn-info.focus {
   color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
-  box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
+  background-color: #f5ce7b;
+  border-color: #f5ce7b;
 }
 .btn-info.disabled, .btn-info:disabled {
   color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  background-color: #f5ce7b;
+  border-color: #f5ce7b;
 }
 .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
   color: #fff;
-  background-color: #117a8b;
-  border-color: #10707f;
-}
-.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
+  background-color: #f5ce7b;
+  border-color: #f5ce7b;
 }
 
 .btn-warning {
@@ -4298,7 +4299,7 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 0.125rem solid rgba(0, 0, 0, 0.125);
+  border: 0.25rem solid #f5ce7b;
   border-radius: 0.5rem;
 }
 .card > hr {
@@ -4326,8 +4327,9 @@ input[type=button].btn-block {
 
 .card-body {
   flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
+  padding: 1rem;
+  font-size: medium;
+  text-align: center;
 }
 
 .card-title {
@@ -5273,19 +5275,18 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .close {
   float: right;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: bold;
   line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.5;
+  color: white;
+  opacity: 1;
 }
 .close:hover {
-  color: #000;
+  color: #f5ce7b;
   text-decoration: none;
 }
 .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
-  opacity: 0.75;
+  opacity: 1;
 }
 
 button.close {
@@ -5452,13 +5453,16 @@ a.close.disabled {
 }
 
 .modal-header {
+  background-color: #FF6B6B;
+  border-radius: 0.5rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem;
   border-bottom: 0 solid #dee2e6;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
+
 }
 .modal-header .close {
   padding: 1rem 1rem;
@@ -5467,13 +5471,14 @@ a.close.disabled {
 
 .modal-title {
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: 3;
+  text-align: center;
 }
 
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .modal-footer {
@@ -10324,49 +10329,6 @@ form .row:first-child .floating-label-form-group {
 				width: auto;
 			}
 
-/* List */
-
-
-/* Actions */
-      
-/* Divided */
-
-
-/* Menu */
-
-/* Icons */
-
-/* Form */
-
-
-/* Table */
-
-/* Button */
-
-
-/* Post */
-
-/* Icons */
-
-/* Wrapper */
-
-
-
-/* Header */
-
-
-/* Nav */
-
-
-
-/* Banner */
-
-/* Content */
-
-/* Main */
-
-/* Footer */
-
 /* Carousel */
 
 	.carousel {
@@ -10486,8 +10448,6 @@ form .row:first-child .floating-label-form-group {
 
 	@media screen and (max-width: 1680px) {
 
-		/* Basic */
-
 		
 		/* Carousel */
 
@@ -10509,8 +10469,6 @@ form .row:first-child .floating-label-form-group {
 /* Normal */
 
 	@media screen and (max-width: 1280px) {
-
-		/* Basic */
 
 		
 

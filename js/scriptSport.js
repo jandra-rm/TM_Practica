@@ -9,7 +9,9 @@ function createCarousel(instalaciones) {
     a.classList.add('image', 'featured');
     var img = document.createElement("img");
     img.src = instalaciones[i].imatges[0];
-    //img.alt="";
+    img.width = 550;
+    img.height = 150;
+
   
     var header = document.createElement("header");
     var h3 = document.createElement("h3");
@@ -23,6 +25,12 @@ function createCarousel(instalaciones) {
     const b = button;
     const inst = instalaciones[i];
     b.onclick=function(){
+        const myModal = document.getElementById("myModal");
+        if (myModal.hasChildNodes() == true) {
+          while (myModal.firstChild) {
+            myModal.removeChild(myModal.lastChild);
+          }
+        }
       createModal(inst);
     }
   
@@ -52,6 +60,12 @@ function createCarousel(instalaciones) {
       const bU = clnButton;
       const inst = instalaciones[i];
       bU.onclick=function(){
+        const myModal = document.getElementById("myModal");
+        if (myModal.hasChildNodes() == true) {
+          while (myModal.firstChild) {
+            myModal.removeChild(myModal.lastChild);
+          }
+        }
         createModal(inst);
       }
 
@@ -197,7 +211,6 @@ function createCarousel(instalaciones) {
 
 
   function createModal(instalacion) {
-
     var divModal2 = document.createElement("div");
     divModal2.classList.add('modal-dialog','modal-xl','modal-dialog-scrollable');
    
@@ -208,8 +221,8 @@ function createCarousel(instalaciones) {
     divModalHeader.classList.add('modal-header');
   
     var h4 = document.createElement("h4");
-    h4.classList.add('modal-title');
-    h4.textContent=instalacion.nom;
+    h4.classList.add('modal-title', 'col-11');
+    h4.textContent=instalacion.nom + " - " + instalacion.detall;
    
     var divModalBody = document.createElement("div");
     divModalBody.classList.add('modal-body');
@@ -220,11 +233,23 @@ function createCarousel(instalaciones) {
     divModalFooter.classList.add('modal-footer');
   
     var buttonClose = document.createElement("button");  
-    buttonClose.classList.add('btn','btn-danger');
+    buttonClose.classList.add('btn','btn-info');
     buttonClose.setAttribute("data-dismiss","modal");
-    buttonClose.textContent="Close";
+    buttonClose.textContent="Cerrar";
+
+    var crossClose = document.createElement("button"); 
+    crossClose.type = "button";
+    crossClose.className = "close";
+    crossClose.setAttribute("data-dismiss", "modal");
+    crossClose.setAttribute("aria-label", "Close");
+
+    var span = document.createElement("span");
+    span.setAttribute("aria-hidden", "true");
+    span.innerHTML = "&times";
+    crossClose.appendChild(span);
 
     divModalHeader.appendChild(h4);
+    divModalHeader.appendChild(crossClose);
     divModalFooter.appendChild(buttonClose);
     divModalContent.appendChild(divModalHeader);
     divModalContent.appendChild(divModalBody);
@@ -244,12 +269,12 @@ function createCarousel(instalaciones) {
     divRow.classList.add('row');
    
     var divCol = document.createElement("div");
-    divCol.classList.add('col-10');
+    divCol.classList.add('col-7');
     divCol.id="info-instalacion";
   
     var divCol2 = document.createElement("div");
-    divCol2.classList.add('col-2');
-
+    divCol2.classList.add('col');
+    
     // Ubicación
     var pUbicacio = document.createElement("p");
     pUbicacio.classList.add('small');
@@ -264,18 +289,19 @@ function createCarousel(instalaciones) {
     // Horario  
     var pHorari = document.createElement("p");
     pHorari.classList.add('small');
-    var clock = marker.cloneNode(false);
+    var clock = document.createElement("i");
     clock.classList.add('fas','fa-clock');
-    var spanClock = spanMarker.cloneNode(false);
+    var spanClock = document.createElement("span");
     spanClock.setAttribute("style","font-size:20px");
     spanClock.textContent = "  Horario:  "; 
   
     /* ------- FUNCION HORARIO ---------- */
+
     var horari = instalacion.horari;
     var d = new Date();
   
     var buttonHorari = document.createElement("button");
-    buttonHorari.classList.add('btn','btn-primary');
+    buttonHorari.classList.add('btn','btn-info');
     buttonHorari.setAttribute("type","button");
     buttonHorari.setAttribute("data-toggle","collapse");
     buttonHorari.setAttribute("data-target","#collapseInfo");
@@ -284,7 +310,7 @@ function createCarousel(instalaciones) {
     divButton.id="collapseInfo";
     var divInfo = document.createElement("div");
     divInfo.classList.add('card','card-body');
-    divInfo.setAttribute('style', 'white-space: pre;');
+    divInfo.setAttribute('style', 'white-space: pre');
     // Cogemos el día de hoy para mostrarlo
     switch(d.getDay()){
       case 0: buttonHorari.textContent= "Hoy : "+horari.di[0].in+" - "+ horari.di[0].out;
@@ -349,9 +375,9 @@ function createCarousel(instalaciones) {
     if(horari.ds[1].in.localeCompare('-')!=0){
       divInfo.textContent+=", "+horari.ds[1].in+" - "+horari.ds[1].out+"\r\n";
     }else{divInfo.textContent+="\r\n";}
-    divInfo.textContent+="Domingo: "+horari.dv[0].in+" - "+horari.dv[0].out;
-    if(horari.dm[1].in.localeCompare('-')!=0){
-      divInfo.textContent+=", "+horari.dm[1].in+" - "+horari.dm[1].out+"\r\n";
+    divInfo.textContent+="Domingo: "+horari.dg[0].in+" - "+horari.dg[0].out;
+    if(horari.dg[1].in.localeCompare('-')!=0){
+      divInfo.textContent+=", "+horari.dg[1].in+" - "+horari.dg[1].out+"\r\n";
     }else{divInfo.textContent+="\r\n";}
   
     divButton.appendChild(divInfo);
@@ -362,28 +388,46 @@ function createCarousel(instalaciones) {
   
     buttonWeb = document.createElement("button");
     //buttonWeb.classList('');
+
+    // Teléfono
+    var pTelf = document.createElement("p");
+    pTelf.classList.add('small');
+    var telf = document.createElement("i");
+    telf.classList.add('fas','fa-phone');
+    var spanTelf = document.createElement("span");
+    spanTelf.setAttribute("style","font-size:20px");
+    spanTelf.textContent = "  "+instalacion.contacte.telf; 
+    pTelf.appendChild(telf);
+    pTelf.appendChild(spanTelf);
+
   
     /* --- TWITTER --- */
-    var divTwitter = document.createElement("div");
-    divTwitter.classList.add('col');
+    
     var a = document.createElement("a");
-    a.classList.add('twitter-timeline');
+    a.className = "twitter-timeline";
     a.setAttribute("data-lang","es");
-    a.setAttribute("data-width","300");
-    a.setAttribute("data-height","1000");
+    a.setAttribute("data-width","400");
+    a.setAttribute("data-height","580");
     a.setAttribute("data-theme","light");
-    a.href = "https://twitter.com/Campusesport?ref_src=twsrc%5Etfw%22%3E";
-    a.textContent ="Tweets By"; // Aquí va el nombre del gimnasio
+    a.href = instalacion.contacte.xarxes[0].twitter;
    
-  
-    divTwitter.appendChild(a);
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://platform.twitter.com/widgets.js"
+    script.charset = "utf-8;"
+    
+    
     divCol.appendChild(pUbicacio);
     divCol.appendChild(pHorari);
-    divCol2.appendChild(divTwitter);
+    divCol.appendChild(pTelf);
+    
+    divCol2.appendChild(a);
+    divCol2.appendChild(script);
   
     divRow.appendChild(divCol);
     divRow.appendChild(divCol2);
     divContainer.appendChild(divRow);
+    
 
     document.getElementById('modalBody').appendChild(divContainer);
     

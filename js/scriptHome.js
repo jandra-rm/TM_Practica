@@ -47,15 +47,15 @@ function myInitCode() {
   request.send();
 
 
-  // Cargamos las pantallas
+  // Cargamos la pantalla principal
   createPortada();
   createFooter();
-
 }
 
 function show(shown, hidden) {
   document.getElementById(shown).style = "display:show";
   document.getElementById(hidden).style = "display:none";
+  document.getElementById("myInput").value = "";
   return false;
 }
 
@@ -219,7 +219,7 @@ function createNavBar(datosJson) {
   butli.textContent = "CATÁLOGO";
   var divcat = document.createElement("div");
   divcat.className = "dropdown-content";
-  for(var k=0; k<sports.length; k++){
+  for (var k = 0; k < sports.length; k++) {
     var acat = document.createElement("a");
     acat.textContent = sports[k];
     const adep = acat;
@@ -245,16 +245,11 @@ function createNavBar(datosJson) {
   divli.appendChild(butli);
   divli.appendChild(divcat);
   li.appendChild(divli);
-  
-  /*
-  var a2 = document.createElement("a");
-  a2.classList.add('nav-link', 'py-3', 'px-0', 'px-lg-3', 'rounded', 'js-scroll-trigger');
-  a2.href = "#Portfolio";
-  a2.innerHTML = "Catálogo";
-  */
+
+
   var li2 = document.createElement("li");
   li2.classList.add('nav-item', 'mx-0', 'mx-lg-1');
-  
+
 
   //Make sure the form has the autocomplete function switched off
   var form = document.createElement("form");
@@ -270,11 +265,32 @@ function createNavBar(datosJson) {
 
   var input = document.createElement("input");
   input.type = "submit";
+  input.value = "Buscar";
+  input.onclick = function () {
+    const myModal = document.getElementById("myModal");
+    if (myModal.hasChildNodes() == true) {
+      while (myModal.firstChild) {
+        myModal.removeChild(myModal.lastChild);
+      }
+    }
+    var split = document.getElementById("myInput").value.split(" - ");
+    var name = split[0];
+    var sport = split[1];
+    var instInput = getInstalacionesByNameAndSport(datosJson, name, sport);
+    if (instInput != null) {
+      input.setAttribute("data-toggle", "modal");
+      input.setAttribute("data-target", "#myModal");
+      createModal(instInput);
+    } else {
+      alert("No hay resultados. Por favor introduzca otra instalación");
+    }
+    document.getElementById("myInput").value = "";
+  }
 
   form.appendChild(div3);
   form.appendChild(input);
   li2.appendChild(form);
-  //li.appendChild(a2);
+
   ul.appendChild(li);
   ul.appendChild(li2);
   div2.appendChild(ul);
@@ -291,7 +307,7 @@ function createNavBar(datosJson) {
 
 
   /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
+  autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
 }
 
 //FOOTER
@@ -307,7 +323,7 @@ function createFooter() {
 
   var div2 = document.createElement("div");
   div2.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
-  var h = document.createElement("h4");
+  var h = document.createElement("h3");
   h.classList.add('text-uppercase', 'mb-4');
   h.innerHTML = "LOCALIZACIÓN";
   var p1 = document.createElement("p");
@@ -323,7 +339,7 @@ function createFooter() {
   var div5 = document.createElement("div");
   div5.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
 
-  var h4 = document.createElement("h4");
+  var h4 = document.createElement("h3");
   h4.classList.add('text-uppercase', 'mb-4');
   h4.innerHTML = "Creadoras"
 
@@ -349,65 +365,65 @@ function autocomplete(inp, arr) {
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
-  inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-      /*close any already open lists of autocompleted values*/
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      /*create a DIV element that will contain the items (values):*/
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      /*append the DIV element as a child of the autocomplete container:*/
-      this.parentNode.appendChild(a);
-      /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          /*create a DIV element for each matching element:*/
-          b = document.createElement("DIV");
-          /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          /*execute a function when someone clicks on the item value (DIV element):*/
-          b.addEventListener("click", function(e) {
-              /*insert the value for the autocomplete text field:*/
-              inp.value = this.getElementsByTagName("input")[0].value;
-              /*close the list of autocompleted values,
-              (or any other open lists of autocompleted values:*/
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
+  inp.addEventListener("input", function (e) {
+    var a, b, i, val = this.value;
+    /*close any already open lists of autocompleted values*/
+    closeAllLists();
+    if (!val) { return false; }
+    currentFocus = -1;
+    /*create a DIV element that will contain the items (values):*/
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    /*append the DIV element as a child of the autocomplete container:*/
+    this.parentNode.appendChild(a);
+    /*for each item in the array...*/
+    for (i = 0; i < arr.length; i++) {
+      /*check if the item starts with the same letters as the text field value:*/
+      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        /*create a DIV element for each matching element:*/
+        b = document.createElement("DIV");
+        /*make the matching letters bold:*/
+        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += arr[i].substr(val.length);
+        /*insert a input field that will hold the current array item's value:*/
+        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        /*execute a function when someone clicks on the item value (DIV element):*/
+        b.addEventListener("click", function (e) {
+          /*insert the value for the autocomplete text field:*/
+          inp.value = this.getElementsByTagName("input")[0].value;
+          /*close the list of autocompleted values,
+          (or any other open lists of autocompleted values:*/
+          closeAllLists();
+        });
+        a.appendChild(b);
       }
+    }
   });
   /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
-        increase the currentFocus variable:*/
-        currentFocus++;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
-        decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        e.preventDefault();
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
-        }
+  inp.addEventListener("keydown", function (e) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      /*If the arrow DOWN key is pressed,
+      increase the currentFocus variable:*/
+      currentFocus++;
+      /*and and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 38) { //up
+      /*If the arrow UP key is pressed,
+      decrease the currentFocus variable:*/
+      currentFocus--;
+      /*and and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      e.preventDefault();
+      if (currentFocus > -1) {
+        /*and simulate a click on the "active" item:*/
+        if (x) x[currentFocus].click();
       }
+    }
   });
   function addActive(x) {
     /*a function to classify an item as "active":*/
@@ -437,7 +453,7 @@ function autocomplete(inp, arr) {
   }
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
+    closeAllLists(e.target);
   });
 }
 

@@ -11,7 +11,7 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
+      "telf": "971172554",
       "email": "recepcio@campusesport.com",
       "xarxes": [
         {
@@ -193,7 +193,7 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
+      "telf": "971172554",
       "email": "recepcio@campusesport.com",
       "xarxes": [
         {
@@ -501,7 +501,7 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
+      "telf": "971172554",
       "email": "recepcio@campusesport.com",
       "xarxes": [
         {
@@ -654,7 +654,7 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
+      "telf": "971172554",
       "email": "recepcio@campusesport.com",
       "xarxes": [
         {
@@ -798,7 +798,7 @@
   },
   {
     "nom": "Profitness",
-    "descripcio": "Nuestras instalaciones disponen de un gimnasio de fitness de 300 metros cuadrados, con tres zonas, según el tipo de entrenamiento: peso libre, zona de fitness y zona cardiovascular. Toda la sala tiene iluminación natural y artificial, sistema de extracción de aire y unos aseos accesorios.",
+    "descripcio": "PROFITNESS es un Club orientado 360º a sus Socios/as para cuidarse y sentirse bien. Un espacio de vanguardia que respira Salud y Deporte.",
     "detall": "GIMNASIO",
     "tipus": "",
     "identificador": "",
@@ -808,22 +808,22 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
-      "email": "recepcio@campusesport.com",
+      "telf": "971757586",
+      "email": "",
       "xarxes": [
         {
-          "facebook": "https://www.facebook.com/Campusesport/",
-          "twitter": "https://twitter.com/Campusesport",
+          "facebook": "https://www.facebook.com/profitness.es/",
+          "twitter": "https://twitter.com/profitness_es",
           "tripadvisor": ""
         }
       ]
     },
-    "puntuacio": "4.3",
+    "puntuacio": "4.4",
     "visualitzacions": "",
     "likes": 0,
     "icones": [
-      "https://campusesport.com/images/logos/logo.png",
-      "https://campusesport.com/images/logos/logo.png"
+      "https://uh.gsstatic.es/sfAttachPlugin/114842.jpg",
+      ""
     ],
     "imatges": [
       "https://gimnasios.fitness/media/items/540x280/2136-Profitness-hyCIF.jpg",
@@ -873,8 +873,8 @@
     "horari": {
       "di": [
         {
-          "in": "07:00",
-          "out": "21:15"
+          "in": "06:30",
+          "out": "22:30"
         },
         {
           "in": "-",
@@ -883,8 +883,8 @@
       ],
       "dm": [
         {
-          "in": "07:00",
-          "out": "21:15"
+          "in": "06:30",
+          "out": "22:30"
         },
         {
           "in": "-",
@@ -893,8 +893,8 @@
       ],
       "dx": [
         {
-          "in": "07:00",
-          "out": "21:15"
+          "in": "06:30",
+          "out": "22:30"
         },
         {
           "in": "-",
@@ -903,8 +903,8 @@
       ],
       "dj": [
         {
-          "in": "07:00",
-          "out": "21:15"
+          "in": "06:30",
+          "out": "22:30"
         },
         {
           "in": "-",
@@ -913,8 +913,8 @@
       ],
       "dv": [
         {
-          "in": "07:00",
-          "out": "21:15"
+          "in": "06:30",
+          "out": "22:30"
         },
         {
           "in": "-",
@@ -923,22 +923,22 @@
       ],
       "ds": [
         {
-          "in": "09:00",
-          "out": "20:30"
+          "in": "08:30",
+          "out": "14:30"
         },
         {
-          "in": "-",
-          "out": "-"
+          "in": "17:00",
+          "out": "20:30"
         }
       ],
       "dg": [
         {
-          "in": "09:00",
-          "out": "20:30"
+          "in": "08:30",
+          "out": "14:30"
         },
         {
-          "in": "-",
-          "out": "-"
+          "in": "17:00",
+          "out": "20:30"
         }
       ]
     },
@@ -958,11 +958,15 @@
         }
       ],
       "festiu": [
-        {
-          "es-festiu": "",
-          "in": "07:00",
-          "out": "21:15"
-        }
+          {"es-festiu": "true"},
+          {
+            "in": "08:30",
+            "out": "14:30"
+          },
+          {
+            "in": "17:00",
+            "out": "20:30"
+          }
       ],
       "serveis": [
         {
