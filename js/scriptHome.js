@@ -216,7 +216,7 @@ function createNavBar(datosJson) {
   divli.className = "dropdown";
   var butli = document.createElement("button");
   butli.className = "dropbtn";
-  butli.textContent = "CATÁLOGO";
+  butli.textContent = "DEPORTES";
   var divcat = document.createElement("div");
   divcat.className = "dropdown-content";
   for (var k = 0; k < sports.length; k++) {
@@ -254,7 +254,7 @@ function createNavBar(datosJson) {
   //Make sure the form has the autocomplete function switched off
   var form = document.createElement("form");
   form.autocomplete = "off";
-  //form.action = ; no entiendo qué es esto, pone que es a dónde manda la info per idk
+  form.action = "javascript:void(0);";
   var div3 = document.createElement("div");
   div3.className = "autocomplete";
   var inp = document.createElement("input");
@@ -278,9 +278,11 @@ function createNavBar(datosJson) {
     var sport = split[1];
     var instInput = getInstalacionesByNameAndSport(datosJson, name, sport);
     if (instInput != null) {
+      console.log("hey");
       input.setAttribute("data-toggle", "modal");
       input.setAttribute("data-target", "#myModal");
       createModal(instInput);
+      console.log(instInput);
     } else {
       alert("No hay resultados. Por favor introduzca otra instalación");
     }

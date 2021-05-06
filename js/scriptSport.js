@@ -211,6 +211,7 @@ function createCarousel(instalaciones) {
 
 
   function createModal(instalacion) {
+    console.log("holi");
     var divModal2 = document.createElement("div");
     divModal2.classList.add('modal-dialog','modal-xl','modal-dialog-scrollable');
    
