@@ -7,7 +7,7 @@
     "identificador": "",
     "comentari": "",
     "preu": {
-      "import": "3",
+      "import": "",
       "coment-preu": ""
     },
     "contacte": {
@@ -151,13 +151,68 @@
       "endDataEvent": "",
       "endTimeEvent": ""
     },
-    "dadesPropies": {
+    "dadesPropies":{
+    "pag_web":"https://campusesport.com",
       "suscripcio": [
         {
-          "categoria": "",
-          "familia": "",
-          "preu": 0,
-          "periodo": ""
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 175.5,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 215,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 355,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 300,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 474,
+          "periodo": "año"
+        },
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 198,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 204,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 208,
+          "periodo": "6 meses"
         }
       ],
       "festiu": [
@@ -169,16 +224,23 @@
       ],
       "serveis": [
         {
-          "nom": "",
-          "icono": ""
+          "nom": "lavabos accesorios",
+          "icono": "<i class='fas fa-toilet-paper'></i>"
+        },
+        {
+          "nom": "wifi",
+          "icono": "<i class='fas fa-wifi'></i>"
+        },
+        {
+          "nom": "entrenador personal",
+          "icono": "<i class='fas fa-user'></i>" 
+        },
+        {
+          "nom": "personal especializado",
+          "icono": "<i class='fas fa-user-check'></i>"
         }
       ],
-      "espais": [
-        {
-          "nom": "",
-          "esport": ""
-        }
-      ]
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
     }
   },
   {
@@ -347,7 +409,7 @@
       "coment-preu": ""
     },
     "contacte": {
-      "telf": "(+34) 971172554",
+      "telf": "971172554",
       "email": "recepcio@campusesport.com",
       "xarxes": [
         {
@@ -949,37 +1011,58 @@
       "endTimeEvent": ""
     },
     "dadesPropies": {
+      "pag_web":"https://profitness.es",
       "suscripcio": [
         {
-          "categoria": "",
-          "familia": "",
-          "preu": 0,
-          "periodo": ""
+          "categoria": "PROMO PRIMAVERA",
+          "familia": "individual",
+          "preu": 59.99,
+          "periodo": "mes"
+        },
+        {
+          "categoria": "ABONO ANUAL",
+          "familia": "individual",
+          "preu": 599.99,
+          "periodo": "año"
+        },
+        {
+          "categoria": "ENTRADA DIARIA",
+          "familia": "individual",
+          "preu": 14.99,
+          "periodo": "3 días"
         }
       ],
-      "festiu": [
-          {"es-festiu": "true"},
-          {
-            "in": "08:30",
-            "out": "14:30"
-          },
-          {
-            "in": "17:00",
-            "out": "20:30"
-          }
+      "festiu": [ 
+        {
+          "es-festiu": "true",
+          "in": "08:30",
+          "out": "14:30"
+        },
+        {
+          "es-festiu": "true",
+          "in": "17:00",
+          "out": "20:30"
+        }
       ],
       "serveis": [
         {
-          "nom": "",
-          "icono": ""
+          "nom": "nutrición",
+          "icono": "<i class='fas fa-carrot'></i>"
+        },
+        {
+          "nom": "fisioterapia",
+          "icono": "<i class='fas fa-clinic-medical'></i>"
+        },
+        {
+          "nom": "tienda",
+          "icono": "<i class='fas fa-shopping-bag'></i>"
+        },
+        {
+          "nom": "entrenador personal",
+          "icono": "<i class='fas fa-user'></i>"
         }
       ],
-      "espais": [
-        {
-          "nom": "",
-          "esport": ""
-        }
-      ]
+      "esports": ["BODY COMBAT","CYCLING","FITBOXING","WALKING","PILATES","YOGA","ZUMBA"]
     }
   }
 ]

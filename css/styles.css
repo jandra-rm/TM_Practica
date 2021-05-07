@@ -348,9 +348,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 3rem;
-  color:white;
-  
+  font-size: 3rem; 
 }
 
 h5, .h5 {
@@ -2517,17 +2515,17 @@ fieldset:disabled a.btn {
   border-color: #f5ce7b;
 }
 .btn-info:focus, .btn-info.focus {
-  color: #fff;
+  color: white;
   background-color: #f5ce7b;
   border-color: #f5ce7b;
 }
 .btn-info.disabled, .btn-info:disabled {
-  color: #fff;
+  color:black;
   background-color: #f5ce7b;
   border-color: #f5ce7b;
 }
 .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
-  color: #fff;
+  color:white;
   background-color: #f5ce7b;
   border-color: #f5ce7b;
 }
@@ -10142,6 +10140,11 @@ h3 {
   overflow: hidden;
 }
 
+.portfolio .aos-animate .portfolio-item:after{
+  transform: scale3d(0,1,1);
+ transition: all .8s cubic-bezier(.7,0,.3,1);
+}
+
 .portfolio .portfolio-item:hover {
   opacity: 0.7;
 }
@@ -10242,320 +10245,6 @@ form .row:first-child .floating-label-form-group {
 }
 
 
-/*------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-/*
-	Helios by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-
-
-
-
-/* Basic */
-
-
-
-
-
-
-/* Container */
-
-	
-/* Row */
-
-	
-/* Sections/Article */
-
-	article {
-		margin-bottom: 3em;
-	}
-
-		section > :last-child, section:last-child, article > :last-child, article:last-child {
-			margin-bottom: 0;
-		}
-
-		section.special > header, section.special > footer, article.special > header, article.special > footer {
-			text-align: center;
-		}
-
-	.row > section, .row > article {
-		margin-bottom: 0;
-	}
-
-	
-
-/* Image */
-
-	.image {
-		position: relative;
-		display: inline-block;
-		border: 0;
-		outline: 0;
-	}
-
-		.image img {
-			display: block;
-			width: 100%;
-		}
-
-		.image.fit {
-			display: block;
-			width: 100%;
-		}
-
-		.image.featured {
-			display: block;
-			width: 100%;
-			margin: 0 0 4em 0;
-		}
-
-		.image.left {
-			float: left;
-			margin: 0 2em 2em 0;
-		}
-
-		.image.centered {
-			display: block;
-			margin: 0 0 2em 0;
-		}
-
-			.image.centered img {
-				margin: 0 auto;
-				width: auto;
-			}
-
-/* Carousel */
-
-	.carousel {
-		position: relative;
-		overflow: hidden;
-		padding: 2em 0 2em 0;
-		margin-bottom: 0;
-	}
-
-		.carousel .forward, .carousel .backward {
-			position: absolute;
-			top: 50%;
-			width: 6em;
-			height: 12em;
-			margin-top: -6em;
-			cursor: pointer;
-		}
-
-			.carousel .forward:before, .carousel .backward:before {
-				content: '';
-				display: block;
-				width: 6em;
-				height: 6em;
-				border-radius: 100%;
-				background-color: rgba(72, 57, 73, 0.5);
-				position: absolute;
-				top: 50%;
-				margin-top: -3em;
-				-moz-transition: background-color 0.35s ease-in-out;
-				-webkit-transition: background-color 0.35s ease-in-out;
-				-o-transition: background-color 0.35s ease-in-out;
-				-ms-transition: background-color 0.35s ease-in-out;
-				transition: background-color 0.35s ease-in-out;
-				
-			}
-
-			.carousel .forward:after, .carousel .backward:after {
-				content: '';
-				width: 3em;
-				height: 3em;
-				position: absolute;
-				top: 50%;
-				margin: -1.5em 0 0 0;
-				background: url("images/arrow.svg") no-repeat center center;
-			}
-
-			.carousel .forward:hover:before, .carousel .backward:hover:before {
-				background-color: rgba(239, 131, 118, 0.75);
-			}
-
-		.carousel .forward {
-			right: 0;
-		}
-
-			.carousel .forward:before {
-				right: -3em;
-			}
-
-			.carousel .forward:after {
-				right: -0.25em;
-			}
-
-		.carousel .backward {
-			left: 0;
-		}
-
-			.carousel .backward:before {
-				left: -3em;
-			}
-
-			.carousel .backward:after {
-				left: -0.25em;
-				-moz-transform: scaleX(-1);
-				-webkit-transform: scaleX(-1);
-				-ms-transform: scaleX(-1);
-				transform: scaleX(-1);
-			}
-
-		.carousel .reel {
-			white-space: nowrap;
-			position: relative;
-			-webkit-overflow-scrolling: touch;
-			padding: 0 2em 0 2em;
-		}
-
-		.carousel article {
-			display: inline-block;
-			width: 20em;
-			text-align: center;
-			padding: 0 1em 3em 1em;
-			margin: 0 2em 0 0;
-			white-space: normal;
-			opacity: 1;
-      
-		}
-
-			.carousel article.loading {
-				opacity: 0;
-			}
-
-			.carousel article .image {
-				position: relative;
-				left: -1em;
-				top: 0;
-				width: auto;
-				margin-right: -2em;
-				margin-bottom: 3em;
-        
-			}
-
-			.carousel article p {
-				text-align: center;
-        
-			}
-
-/* Wide */
-
-	@media screen and (max-width: 1680px) {
-
-		
-		/* Carousel */
-
-			.carousel {
-				padding: 1.5em 0 1.5em 0;
-			}
-
-				.carousel .reel {
-					padding: 0 1.5em 0 1.5em;
-				}
-
-				.carousel article {
-					width: 18em;
-					margin: 0 1.25em 0 0;
-				}
-
-	}
-
-/* Normal */
-
-	@media screen and (max-width: 1280px) {
-
-		
-
-		/* Wrapper */
-
-			.wrapper {
-				padding-left: 2em;
-				padding-right: 2em;
-			}
-
-
-	}
-
-/* Narrow */
-/* Narrower */
-
-	@media screen and (max-width: 840px) {
-
-		/* Basic */
-		/* Footer */
-		/* Carousel */
-
-			.carousel {
-				padding: 1.25em 0 1.25em 0;
-			}
-
-				.carousel article {
-					width: 18em;
-					margin: 0 1em 0 0;
-				}
-
-	}
-
-/* Mobile */
-	@media screen and (max-width: 736px) {
-
-		
-
-		/* Section/Article */
-			section, article {
-				margin-bottom: 2em;
-			}
-
-				section:last-child, article:last-child {
-					margin-bottom: 0;
-				}
-
-			.row > section, .row > article {
-				margin-bottom: 2em;
-			}
-
-			
-
-		/* Image */
-			.image.featured {
-				margin: 0 0 2em 0;
-			}
-
-			.image.left {
-				margin: 0 1em 1em 0;
-			}
-
-			.image.centered {
-				margin: 0 0 1em 0;
-			}
-
-
-		/* Carousel */
-			.carousel {
-				padding: 0.5em 0 0.5em 0;
-			}
-
-				.carousel .reel {
-					padding: 0 0.5em 0 0.5em;
-				}
-
-				.carousel article {
-					width: 14em;
-					padding-bottom: 2em;
-					margin: 0 0.5em 0 0;
-				}
-
-					.carousel article .image {
-						margin-bottom: 2em;
-					}
-
-	}
 
   /*mapa*/
   #map-container{position:relative; width:100%; height: 550px;margin-top:80px}
@@ -10721,3 +10410,52 @@ input[type=submit] {
 .dropdown:hover .dropbtn {background-color: #f5ce7b; color: white; border-radius: 0.5rem;}
 
 
+/*cartas que giran*/
+
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: shadow-lg, p-3, mb-5, bg-white, rounded;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back-text{
+  color: black;
+  text-align: center;
+  margin-bottom: 3rem;
+}

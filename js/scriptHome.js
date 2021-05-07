@@ -107,14 +107,16 @@ function createPortfolio(datosJson) {
     const instBySport = getInstalacionesBySport(datosJson, b.id);
     if (instBySport.length > 0) {
       show('SportPage', 'HomePage');
-      const myCar = document.getElementById("car");
-      if (myCar.hasChildNodes() == true) {
-        while (myCar.firstChild) {
-          myCar.removeChild(myCar.lastChild);
+      const myList = document.getElementById("listado");
+      if (myList.hasChildNodes() == true) {
+        while (myList.firstChild) {
+          myList.removeChild(myList.lastChild);
         }
       }
-      createCarousel(instBySport);
       createMap(instBySport);
+      //document.getElementById("filtros").innerHTML = "";
+      //menuFiltros(instBySport);
+      createCards(instBySport);
     } else {
       alert("No hay instalaciones del deporte seleccionado");
     }
@@ -142,14 +144,17 @@ function createPortfolio(datosJson) {
       const instBySport = getInstalacionesBySport(datosJson, dep.id);
       if (instBySport.length > 0) {
         show('SportPage', 'HomePage');
-        const myCar = document.getElementById("car");
-        if (myCar.hasChildNodes() == true) {
-          while (myCar.firstChild) {
-            myCar.removeChild(myCar.lastChild);
+        const myList = document.getElementById("listado");
+        if (myList.hasChildNodes() == true) {
+          while (myList.firstChild) {
+            myList.removeChild(myList.lastChild);
           }
         }
-        createCarousel(instBySport);
+
         createMap(instBySport);
+        //document.getElementById("filtros").innerHTML = "";
+        //menuFiltros(instBySport);
+        createCards(instBySport);
       } else {
         alert("No hay instalaciones del deporte seleccionado");
       }
@@ -227,14 +232,16 @@ function createNavBar(datosJson) {
       const instBySport = getInstalacionesBySport(datosJson, adep.textContent);
       if (instBySport.length > 0) {
         show('SportPage', 'HomePage');
-        const myCar = document.getElementById("car");
-        if (myCar.hasChildNodes() == true) {
-          while (myCar.firstChild) {
-            myCar.removeChild(myCar.lastChild);
+        const myList = document.getElementById("listado");
+        if (myList.hasChildNodes() == true) {
+          while (myList.firstChild) {
+            myList.removeChild(myList.lastChild);
           }
         }
-        createCarousel(instBySport);
         createMap(instBySport);
+        //document.getElementById("filtros").innerHTML = "";
+        //menuFiltros(instBySport);
+        createCards(instBySport);
       } else {
         alert("No hay instalaciones del deporte seleccionado");
       }
@@ -278,11 +285,9 @@ function createNavBar(datosJson) {
     var sport = split[1];
     var instInput = getInstalacionesByNameAndSport(datosJson, name, sport);
     if (instInput != null) {
-      console.log("hey");
       input.setAttribute("data-toggle", "modal");
       input.setAttribute("data-target", "#myModal");
       createModal(instInput);
-      console.log(instInput);
     } else {
       alert("No hay resultados. Por favor introduzca otra instalación");
     }
@@ -307,7 +312,6 @@ function createNavBar(datosJson) {
   nav.appendChild(div1);
   document.getElementById('BarraNavegacion').appendChild(nav);
 
-
   /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
   autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
 }
@@ -325,6 +329,10 @@ function createFooter() {
 
   var div2 = document.createElement("div");
   div2.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
+  /*
+  div2.setAttribute("data-aos","fade-up");
+  div2.setAttribute("data-aos-duration","1000");
+  */
   var h = document.createElement("h3");
   h.classList.add('text-uppercase', 'mb-4');
   h.innerHTML = "LOCALIZACIÓN";
@@ -334,12 +342,20 @@ function createFooter() {
 
   var div3 = document.createElement("div");
   div3.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
+  /*
+  div3.setAttribute("data-aos","fade-up");
+  div3.setAttribute("data-aos-duration","1000");
+  */
   var div4 = document.createElement("div");
   div4.className = "container";
   div4.innerHTML = "<br> Copyright © Mallorca Sports";
 
   var div5 = document.createElement("div");
   div5.classList.add('col-lg-4', 'mb-5', 'mb-lg-0');
+  /*
+  div5.setAttribute("data-aos","fade-up");
+  div5.setAttribute("data-aos-duration","1000");
+  */
 
   var h4 = document.createElement("h3");
   h4.classList.add('text-uppercase', 'mb-4');
