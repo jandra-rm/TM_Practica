@@ -1,248 +1,5 @@
 [
-  {
-    "nom": "Campus Esport",
-    "descripcio": "Nuestras instalaciones disponen de un gimnasio de fitness de 300 metros cuadrados, con tres zonas, según el tipo de entrenamiento: peso libre, zona de fitness y zona cardiovascular. Toda la sala tiene iluminación natural y artificial, sistema de extracción de aire y unos aseos accesorios.",
-    "detall": "GIMNASIO",
-    "tipus": "",
-    "identificador": "",
-    "comentari": "",
-    "preu": {
-      "import": "",
-      "coment-preu": ""
-    },
-    "contacte": {
-      "telf": "971172554",
-      "email": "recepcio@campusesport.com",
-      "xarxes": [
-        {
-          "facebook": "https://www.facebook.com/Campusesport/",
-          "twitter": "https://twitter.com/Campusesport",
-          "tripadvisor": ""
-        }
-      ]
-    },
-    "puntuacio": "4.3",
-    "visualitzacions": "",
-    "likes": 0,
-    "icones": [
-      "https://campusesport.com/images/logos/logo.png",
-      "https://campusesport.com/images/logos/logo.png"
-    ],
-    "imatges": [
-      "https://campusesport.com/imagen/23/1a52fd18/1140/0/1.png",
-      "https://campusesport.com/imagen/24/88ccefd5/1140/0/2.png",
-      "https://campusesport.com/imagen/25/8525a07a/1140/0/3.png",
-      "https://campusesport.com/imagen/26/1ad9ebb5/1140/0/4.png",
-      "https://campusesport.com/imagen/28/3e81de3e/1140/0/6.png"
-    ],
-    "videos": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "audio": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "geo1": {
-      "address": "Cra. de Valldemossa km. 7.5 (campus universitari)",
-      "lat": 39.64276117908073,
-      "long": 2.646393874157131,
-      "city": "Palma de Mallorca, Illes Balears",
-      "Country": "España",
-      "zip": "07122"
-    },
-    "geo2": {
-      "address": "",
-      "lat": 0,
-      "long": 0,
-      "city": "",
-      "Country": "",
-      "zip": ""
-    },
-    "ruta": [
-      {
-        "lat": 0,
-        "long": 0,
-        "imatge": {
-          "link": "",
-          "descripcio": ""
-        }
-      }
-    ],
-    "horari": {
-      "di": [
-        {
-          "in": "07:00",
-          "out": "21:15"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dm": [
-        {
-          "in": "07:00",
-          "out": "21:15"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dx": [
-        {
-          "in": "07:00",
-          "out": "21:15"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dj": [
-        {
-          "in": "07:00",
-          "out": "21:15"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dv": [
-        {
-          "in": "07:00",
-          "out": "21:15"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "ds": [
-        {
-          "in": "09:00",
-          "out": "20:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dg": [
-        {
-          "in": "09:00",
-          "out": "20:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ]
-    },
-    "calendari": {
-      "startDataEvent": "",
-      "startTimeEvent": "",
-      "endDataEvent": "",
-      "endTimeEvent": ""
-    },
-    "dadesPropies":{
-    "pag_web":"https://campusesport.com",
-      "suscripcio": [
-        {
-          "categoria": "alumno",
-          "familia": "individual",
-          "preu": 175.5,
-          "periodo": "año"
-        },
-        {
-          "categoria": "UIB",
-          "familia": "individual",
-          "preu": 215,
-          "periodo": "año"
-        },
-        {
-          "categoria": "UIB",
-          "familia": "familiar",
-          "preu": 355,
-          "periodo": "año"
-        },
-        {
-          "categoria": "No UIB",
-          "familia": "individual",
-          "preu": 300,
-          "periodo": "año"
-        },
-        {
-          "categoria": "No UIB",
-          "familia": "familiar",
-          "preu": 474,
-          "periodo": "año"
-        },
-        {
-          "categoria": "alumno",
-          "familia": "individual",
-          "preu": 124,
-          "periodo": "6 meses"
-        },
-        {
-          "categoria": "UIB",
-          "familia": "individual",
-          "preu": 124,
-          "periodo": "6 meses"
-        },
-        {
-          "categoria": "UIB",
-          "familia": "familiar",
-          "preu": 198,
-          "periodo": "6 meses"
-        },
-        {
-          "categoria": "No UIB",
-          "familia": "individual",
-          "preu": 204,
-          "periodo": "6 meses"
-        },
-        {
-          "categoria": "No UIB",
-          "familia": "familiar",
-          "preu": 208,
-          "periodo": "6 meses"
-        }
-      ],
-      "festiu": [
-        {
-          "es-festiu": "",
-          "in": "07:00",
-          "out": "21:15"
-        }
-      ],
-      "serveis": [
-        {
-          "nom": "lavabos accesorios",
-          "icono": "<i class='fas fa-toilet-paper'></i>"
-        },
-        {
-          "nom": "wifi",
-          "icono": "<i class='fas fa-wifi'></i>"
-        },
-        {
-          "nom": "entrenador personal",
-          "icono": "<i class='fas fa-user'></i>" 
-        },
-        {
-          "nom": "personal especializado",
-          "icono": "<i class='fas fa-user-check'></i>"
-        }
-      ],
-      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
-    }
-  },
+  
   {
     "nom": "Campus Esport",
     "descripcio": "",
@@ -257,13 +14,14 @@
     "contacte": {
       "telf": "971172554",
       "email": "recepcio@campusesport.com",
-      "xarxes": [
+      "xarxes": 
         {
+          "web":"https://campusesport.com",
           "facebook": "https://www.facebook.com/Campusesport/",
           "twitter": "https://twitter.com/Campusesport",
           "tripadvisor": ""
         }
-      ]
+      
     },
     "puntuacio": "4.3",
     "visualitzacions": "",
@@ -395,162 +153,94 @@
       "endDataEvent": "",
       "endTimeEvent": ""
     },
-    "dadesPropies": {}
+    "dadesPropies": {
+      "suscripcio": [
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 175.5,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 215,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 355,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 300,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 474,
+          "periodo": "año"
+        },
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 198,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 204,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 208,
+          "periodo": "6 meses"
+        }
+      ],
+      "festiu": [
+        {
+          "es-festiu": "",
+          "in": "07:00",
+          "out": "21:15"
+        }
+      ],
+      "serveis": [
+        {
+          "nom": "equipos de salvamento y primeros auxilios",
+          "icono": "<i class='far fa-life-ring'></i>"
+        },
+        {
+          "nom": "cronómetro para entrenamientos",
+          "icono": "<i class='far fa-life-ring'></i>" 
+        },
+        {
+          "nom": "Vestuarios para infantes, mujeres y hombres",
+          "icono": "<i class='fas fa-shirt'></i>"
+        }
+      ],
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
+    }
   },
-  {
-    "nom": "Campus Esport",
-    "descripcio": "Las instalaciones deportivas de la UIB ofrecen un completo campo de césped completo, equipado con hierba sintética de monofilamento bicolor de 60 milímetros de última generación, sistema de riego y equipamiento exterior. Además, cuenta con una base elástica existente, que dota a la instalación de una buena amortiguación para garantizar la mejor calidad de juego.",
-    "detall": "FÚTBOL",
-    "tipus": "",
-    "identificador": "",
-    "comentari": "",
-    "preu": {
-      "import": "4",
-      "coment-preu": ""
-    },
-    "contacte": {
-      "telf": "971172554",
-      "email": "recepcio@campusesport.com",
-      "xarxes": [
-        {
-          "facebook": "https://www.facebook.com/Campusesport/",
-          "twitter": "https://twitter.com/Campusesport",
-          "tripadvisor": ""
-        }
-      ]
-    },
-    "puntuacio": "4.3",
-    "visualitzacions": "",
-    "likes": 0,
-    "icones": [
-      "https://campusesport.com/images/logos/logo.png",
-      "https://campusesport.com/images/logos/logo.png"
-    ],
-    "imatges": [
-      "https://campusesport.com/imagen/38/b9acb3b3/1140/0/foto1.png",
-      "https://campusesport.com/imagen/39/aac7df8d/1140/0/foto2.png",
-      "https://campusesport.com/imagen/41/bb99f2c1/1140/0/foto4.png",
-      "https://campusesport.com/imagen/40/c6ed4cdf/1140/0/foto3.png",
-      "https://campusesport.com/imagen/42/29c0031b/1140/0/foto5.png"
-    ],
-    "videos": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "audio": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "geo1": {
-      "address": "Cra. de Valldemossa km. 7.5 (campus universitari)",
-      "lat": 39.64276117908073,
-      "long": 2.646393874157131,
-      "city": "Palma de Mallorca, Illes Balears",
-      "Country": "España",
-      "zip": "07122"
-    },
-    "geo2": {
-      "address": "",
-      "lat": 0,
-      "long": 0,
-      "city": "",
-      "Country": "",
-      "zip": ""
-    },
-    "ruta": [
-      {
-        "lat": 0,
-        "long": 0,
-        "imatge": {
-          "link": "",
-          "descripcio": ""
-        }
-      }
-    ],
-    "horari": {
-      "di": [
-        {
-          "in": "07:00",
-          "out": "22:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dm": [
-        {
-          "in": "07:00",
-          "out": "22:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dx": [
-        {
-          "in": "07:00",
-          "out": "22:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dj": [
-        {
-          "in": "07:00",
-          "out": "22:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dv": [
-        {
-          "in": "07:00",
-          "out": "22:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "ds": [
-        {
-          "in": "09:00",
-          "out": "21:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dg": [
-        {
-          "in": "09:00",
-          "out": "21:00"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ]
-    },
-    "calendari": {
-      "startDataEvent": "",
-      "startTimeEvent": "",
-      "endDataEvent": "",
-      "endTimeEvent": ""
-    },
-    "dadesPropies": {}
-  },
+ 
   {
     "nom": "Campus Esport",
     "descripcio": "Les pistes de Pàdel estan preparades per jugar dobles i estan equipades amb gespa artificial; quatre són de paret i quatre de vidre. La pista de Tennis compta amb paviment Green Set d'alta qualitat. Aquestes instal·lacions estan ubicades ben prop de l'edifici principal de CampusEsport, i compten amb accés exterior i proximitat a l'àrea de vestuaris",
@@ -565,13 +255,14 @@
     "contacte": {
       "telf": "971172554",
       "email": "recepcio@campusesport.com",
-      "xarxes": [
+      "xarxes": 
         {
+          "web":"https://campusesport.com",
           "facebook": "https://www.facebook.com/Campusesport/",
           "twitter": "https://twitter.com/Campusesport",
           "tripadvisor": ""
         }
-      ]
+      
     },
     "puntuacio": "4.3",
     "visualitzacions": "",
@@ -702,7 +393,44 @@
       "endDataEvent": "",
       "endTimeEvent": ""
     },
-    "dadesPropies": {}
+    "dadesPropies": {
+      "suscripcio": [
+        {
+          "categoria": "socios",
+          "familia": "individual",
+          "preu": 9.5,
+          "periodo": "hora"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 11.5,
+          "periodo": "hora"
+        },
+        {
+          "categoria": "externos",
+          "familia": "individual",
+          "preu": 14,
+          "periodo": "hora"
+        }
+        
+      ],
+      "festiu": [
+        {
+          "es-festiu": "",
+          "in": "07:00",
+          "out": "21:15"
+        }
+      ],
+      "serveis": [
+        {
+          "nom": "alquiler de raquetas y pelotas",
+          "icono": "<i class='fas fa-baseball-ball'></i>"
+        }
+      ],
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
+
+    }
   },
   {
     "nom": "Campus Esport",
@@ -718,13 +446,14 @@
     "contacte": {
       "telf": "971172554",
       "email": "recepcio@campusesport.com",
-      "xarxes": [
+      "xarxes": 
         {
+          "web":"https://campusesport.com",
           "facebook": "https://www.facebook.com/Campusesport/",
           "twitter": "https://twitter.com/Campusesport",
           "tripadvisor": ""
         }
-      ]
+      
     },
     "puntuacio": "4.3",
     "visualitzacions": "",
@@ -856,213 +585,42 @@
       "endDataEvent": "",
       "endTimeEvent": ""
     },
-    "dadesPropies": {}
-  },
-  {
-    "nom": "Profitness",
-    "descripcio": "PROFITNESS es un Club orientado 360º a sus Socios/as para cuidarse y sentirse bien. Un espacio de vanguardia que respira Salud y Deporte.",
-    "detall": "GIMNASIO",
-    "tipus": "",
-    "identificador": "",
-    "comentari": "",
-    "preu": {
-      "import": "3",
-      "coment-preu": ""
-    },
-    "contacte": {
-      "telf": "971757586",
-      "email": "",
-      "xarxes": [
-        {
-          "facebook": "https://www.facebook.com/profitness.es/",
-          "twitter": "https://twitter.com/profitness_es",
-          "tripadvisor": ""
-        }
-      ]
-    },
-    "puntuacio": "4.4",
-    "visualitzacions": "",
-    "likes": 0,
-    "icones": [
-      "https://uh.gsstatic.es/sfAttachPlugin/114842.jpg",
-      ""
-    ],
-    "imatges": [
-      "https://gimnasios.fitness/media/items/540x280/2136-Profitness-hyCIF.jpg",
-      "https://www.antonioforteza.com/wp-content/uploads/2004/11/Antonio-Forteza-Gimnasio-Profitness_025.jpg",
-      "https://www.ocimax.com/trespuntodos/wp-content/uploads/2013/09/IMG-20200531-WA0021.jpg",
-      "https://www.profitness.es/wp-content/uploads/servicio-entrenamiento-personal.jpg",
-      "https://gimnasios.fitness/media/items/540x280/2136-Profitness-RRfpR.jpg"
-    ],
-    "videos": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "audio": [
-      {
-        "tipus": "",
-        "url": ""
-      }
-    ],
-    "geo1": {
-      "address": "Carrer del Bisbe Pere de Puigdorfila, 1",
-      "lat": 39.59564722002756, 
-      "long": 2.648686461376957,
-      "city": "Palma de Mallorca, Illes Balears",
-      "Country": "España",
-      "zip": "07010"
-    },
-    "geo2": {
-      "address": "",
-      "lat": 0,
-      "long": 0,
-      "city": "",
-      "Country": "",
-      "zip": ""
-    },
-    "ruta": [
-      {
-        "lat": 0,
-        "long": 0,
-        "imatge": {
-          "link": "",
-          "descripcio": ""
-        }
-      }
-    ],
-    "horari": {
-      "di": [
-        {
-          "in": "06:30",
-          "out": "22:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dm": [
-        {
-          "in": "06:30",
-          "out": "22:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dx": [
-        {
-          "in": "06:30",
-          "out": "22:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dj": [
-        {
-          "in": "06:30",
-          "out": "22:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "dv": [
-        {
-          "in": "06:30",
-          "out": "22:30"
-        },
-        {
-          "in": "-",
-          "out": "-"
-        }
-      ],
-      "ds": [
-        {
-          "in": "08:30",
-          "out": "14:30"
-        },
-        {
-          "in": "17:00",
-          "out": "20:30"
-        }
-      ],
-      "dg": [
-        {
-          "in": "08:30",
-          "out": "14:30"
-        },
-        {
-          "in": "17:00",
-          "out": "20:30"
-        }
-      ]
-    },
-    "calendari": {
-      "startDataEvent": "",
-      "startTimeEvent": "",
-      "endDataEvent": "",
-      "endTimeEvent": ""
-    },
     "dadesPropies": {
-      "pag_web":"https://profitness.es",
       "suscripcio": [
         {
-          "categoria": "PROMO PRIMAVERA",
+          "categoria": "socios",
           "familia": "individual",
-          "preu": 59.99,
-          "periodo": "mes"
+          "preu": 9.5,
+          "periodo": "hora"
         },
         {
-          "categoria": "ABONO ANUAL",
+          "categoria": "UIB",
           "familia": "individual",
-          "preu": 599.99,
-          "periodo": "año"
+          "preu": 11.5,
+          "periodo": "hora"
         },
         {
-          "categoria": "ENTRADA DIARIA",
+          "categoria": "externos",
           "familia": "individual",
-          "preu": 14.99,
-          "periodo": "3 días"
+          "preu": 13.5,
+          "periodo": "hora"
         }
       ],
-      "festiu": [ 
+      "festiu": [
         {
-          "es-festiu": "true",
-          "in": "08:30",
-          "out": "14:30"
-        },
-        {
-          "es-festiu": "true",
-          "in": "17:00",
-          "out": "20:30"
+          "es-festiu": "",
+          "in": "07:00",
+          "out": "21:15"
         }
       ],
       "serveis": [
         {
-          "nom": "nutrición",
-          "icono": "<i class='fas fa-carrot'></i>"
-        },
-        {
-          "nom": "fisioterapia",
-          "icono": "<i class='fas fa-clinic-medical'></i>"
-        },
-        {
-          "nom": "tienda",
-          "icono": "<i class='fas fa-shopping-bag'></i>"
-        },
-        {
-          "nom": "entrenador personal",
-          "icono": "<i class='fas fa-user'></i>"
+          "nom": "alquiler de raquetas y pelotas",
+          "icono": "<i class='fas fa-baseball-ball'></i>"
         }
       ],
-      "esports": ["BODY COMBAT","CYCLING","FITBOXING","WALKING","PILATES","YOGA","ZUMBA"]
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
+    
     }
-  }
+  } 
 ]

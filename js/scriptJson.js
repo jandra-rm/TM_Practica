@@ -41,6 +41,18 @@ function getServeisSport(instalaciones) {
   return serv;
 }
 
+function getActivitatsSport(instalaciones) {
+  var act = [];
+  for (var i = 0; i < instalaciones.length; i++) {
+    for (var j = 0; j < instalaciones[i].dadesPropies.esports.length; j++){
+      if(act.includes(instalaciones[i].dadesPropies.esports[j]) == false){
+        act.push(instalaciones[i].dadesPropies.esports[j]);
+      }
+    }
+  }
+  return act;
+}
+
 function creategeoJSON(instalaciones) {
   jsonObj = {};
   jsonObj['type'] = 'FeatureCollection';

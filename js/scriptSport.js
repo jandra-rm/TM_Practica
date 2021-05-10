@@ -123,71 +123,128 @@ function createMap(instalaciones) {
 }
 
 function menuFiltros(instalaciones) {
-  const filtros = document.getElementById("filtros");
-  var titulo = document.createElement("h1");
-  titulo.innerText = "Filtrar por";
-  //servicios
-  var servicios = document.createElement("h3");
-  servicios.innerText = "Servicios:";
-  var listServ = document.createElement("form");
-  var lista = getServeisSport(instalaciones);
-  
-  for(var i=0; i<lista.length; i++){
-  var check = document.createElement("div");
-    check.className = "checkbox";
-    var lab = document.createElement("label");
-    var inp = document.createElement("input");
-    inp.type = "checkbox";
-    inp.value = "";
-    lab.appendChild(inp);
-    lab.innerText = lista[i];
-    check.appendChild(lab);
-    listServ.appendChild(check);
+  filtrosMovil(instalaciones);
+  filtrosSideBar(instalaciones);
+}
+
+function filtrosMovil(instalaciones){
+  var filterButton = document.createElement("div");
+  filterButton.innerHTML = '<div class="filter">' +
+                              '<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="true" aria-controls="mobile-filter">Filtros' + 
+                                '<span class="fa fa-filter pl-1"></span>' +
+                              '</button>' +
+                            '</div>';
+
+  var filters = document.createElement("div");
+  filters.id = "mobile-filter";
+
+  var tit = document.createElement("div");
+  tit.innerHTML = '<div class="border-bottom pb-2 ml-2">' +
+                    '<h4 id="burgundy">Filtros</h4>' +
+                  '</div>';
+
+  var servicios = document.createElement("div");
+  servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+                          '<h5 class="font-weight-bold">Servicios</h5>' + 
+                          '<div id="orange"><span class="fa fa-minus"></span></div>' +
+                          '<form>';
+  var listaServ = getServeisSport(instalaciones);
+  for (var i=0; i<listaServ.length; i++){
+    servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaServ[i] + '"> <label for="'+ listaServ[i] + '">' +
+                            listaServ[i] + '</label> </div>';
   }
-  
-  filtros.appendChild(titulo);
-  filtros.appendChild(servicios);
-  filtros.appendChild(listServ);
+  servicios.innerHTML +=   '</form>' +
+                        '</div>';
+
+  var actividades = document.createElement("div");
+  actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+                            '<h5 class="font-weight-bold">Se puede practicar</h5>' + 
+                            '<div id="orange"><span class="fa fa-minus"></span></div>' +
+                            '<form>';
+  var listaAct = getActivitatsSport(instalaciones);
+  for (var i=0; i<listaAct.length; i++){
+    actividades.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaAct[i] + '"> <label for="'+ listaAct[i] + '">' +
+                            listaAct[i] + '</label> </div>';
+  }
+  actividades.innerHTML +=  '</form>' + 
+                          '</div>';
+
+  filters.appendChild(tit);
+  filters.appendChild(servicios);
+  filters.appendChild(actividades);
+  document.getElementById("resultados").appendChild(filterButton);
+  document.getElementById("resultados").appendChild(filters);
+}
+
+function filtrosSideBar(instalaciones){
+  var sideBar = document.createElement("section");
+  sideBar.id = "sidebar";
+
+  var tit = document.createElement("div");
+  tit.innerHTML = '<div class="border-bottom pb-2 ml-2">' +
+                    '<h4 id="burgundy">Filtros</h4>' +
+                  '</div>';
+
+  var servicios = document.createElement("div");
+  servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+                          '<h5 class="font-weight-bold">Servicios</h5>' + 
+                          '<div id="orange"><span class="fa fa-minus"></span></div>' +
+                          '<form>';
+  var listaServ = getServeisSport(instalaciones);
+  for (var i=0; i<listaServ.length; i++){
+    servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaServ[i] + '"> <label for="'+ listaServ[i] + '">' +
+                            listaServ[i] + '</label> </div>';
+  }
+  servicios.innerHTML +=   '</form>' +
+                        '</div>';
+
+  var actividades = document.createElement("div");
+  actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+                            '<h5 class="font-weight-bold">Se puede practicar</h5>' + 
+                            '<div id="orange"><span class="fa fa-minus"></span></div>' +
+                            '<form>';
+  var listaAct = getActivitatsSport(instalaciones);
+  for (var i=0; i<listaAct.length; i++){
+    actividades.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaAct[i] + '"> <label for="'+ listaAct[i] + '">' +
+                            listaAct[i] + '</label> </div>';
+  }
+  actividades.innerHTML +=  '</form>' + 
+                          '</div>';
+
+  sideBar.appendChild(tit);
+  sideBar.appendChild(servicios);
+  sideBar.appendChild(actividades);
+  document.getElementById("resultados").appendChild(sideBar);
 }
 
 function createCards(instalaciones) {
   var i = 0;
   //Primera iteración
-  var cont = document.createElement("div");
-  cont.className = "col-6";
-  var flipcard = document.createElement("div");
-  flipcard.className = "flip-card";
-
-  var inner = document.createElement("div");
-  inner.className = "flip-card-inner";
-
-  var front = document.createElement("div");
-  front.className = "flip-card-front";
+  var card = document.createElement("div");
+  card.classList.add('card', 'card-borde', 'card-size-1');
 
   var img = document.createElement("img");
+  img.className = "card-img-top";
   img.src = instalaciones[i].imatges[0];
   img.alt = instalaciones[i].nom;
-  img.width = 400;
-  img.height = 200;
-  front.appendChild(img);
 
-  var back = document.createElement("div");
-  back.className = "flip-card-back";
+  var cont = document.createElement("div");
+  cont.className = "card-body";
 
-  var name = document.createElement("h4");
-  name.className = "flip-card-back-text";
+  var inner = document.createElement("div");
+  inner.classList.add('d-flex', 'justify-content-between');
+
+  var name = document.createElement("h3");
+  name.className = "card-title";
   name.innerText = instalaciones[i].nom;
 
-  var rating = document.createElement("h3");
-  rating.className = "flip-card-back-text";
-  rating.textContent = "Valoración: ";
+  
   var stars = document.createElement("span");
   stars.id = "stars" + instalaciones[i].nom;
-  rating.appendChild(stars);
 
   var button = document.createElement("button");
   button.id = "bModal";
-  button.classList.add('btn', 'btn-info', 'btn-lg', 'flip-card-back-text');
+  button.classList.add('btn', 'btn-info', 'btn-lg', 'float-right');
   button.setAttribute("data-toggle", "modal");
   button.setAttribute("data-target", "#myModal");
   button.textContent = "Ver más";
@@ -202,58 +259,54 @@ function createCards(instalaciones) {
     }
     createModal(inst);
   }
-  back.appendChild(name);
-  back.appendChild(rating);
-  back.appendChild(button);
-
-  inner.appendChild(front);
-  inner.appendChild(back);
-  flipcard.appendChild(inner);
-  cont.appendChild(flipcard);
-  document.getElementById("listado").appendChild(cont);
+  inner.appendChild(name);
+  inner.appendChild(stars);
+  cont.appendChild(inner);
+  cont.appendChild(button);
+  card.appendChild(img);
+  card.appendChild(cont);
+  document.getElementById("listado").appendChild(card);
 
   
   //Siguientes iteraciones 
   for (i = 1; i < instalaciones.length; i++) {
-    var clncont = cont.cloneNode(false);
-    var clnflipcard = flipcard.cloneNode(false);
-    var clninner = inner.cloneNode(false);
-    var clnfront = front.cloneNode(false);
-    var clnimg = img.cloneNode(false);
-    clnimg.src = instalaciones[i].imatges[0];
-    clnimg.alt = instalaciones[i].nom;
-    clnfront.appendChild(clnimg);
-    var clnback = back.cloneNode(false);
-    var clnname = name.cloneNode(false);
-    clnname.innerText = instalaciones[i].nom;
-    var clnrating = rating.cloneNode(false);
-    clnrating.textContent = "Valoración: ";
-    var clnstars = stars.cloneNode(false);
-    clnstars.id = "stars" + instalaciones[i].nom;
-    clnrating.appendChild(clnstars);
-    var clnbutton = button.cloneNode(false);
-    clnbutton.id = "bModal";
-    clnbutton.textContent = "Ver más";
-    const bU = clnbutton;
-    const inst = instalaciones[i];
-    bU.onclick = function () {
-      const myModal = document.getElementById("myModal");
-      if (myModal.hasChildNodes() == true) {
-        while (myModal.firstChild) {
-          myModal.removeChild(myModal.lastChild);
-        }
-      }
-      createModal(inst);
-    }
-    clnback.appendChild(clnname);
-    clnback.appendChild(clnrating);
-    clnback.appendChild(clnbutton);
+  var clncard = card.cloneNode(false);
 
-    clninner.appendChild(clnfront);
-    clninner.appendChild(clnback);
-    clnflipcard.appendChild(clninner);
-    clncont.appendChild(clnflipcard);
-    document.getElementById("listado").appendChild(clncont);
+  var clnimg = img.cloneNode(false);
+  clnimg.src = instalaciones[i].imatges[0];
+  clnimg.alt = instalaciones[i].nom;
+
+  var clncont = cont.cloneNode(false);
+
+  var clninner = inner.cloneNode(false);
+
+  var clnname = name.cloneNode(false);
+  clnname.innerText = instalaciones[i].nom;
+
+  var clnstars = stars.cloneNode(false);
+  clnstars.id = "stars" + instalaciones[i].nom;
+
+  var clnbutton = button.cloneNode(false);
+  clnbutton.id = "bModal";
+  clnbutton.textContent = "Ver más";
+  const b = clnbutton;
+  const inst = instalaciones[i];
+  b.onclick = function () {
+    const myModal = document.getElementById("myModal");
+    if (myModal.hasChildNodes() == true) {
+      while (myModal.firstChild) {
+        myModal.removeChild(myModal.lastChild);
+      }
+    }
+    createModal(inst);
+  }
+  clninner.appendChild(clnname);
+  clninner.appendChild(clnstars);
+  clncont.appendChild(clninner);
+  clncont.appendChild(clnbutton);
+  clncard.appendChild(clnimg);
+  clncard.appendChild(clncont);
+  document.getElementById("listado").appendChild(clncard);
   }
   
 
@@ -262,11 +315,10 @@ function createCards(instalaciones) {
   }
 }
 
-
 function createModal(instalacion) {
   var divModal2 = document.createElement("div");
-  divModal2.classList.add('modal-dialog', 'modal-xl', 'modal-dialog-scrollable');
-
+  divModal2.classList.add('modal-dialog','modal-xl','modal-dialog-scrollable');
+ 
   var divModalContent = document.createElement("div");
   divModalContent.classList.add('modal-content');
 
@@ -274,24 +326,23 @@ function createModal(instalacion) {
   divModalHeader.classList.add('modal-header');
 
   var h4 = document.createElement("h4");
-  h4.classList.add('modal-title', 'col-11');
-  h4.style = "color:white;";
-  h4.textContent = instalacion.nom + " - " + instalacion.detall;
-
+  h4.classList.add('modal-title','text-responsive');
+  h4.textContent=instalacion.nom + " - " + instalacion.detall;
+ 
   var divModalBody = document.createElement("div");
   divModalBody.classList.add('modal-body');
-  divModalBody.id = "modalBody";
-
+  divModalBody.id="modalBody";
+ 
   // EN ESTE DIV VAN TODAS LAS COSAS QUE QUERAMOS METER EN EL MODAL
   var divModalFooter = document.createElement("div");
   divModalFooter.classList.add('modal-footer');
 
-  var buttonClose = document.createElement("button");
-  buttonClose.classList.add('btn', 'btn-info');
-  buttonClose.setAttribute("data-dismiss", "modal");
-  buttonClose.textContent = "Cerrar";
+  var buttonClose = document.createElement("button");  
+  buttonClose.classList.add('btn','btn-info');
+  buttonClose.setAttribute("data-dismiss","modal");
+  buttonClose.textContent="Cerrar";
 
-  var crossClose = document.createElement("button");
+  var crossClose = document.createElement("button"); 
   crossClose.type = "button";
   crossClose.className = "close";
   crossClose.setAttribute("data-dismiss", "modal");
@@ -309,26 +360,25 @@ function createModal(instalacion) {
   divModalContent.appendChild(divModalBody);
   divModalContent.appendChild(divModalFooter);
   divModal2.appendChild(divModalContent);
-
+ 
   document.getElementById('myModal').appendChild(divModal2);
 
   rellenarModal(instalacion);
 }
 
-
 function rellenarModal(instalacion){
   var divContainer = document.createElement("div");
-  divContainer.classList.add('container');
+  divContainer.classList.add('container','ml-0','mr-0');
  
   var divRow = document.createElement("div");
   divRow.classList.add('row');
  
   var divCol = document.createElement("div");
-  divCol.classList.add('col-7');
+  divCol.classList.add('col','ml-0','mr-0');
   divCol.id="info-instalacion";
 
   var divCol2 = document.createElement("div");
-  divCol2.classList.add('col','text-center');
+  divCol2.classList.add('col','text-center','ml-0','mr-0');
   
   // Ubicación
   var pUbicacio = document.createElement("p");
@@ -365,7 +415,7 @@ function rellenarModal(instalacion){
   divButton.id="collapseInfo";
   var divInfo = document.createElement("div");
   divInfo.classList.add('card','card-body');
-  divInfo.setAttribute('style', 'white-space: pre');
+  divInfo.setAttribute('style', 'white-space:pre; overflow:auto');
   // Cogemos el día de hoy para mostrarlo
   switch(d.getDay()){
     case 0: buttonHorari.textContent= "Hoy : "+horari.di[0].in+" - "+ horari.di[0].out;
@@ -464,13 +514,11 @@ function rellenarModal(instalacion){
   var divTiempo = document.createElement("div");
   divTiempo.classList.add('container','shadow-lg', 'bg-white', 'rounded');
 
-
-
   var icono = document.createElement("img");
   icono.id="icono-weather";
 
   pTiempo = document.createElement("span");
-  pTiempo.setAttribute("style","font-size:15px");
+  pTiempo.setAttribute("style","font-size:17px");
 
   var divTemp = document.createElement("span");
   divTemp.id="temperatura";
@@ -489,15 +537,123 @@ function rellenarModal(instalacion){
       $('#icono-weather').attr("src", "http://openweathermap.org/img/wn/" + json.current.weather[0].icon + "@2x.png");
       $('#temperatura').html((Math.round((json.current.temp - 273.15) * 10) / 10) + " °C");
       $('#viento').html("&emsp; <i class='fas fa-wind fa-1x'></i> "+(Math.round(json.current.wind_speed * 3.6)) + " kmh");
-      $('#humedad').html(" &emsp; <i class='fas fa-wind fa-1x'></i> "+json.current.humidity + "%");
+      $('#humedad').html(" &emsp; <i class='fas fa-tint fa-1x'></i> "+json.current.humidity + "%"); // <i class="fas fa-humidity"></i>
   });
+
+  var comentario = document.createElement("div");
+  comentario.innerHTML="Déjanos una valoración y un comentario<br><br>";
+  comentario.setAttribute("style","margin-top:50px; font-size:17px");
+  comentario.classList.add('container', 'bg-white', 'rounded');
+  var formulario = document.createElement("form");
+  formulario.action = "javascript:void(0);";
+  var divForm = document.createElement("div");
+  var label = document.createElement("label");
+  var input = document.createElement("input");
+  var buttonForm = document.createElement("button");
+
+  divForm.classList.add('form-group');
+  label.setAttribute("for","email");
+  label.textContent="Dirección email: ";
+  input.id="email";
+  input.classList.add('form-control');
+  divForm.appendChild(label);
+  divForm.appendChild(input);
+
+  var divForm2 = document.createElement("div");
+  var label2 = document.createElement("label");
+  var input2 = document.createElement("textarea");
+
+  divForm2.classList.add('form-group');
+  label2.setAttribute("for","email");
+  label2.textContent="Comentario: ";
+  input2.id="email";
+  input2.classList.add('form-control');
+  input2.setAttribute("rows","5");
+  divForm2.appendChild(label2);
+  divForm2.appendChild(input2);
+
+  buttonForm.classList.add('btn','btn-info');
+  buttonForm.setAttribute("type","submit");
+  buttonForm.textContent="Dejar comentario";
+
+  var fieldset = document.createElement("div");
+  fieldset.setAttribute("style","overflow:hidden");
+  var stars = 0;
+ fieldset.innerHTML=
+  '<fieldset class="rating">'+
+      '<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>'+
+      '<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>'+
+      '<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>'+
+      '<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>'+
+      '<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>'+
+  '</fieldset> <br><br><br><br>';
+
+  var servicios = document.createElement("div");
+  servicios.setAttribute("style","font-size:17px");
+  servicios.innerHTML="<b>Servicios de la instalación:<b> <br>";
+
+  if(instalacion.tipus.localeCompare("Campo")==0){ // JSON de los campos de fútbol
+    servicios.innerHTML+="  Capacidad: "+instalacion.dadesPropies.capacidad+"<br>";
+    servicios.innerHTML+="  Vallado: "+instalacion.dadesPropies.vallado+"<br>";
+    servicios.innerHTML+="  Dimensiones: "+instalacion.dadesPropies.dimensiones+"<br>";
+    servicios.innerHTML+="  Internet: "+instalacion.dadesPropies.internet+"<br>";
+  }
+  else if(instalacion.tipus.localeCompare("gym")==0){ // JSON de los gimnasios
+    servicios.innerHTML+="  Piscina: "+instalacion.dadesPropies.piscina+"<br>";
+    servicios.innerHTML+="  Spa: "+instalacion.dadesPropies.spa+"<br>";
+    servicios.innerHTML+="  SalaFitness: "+instalacion.dadesPropies.salaFitness+"<br>";
+    servicios.innerHTML+="  Padel: "+instalacion.dadesPropies.padel+"<br>";
+    servicios.innerHTML+="  Tennis: "+instalacion.dadesPropies.tenis+"<br>";
+    servicios.innerHTML+="  Spinning: "+instalacion.dadesPropies.spinning+"<br>";
+  }else{
+    for(var  i=0; i<instalacion.dadesPropies.serveis.length; i++){
+      servicios.innerHTML+=
+        '<p>'+ instalacion.dadesPropies.serveis[i].icono+'   <span>'+instalacion.dadesPropies.serveis[i].nom+'</span></p>';
+    }
+  }
+
+  servicios.innerHTML+="<br>";
+
+  var suscripcion = document.createElement("div");
+  /*suscripcion.classList.add('container');
+  if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
+    suscripcion.innerHTML=
+    "<div class='table-responsive'>"+
+    "<table class='table table-hover'>"+
+    "<thead>"+
+      "<tr>"+
+        "<th>Individual/Familiar</th>"+
+        "<th>Cateogria</th>"+
+        "<th>Precio</th>"+
+      "</tr>"+
+    "</thead>"+
+    "<tbody>";
+    for(var i=0; i<instalacion.dadesPropies.suscripcio.length; i++){
+      suscripcion.innerHTML+= 
+      "<tr>"+
+      "<td>"+instalacion.dadesPropies.suscripcio[i].familia+"</td>"+
+      "<td>"+instalacion.dadesPropies.suscripcio[i].categoria+"</td>"+
+      "<td>"+instalacion.dadesPropies.suscripcio[i].preu+" - "+ instalacion.dadesPropies.suscripcio[i].periodo +"</td>"+
+    "</tr>";
+    }
+    suscripcion.innerHTML+=  
+    "</tbody></table></div>";
+  }*/
+
+  formulario.appendChild(fieldset);
+  formulario.appendChild(divForm);
+  formulario.appendChild(divForm2);
+  formulario.appendChild(buttonForm);
+  comentario.appendChild(formulario);
+
 
   /* ------- COLUMNA DERECHA ------- */
   var visitaWeb = document.createElement("button");
   visitaWeb.classList.add('btn','btn-info');
+  //visitaWeb.setAttribute("target","_blank"); //  target="_blank" -> esto hace que se vaya a otra página
   visitaWeb.textContent="Visita la web";
   visitaWeb.onclick = function(){
-    window.location.replace(instalacion.dadesPropies.pag_web);
+    window.open(instalacion.contacte.xarxes.web);
   }
 
   /* --- TWITTER --- */
@@ -507,12 +663,13 @@ function rellenarModal(instalacion){
   a.setAttribute("data-width","400");
   a.setAttribute("data-height","580");
   a.setAttribute("data-theme","light");
-  a.href = instalacion.contacte.xarxes[0].twitter;
+  a.href = instalacion.contacte.xarxes.twitter;
  
   var script = document.createElement("script");
   script.async = true;
   script.src = "https://platform.twitter.com/widgets.js"
   script.charset = "utf-8;"
+
   
   pTiempo.appendChild(divTemp);
   pTiempo.appendChild(divViento);
@@ -527,7 +684,10 @@ function rellenarModal(instalacion){
   divCol.appendChild(pHorari);
   divCol.appendChild(pTelf);
   divCol.appendChild(pDescripcio);
+  divCol.appendChild(servicios);
   divCol.appendChild(divTiempo);
+  divCol.appendChild(suscripcion);
+  divCol.appendChild(comentario);
   
   divCol2.appendChild(visitaWeb);
   divCol2.appendChild(a);
@@ -541,6 +701,8 @@ function rellenarModal(instalacion){
   document.getElementById('modalBody').appendChild(divContainer);
   
 }
+
+
 function getStars(rating) {
   // Round to nearest half
   rating = Math.round(rating * 2) / 2;
@@ -560,4 +722,41 @@ function getStars(rating) {
     output.push('<i class="far fa-star" aria-hidden="true" style="color: gold;"></i>&nbsp;');
 
   return output.join('');
+}
+
+//carlos
+//Funcion que cambia el arr[num]ero de objetos que salen por cada fila segun la eleccion del usuario
+function objetosPorFila(n) {
+  var elementos = document.getElementsByClassName('card-borde');
+
+  switch (n) {
+      case 1:
+          for (i = 0; i < elementos.length; i++) {
+              elementos[i].classList.remove("card-size-1");
+              elementos[i].classList.remove("card-size-2");
+              elementos[i].classList.add("card-size-1");
+          }
+          break;
+      case 2:
+          for (i = 0; i < elementos.length; i++) {
+              elementos[i].classList.remove("card-size-1");
+              elementos[i].classList.remove("card-size-2");
+              elementos[i].classList.add("card-size-2");
+          }
+          break;
+  }
+}
+
+//Funcion que cambia los objetos por fila segun la anchura de la ventana
+function cambiarObjetosPorFila() {
+  var w = document.documentElement.clientWidth;
+  if (w < 750) {
+      objetosPorFila(1);
+  }
+  else{
+      objetosPorFila(2);
+  }
+}
+function resizeListado() {
+  window.addEventListener("resize", cambiarObjetosPorFila);
 }
