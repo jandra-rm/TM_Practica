@@ -32,9 +32,6 @@ function getInstalacionesByNameAndSport(name, sport) {
   return inst;
 }
 
-
-
-
 function startAutocomplete() {
   var instSport = [];
   for (var i = 0; i < instPropias.length; i++) {

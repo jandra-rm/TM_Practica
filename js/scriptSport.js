@@ -124,6 +124,7 @@ function createMap(instalaciones) {
 
 function ordenarPor() {
   var divOrdenacion = document.createElement("div");
+  divOrdenacion.innerHTML="";
   divOrdenacion.innerHTML =
     '<span> <b>Ordenar por: <b></span>' +
     '<select name="ordenacion" id="ordenacion">' +
@@ -621,12 +622,23 @@ function rellenarModal(instalacion) {
     servicios.innerHTML += "  Internet: " + instalacion.dadesPropies.internet + "<br>";
   }
   else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
-    servicios.innerHTML += "  Piscina: " + instalacion.dadesPropies.piscina + "<br>";
-    servicios.innerHTML += "  Spa: " + instalacion.dadesPropies.spa + "<br>";
+    if(instalacion.dadesPropies.serveis.piscina == true){
+      servicios.innerHTML += "  Piscina<br>";
+    }
+    if(instalacion.dadesPropies.serveis.spa == true){
+      servicios.innerHTML += "  Spa<br>";
+    }
+    if(instalacion.dadesPropies.serveis.salaFitness == true){
+      servicios.innerHTML += "  Sala fitness<br>";
+    }
+    /*
+    servicios.innerHTML += "  Piscina: " + instalacion.dadesPropies.serveis.piscina + "<br>";
+    servicios.innerHTML += "  Spa: " + instalacion.dadesPropies.serveis.spa + "<br>";
     servicios.innerHTML += "  SalaFitness: " + instalacion.dadesPropies.salaFitness + "<br>";
     servicios.innerHTML += "  Padel: " + instalacion.dadesPropies.padel + "<br>";
     servicios.innerHTML += "  Tennis: " + instalacion.dadesPropies.tenis + "<br>";
     servicios.innerHTML += "  Spinning: " + instalacion.dadesPropies.spinning + "<br>";
+    */
   } else {
     for (var i = 0; i < instalacion.dadesPropies.serveis.length; i++) {
       servicios.innerHTML +=
