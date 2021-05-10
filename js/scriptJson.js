@@ -1,5 +1,6 @@
 var gimnasios = null;
 var campos = null;
+var instPropias = null;
 
 function getInstalacionesBySport(instalaciones, sport) {
   var instSport = [];
@@ -11,11 +12,21 @@ function getInstalacionesBySport(instalaciones, sport) {
   return instSport;
 }
 
-function getInstalacionesByNameAndSport(instalaciones, name, sport) {
+function getInstalacionesByNameAndSport(name, sport) {
   var inst;
-  for (var i = 0; i < instalaciones.length; i++) {
-    if (instalaciones[i].nom.localeCompare(name) == 0 && instalaciones[i].detall.localeCompare(sport) == 0) {
-      inst = instalaciones[i];
+  for (var i = 0; i < instPropias.length; i++) {
+    if (instPropias[i].nom.localeCompare(name) == 0 && instPropias[i].detall.localeCompare(sport) == 0) {
+      inst = instPropias[i];
+    }
+  }
+  for (var i = 0; i < campos.length; i++) {
+    if (campos[i].nom.localeCompare(name) == 0 && campos[i].tipus.localeCompare("Campo") == 0) {
+      inst = campos[i];
+    }
+  }
+  for (var i = 0; i < gimnasios.length; i++) {
+    if (gimnasios[i].nom.localeCompare(name) == 0 && gimnasios[i].tipus.localeCompare("gym") == 0) {
+      inst = gimnasios[i];
     }
   }
   return inst;
@@ -24,19 +35,18 @@ function getInstalacionesByNameAndSport(instalaciones, name, sport) {
 
 
 
-function getInstalacionandSport(instalaciones) {
+function startAutocomplete() {
   var instSport = [];
-  for (var i = 0; i < instalaciones.length; i++) {
-    instSport.push(instalaciones[i].nom + ' - ' + instalaciones[i].detall);
+  for (var i = 0; i < instPropias.length; i++) {
+    instSport.push(instPropias[i].nom + ' - ' + instPropias[i].detall);
   }
-  for (var i = 0; campos != null && i < campos.length; i++) {
-    console.log("hola");
+  for (var i = 0; campos!= null && i < campos.length; i++) {
     instSport.push(campos[i].nom + ' -  FÚTBOL');
   }
-  for (var i = 0; gimnasios != null && i < gimnasios.length; i++) {
+  for (var i = 0; gimnasios!= null && i < gimnasios.length; i++) {
     instSport.push(gimnasios[i].nom + ' -  GIMNASIO');
   }
-  return instSport;
+  autocomplete(document.getElementById("myInput"), instSport);
 }
 
 function getServeisSport(instalaciones) {
@@ -66,11 +76,14 @@ function getActivitatsSport(instalaciones) {
 
 function setJsonFutbol(instalaciones){
   campos = instalaciones;
-  console.log(campos);
 }
 
 function setJsonGimnasio(instalaciones){
   gimnasios = instalaciones;
+}
+
+function setJsonPropio(instalaciones){
+  instPropias = instalaciones;
 }
 
 function creategeoJSON(instalaciones) {

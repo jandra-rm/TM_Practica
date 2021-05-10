@@ -293,7 +293,9 @@ function createModal(instalacion) {
   h4.classList.add('modal-title','text-responsive');
   if(instalacion.tipus.localeCompare("Campo")==0){
     h4.textContent=instalacion.nom + " - " + "FÚTBOL";
-  } else{
+  } else if(instalacion.tipus.localeCompare("gym")==0){
+    h4.textContent=instalacion.nom + " - " + "GIMNASIO";
+  }else {
     h4.textContent=instalacion.nom + " - " + instalacion.detall;
   }
   
