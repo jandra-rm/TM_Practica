@@ -30,15 +30,14 @@
 }
 .overlay {
     position:absolute;
-    top:30%;
-    left:32%;
-    
+    top:20%;
+    left:30%;
     z-index:1;
 }
 
 .logo{
-  width: 50%;
-  height:50%;
+  width: 40vw;
+  /*height:40vw;*/
 }
 
 
