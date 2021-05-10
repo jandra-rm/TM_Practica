@@ -145,7 +145,8 @@ function createPortfolio(datosJson) {
     if (b.id.localeCompare("GIMNASIO") == 0) {
       if (gimnasios.length > 0) {
         createMap(gimnasios);
-        //menuFiltros(gimnasios);
+        menuFiltros(gimnasios);
+        ordenarPor();
         createCards(gimnasios);
       } else {
         alert("No hay instalaciones de GIMNASIO");
@@ -154,6 +155,7 @@ function createPortfolio(datosJson) {
       if (campos.length > 0) {
         createMap(campos);
         //menuFiltros(campos);
+        ordenarPoer(gimnasios);
         createCards(campos);
       } else {
         alert("No hay instalaciones de FÚTBOL");
@@ -164,6 +166,7 @@ function createPortfolio(datosJson) {
       if (instBySport.length > 0) {
         createMap(instBySport);
         menuFiltros(instBySport);
+        ordenarPor();
         createCards(instBySport);
       } else {
         alert("No hay instalaciones de " + b.id);
@@ -203,7 +206,8 @@ function createPortfolio(datosJson) {
       if (dep.id.localeCompare("GIMNASIO") == 0) {
         if (gimnasios.length > 0) {
           createMap(gimnasios);
-          //menuFiltros(gimnasios);
+          menuFiltros(gimnasios);
+          ordenarPor();
           createCards(gimnasios);
         } else {
           alert("No hay instalaciones de GIMNASIO");
@@ -212,6 +216,7 @@ function createPortfolio(datosJson) {
         if (campos.length > 0) {
           createMap(campos);
           //menuFiltros(campos);
+          ordenarPor();
           createCards(campos);
         } else {
           alert("No hay instalaciones de FÚTBOL");
@@ -222,6 +227,7 @@ function createPortfolio(datosJson) {
         if (instBySport.length > 0) {
           createMap(instBySport);
           menuFiltros(instBySport);
+          ordenarPor();
           createCards(instBySport);
         } else {
           alert("No hay instalaciones de " + dep.id);
