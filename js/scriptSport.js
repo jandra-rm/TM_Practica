@@ -122,30 +122,32 @@ function createMap(instalaciones) {
 
 }
 
-function menuFiltros(instalaciones) {
-  filtrosMovil(instalaciones);
-  filtrosSideBar(instalaciones);
-}
 
-function filtrosMovil(instalaciones){
-  var filterButton = document.createElement("div");
-  filterButton.innerHTML = '<div class="filter">' +
-                              '<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="true" aria-controls="mobile-filter">Filtros' + 
-                                '<span class="fa fa-filter pl-1"></span>' +
-                              '</button>' +
-                            '</div>';
+function menuFiltros(instalaciones){
+  var filterButton = document.createElement("button");
+  filterButton.classList.add('btn','btn-info');
+  filterButton.setAttribute("type","button");
+  filterButton.setAttribute("data-toggle","collapse");
+  filterButton.setAttribute("data-target","#filtross");
+  filterButton.setAttribute("style","margin-right:20px; margin-top:20px;");
+  filterButton.innerHTML = 
+                                'Filtros: <span class="fa fa-filter pl-1"></span>';
 
+  
+  
+  var divFiltros = document.createElement("div");
+  divFiltros.id="filtross";
+  divFiltros.classList.add('collapse');
+
+  
   var filters = document.createElement("div");
-  filters.id = "mobile-filter";
+  filters.classList.add('card','card-body');
+  filters.setAttribute("style", "text-align: left;overflow:auto");
 
-  var tit = document.createElement("div");
-  tit.innerHTML = '<div class="border-bottom pb-2 ml-2">' +
-                    '<h4 id="burgundy">Filtros</h4>' +
-                  '</div>';
 
   var servicios = document.createElement("div");
   servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-                          '<h5 class="font-weight-bold">Servicios</h5>' + 
+                          '<h4 class="font-weight-bold" style="color:#FF6B6B">Servicios</h4>' + 
                           '<div id="orange"><span class="fa fa-minus"></span></div>' +
                           '<form>';
   var listaServ = getServeisSport(instalaciones);
@@ -158,7 +160,7 @@ function filtrosMovil(instalaciones){
 
   var actividades = document.createElement("div");
   actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-                            '<h5 class="font-weight-bold">Se puede practicar</h5>' + 
+                            '<h4 style="color:#FF6B6B" class="font-weight-bold">Se puede practicar</h4>' + 
                             '<div id="orange"><span class="fa fa-minus"></span></div>' +
                             '<form>';
   var listaAct = getActivitatsSport(instalaciones);
@@ -168,53 +170,14 @@ function filtrosMovil(instalaciones){
   }
   actividades.innerHTML +=  '</form>' + 
                           '</div>';
+  
 
-  filters.appendChild(tit);
   filters.appendChild(servicios);
   filters.appendChild(actividades);
+  divFiltros.appendChild(filters);
+
   document.getElementById("resultados").appendChild(filterButton);
-  document.getElementById("resultados").appendChild(filters);
-}
-
-function filtrosSideBar(instalaciones){
-  var sideBar = document.createElement("section");
-  sideBar.id = "sidebar";
-
-  var tit = document.createElement("div");
-  tit.innerHTML = '<div class="border-bottom pb-2 ml-2">' +
-                    '<h4 id="burgundy">Filtros</h4>' +
-                  '</div>';
-
-  var servicios = document.createElement("div");
-  servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-                          '<h5 class="font-weight-bold">Servicios</h5>' + 
-                          '<div id="orange"><span class="fa fa-minus"></span></div>' +
-                          '<form>';
-  var listaServ = getServeisSport(instalaciones);
-  for (var i=0; i<listaServ.length; i++){
-    servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaServ[i] + '"> <label for="'+ listaServ[i] + '">' +
-                            listaServ[i] + '</label> </div>';
-  }
-  servicios.innerHTML +=   '</form>' +
-                        '</div>';
-
-  var actividades = document.createElement("div");
-  actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-                            '<h5 class="font-weight-bold">Se puede practicar</h5>' + 
-                            '<div id="orange"><span class="fa fa-minus"></span></div>' +
-                            '<form>';
-  var listaAct = getActivitatsSport(instalaciones);
-  for (var i=0; i<listaAct.length; i++){
-    actividades.innerHTML += '<div class="form-group"> <input type="checkbox" id="'+ listaAct[i] + '"> <label for="'+ listaAct[i] + '">' +
-                            listaAct[i] + '</label> </div>';
-  }
-  actividades.innerHTML +=  '</form>' + 
-                          '</div>';
-
-  sideBar.appendChild(tit);
-  sideBar.appendChild(servicios);
-  sideBar.appendChild(actividades);
-  document.getElementById("resultados").appendChild(sideBar);
+  document.getElementById("resultados").appendChild(divFiltros);
 }
 
 function createCards(instalaciones) {
@@ -315,6 +278,7 @@ function createCards(instalaciones) {
   }
 }
 
+
 function createModal(instalacion) {
   var divModal2 = document.createElement("div");
   divModal2.classList.add('modal-dialog','modal-xl','modal-dialog-scrollable');
@@ -327,7 +291,12 @@ function createModal(instalacion) {
 
   var h4 = document.createElement("h4");
   h4.classList.add('modal-title','text-responsive');
-  h4.textContent=instalacion.nom + " - " + instalacion.detall;
+  if(instalacion.tipus.localeCompare("Campo")==0){
+    h4.textContent=instalacion.nom + " - " + "FÚTBOL";
+  } else{
+    h4.textContent=instalacion.nom + " - " + instalacion.detall;
+  }
+  
  
   var divModalBody = document.createElement("div");
   divModalBody.classList.add('modal-body');
@@ -701,7 +670,6 @@ function rellenarModal(instalacion){
   document.getElementById('modalBody').appendChild(divContainer);
   
 }
-
 
 function getStars(rating) {
   // Round to nearest half

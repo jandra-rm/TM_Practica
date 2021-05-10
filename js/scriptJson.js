@@ -1,3 +1,6 @@
+var gimnasios = null;
+var campos = null;
+
 function getInstalacionesBySport(instalaciones, sport) {
   var instSport = [];
   for (var i = 0; i < instalaciones.length; i++) {
@@ -26,6 +29,13 @@ function getInstalacionandSport(instalaciones) {
   for (var i = 0; i < instalaciones.length; i++) {
     instSport.push(instalaciones[i].nom + ' - ' + instalaciones[i].detall);
   }
+  for (var i = 0; campos != null && i < campos.length; i++) {
+    console.log("hola");
+    instSport.push(campos[i].nom + ' -  FÚTBOL');
+  }
+  for (var i = 0; gimnasios != null && i < gimnasios.length; i++) {
+    instSport.push(gimnasios[i].nom + ' -  GIMNASIO');
+  }
   return instSport;
 }
 
@@ -51,6 +61,16 @@ function getActivitatsSport(instalaciones) {
     }
   }
   return act;
+}
+
+
+function setJsonFutbol(instalaciones){
+  campos = instalaciones;
+  console.log(campos);
+}
+
+function setJsonGimnasio(instalaciones){
+  gimnasios = instalaciones;
 }
 
 function creategeoJSON(instalaciones) {

@@ -78,7 +78,7 @@ function createPortada() {
   var img = document.createElement("img");
   img.className = "logo";
   img.src = "assets/img/logo.png";
-  
+
   div2.appendChild(img);
   div.appendChild(vid);
   div.appendChild(div2);
@@ -105,48 +105,52 @@ function createPortfolio(datosJson) {
   d.classList.add('portfolio-item-caption-content', 'text-center', 'text-white');
   d.innerHTML = sports[i];
   b.onclick = function () {
-    if(b.id.localeCompare("GIMNASIO")==0){
-      var reqGym = new XMLHttpRequest(); 
+    if (b.id.localeCompare("GIMNASIO") == 0) {
+      var reqGym = new XMLHttpRequest();
       var url = "https://lcp-tm.herokuapp.com/data/gyms.json";
       reqGym.responseType = 'text';
       reqGym.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          const instGym=JSON.parse(this.responseText);
+          const instGym = JSON.parse(this.responseText);
           const myList = document.getElementById("listado");
           if (myList.hasChildNodes() == true) {
             while (myList.firstChild) {
               myList.removeChild(myList.lastChild);
             }
           }
-          createCards(instGym);
           createMap(instGym);
+          document.getElementById("resultados").innerHTML = "";
+          menuFiltros(instGym);
+          createCards(instGym);
         }
       };
       reqGym.open("GET", url, true);
       reqGym.send();
       show('SportPage', 'HomePage');
 
-    }else if(b.id.localeCompare("FÚTBOL")==0){
-      var reqFutbol = new XMLHttpRequest(); 
+    } else if (b.id.localeCompare("FÚTBOL") == 0) {
+      var reqFutbol = new XMLHttpRequest();
       var url = "https://raw.githubusercontent.com/xescnova/WebApp/main/json/campos.json";
       reqFutbol.responseType = 'text';
       reqFutbol.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          const instFutbol=JSON.parse(this.responseText);
+          const instFutbol = JSON.parse(this.responseText);
           const myList = document.getElementById("listado");
           if (myList.hasChildNodes() == true) {
             while (myList.firstChild) {
               myList.removeChild(myList.lastChild);
             }
           }
-          createCards(instFutbol);
           createMap(instFutbol);
+          //document.getElementById("resultados").innerHTML = "";
+          //menuFiltros(instFutbol);
+          createCards(instFutbol);
         }
       };
       reqFutbol.open("GET", url, true);
       reqFutbol.send();
       show('SportPage', 'HomePage');
-    }else{
+    } else {
       const instBySport = getInstalacionesBySport(datosJson, b.id);
       if (instBySport.length > 0) {
         show('SportPage', 'HomePage');
@@ -157,8 +161,8 @@ function createPortfolio(datosJson) {
           }
         }
         createMap(instBySport);
-        //document.getElementById("filtros").innerHTML = "";
-        //menuFiltros(instBySport);
+        document.getElementById("resultados").innerHTML = "";
+        menuFiltros(instBySport);
         createCards(instBySport);
       } else {
         alert("No hay instalaciones del deporte seleccionado");
@@ -185,14 +189,16 @@ function createPortfolio(datosJson) {
     clnd.innerHTML = sports[i];
     const dep = clnb;
     dep.onclick = function () {
-      switch(dep.id){
+      switch (dep.id) {
         case "GIMNASIO":
-          var reqGym = new XMLHttpRequest(); 
+          var reqGym = new XMLHttpRequest();
           var url = "https://lcp-tm.herokuapp.com/data/gyms.json";
           reqGym.responseType = 'text';
           reqGym.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              const instGym=JSON.parse(this.responseText);
+              const instGym = JSON.parse(this.responseText);
+              setJsonGimnasio(instGym);
+              autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
               createCards(instGym);
               createMap(instGym);
             }
@@ -200,23 +206,33 @@ function createPortfolio(datosJson) {
           reqGym.open("GET", url, true);
           reqGym.send();
           show('SportPage', 'HomePage');
-        break;
-          
+          break;
+
         case "FÚTBOL":
-          var reqFutbol = new XMLHttpRequest(); 
+          var reqFutbol = new XMLHttpRequest();
           var url = "https://raw.githubusercontent.com/xescnova/WebApp/main/json/campos.json";
           reqFutbol.responseType = 'text';
           reqFutbol.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              const instFutbol=JSON.parse(this.responseText);
-              createCards(instFutbol);
+              const instFutbol = JSON.parse(this.responseText);
+              setJsonFutbol(instFutbol);
+              autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
+              const myList = document.getElementById("listado");
+              if (myList.hasChildNodes() == true) {
+                while (myList.firstChild) {
+                  myList.removeChild(myList.lastChild);
+                }
+              }
               createMap(instFutbol);
+              document.getElementById("resultados").innerHTML = "";
+              //menuFiltros(instFutbol);
+              createCards(instFutbol);
             }
           };
           reqFutbol.open("GET", url, true);
           reqFutbol.send();
           show('SportPage', 'HomePage');
-        break;
+          break;
 
         default:
           const instBySport = getInstalacionesBySport(datosJson, dep.id);
@@ -229,13 +245,13 @@ function createPortfolio(datosJson) {
               }
             }
             createMap(instBySport);
-            //document.getElementById("filtros").innerHTML = "";
-            //menuFiltros(instBySport);
+            document.getElementById("resultados").innerHTML = "";
+            menuFiltros(instBySport);
             createCards(instBySport);
           } else {
             alert("No hay instalaciones del deporte seleccionado");
           }
-        break;
+          break;
       }
     };
     var clnim = im.cloneNode(false);
@@ -308,48 +324,56 @@ function createNavBar(datosJson) {
     const adep = acat;
     adep.onclick = function () {
 
-      if(adep.textContent.localeCompare("GIMNASIO")==0){
-        var reqGym = new XMLHttpRequest(); 
+      if (adep.textContent.localeCompare("GIMNASIO") == 0) {
+        var reqGym = new XMLHttpRequest();
         var url = "https://lcp-tm.herokuapp.com/data/gyms.json";
         reqGym.responseType = 'text';
         reqGym.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            const instGym=JSON.parse(this.responseText);
+            const instGym = JSON.parse(this.responseText);
+            setJsonGimnasio(instGym);
+            autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
             const myList = document.getElementById("listado");
             if (myList.hasChildNodes() == true) {
               while (myList.firstChild) {
                 myList.removeChild(myList.lastChild);
               }
             }
-            createCards(instGym);
             createMap(instGym);
+            document.getElementById("resultados").innerHTML = "";
+            menuFiltros(instGym);
+            createCards(instGym);
           }
         };
         reqGym.open("GET", url, true);
         reqGym.send();
         show('SportPage', 'HomePage');
 
-      }else if(adep.textContent.localeCompare("FÚTBOL")==0){
-        var reqFutbol = new XMLHttpRequest(); 
+      } else if (adep.textContent.localeCompare("FÚTBOL") == 0) {
+        var reqFutbol = new XMLHttpRequest();
         var url = "https://raw.githubusercontent.com/xescnova/WebApp/main/json/campos.json";
         reqFutbol.responseType = 'text';
         reqFutbol.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            const instFutbol=JSON.parse(this.responseText);
+            const instFutbol = JSON.parse(this.responseText);
+            setJsonFutbol(instFutbol);
+            autocomplete(document.getElementById("myInput"), getInstalacionandSport(datosJson));
             const myList = document.getElementById("listado");
             if (myList.hasChildNodes() == true) {
               while (myList.firstChild) {
                 myList.removeChild(myList.lastChild);
               }
             }
-            createCards(instFutbol);
             createMap(instFutbol);
+            document.getElementById("resultados").innerHTML = "";
+            //menuFiltros(instFutbol);
+            createCards(instFutbol);
           }
         };
         reqFutbol.open("GET", url, true);
         reqFutbol.send();
         show('SportPage', 'HomePage');
-      }else{
+      } else {
         const instBySport = getInstalacionesBySport(datosJson, adep.textContent);
         if (instBySport.length > 0) {
           show('SportPage', 'HomePage');
@@ -360,8 +384,8 @@ function createNavBar(datosJson) {
             }
           }
           createMap(instBySport);
-          //document.getElementById("filtros").innerHTML = "";
-          //menuFiltros(instBySport);
+          document.getElementById("resultados").innerHTML = "";
+          menuFiltros(instBySport);
           createCards(instBySport);
         } else {
           alert("No hay instalaciones del deporte seleccionado");

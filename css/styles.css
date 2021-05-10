@@ -10456,9 +10456,6 @@ transition: all .1s linear;
   display: inline-block
 }
 */
-#burgundy {
-  color: #FF6B6B
-}
 
 #orange {
   color: #f5ce7b
@@ -10571,9 +10568,11 @@ h6 {
   */
 
   #sidebar {
+      /*
       width: 30%;
       padding: 20px;
       float: left;
+      */
       display: none;
   }
 
@@ -10635,9 +10634,11 @@ h6 {
 
   */
   #sidebar {
+      /*
       width: 30%;
       padding: 20px;
       float: left;
+      */
       display: none;
   }
 
@@ -10709,9 +10710,11 @@ h6 {
   */
 
   #sidebar {
+    /*
       width: 35%;
       padding: 20px;
       float: left;
+      */
       display: none;
   }
 
@@ -10762,9 +10765,11 @@ h6 {
 
   */
   #sidebar {
+    /*
       width: 40%;
       padding: 20px;
       float: left;
+      */
       display: none;
   }
 
@@ -10843,6 +10848,7 @@ h6 {
   min-height: 100vh;
 }
 
+
 /* .rating-field */
 .rating {
   float: left;
@@ -10906,9 +10912,6 @@ h6 {
   color:white;
   margin:auto;
 }
-
-
-
 
 
 
