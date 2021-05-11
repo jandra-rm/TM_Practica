@@ -34,13 +34,13 @@ function getInstalacionesByNameAndSport(name, sport) {
 
 function startAutocomplete() {
   var instSport = [];
-  for (var i = 0; instPropias!= null && i < instPropias.length; i++) {
+  for (var i = 0; instPropias != null && i < instPropias.length; i++) {
     instSport.push(instPropias[i].nom + ' - ' + instPropias[i].detall);
   }
-  for (var i = 0; campos!= null && i < campos.length; i++) {
+  for (var i = 0; campos != null && i < campos.length; i++) {
     instSport.push(campos[i].nom + ' -  FÚTBOL');
   }
-  for (var i = 0; gimnasios!= null && i < gimnasios.length; i++) {
+  for (var i = 0; gimnasios != null && i < gimnasios.length; i++) {
     instSport.push(gimnasios[i].nom + ' -  GIMNASIO');
   }
   autocomplete(document.getElementById("myInput"), instSport);
@@ -48,21 +48,20 @@ function startAutocomplete() {
 
 function getServeisSport(instalaciones) {
   var serv = [];
-  for (var i = 0; i < instalaciones.length; i++) {
-    if(instalaciones[i].tipus.localeCompare("gym") == 0){
-      if(instalaciones[i].dadesPropies.serveis.piscina == true && serv.includes("Piscina") == false){
-        serv.push("Piscina");
-      }
-      if(instalaciones[i].dadesPropies.serveis.spa == true && serv.includes("Spa") == false){
-        serv.push("Spa");
-      }
-      if(instalaciones[i].dadesPropies.serveis.salaFitness == true && serv.includes("Sala fitness") == false){
-        serv.push("Sala fitness");
-      }
+  if (instalaciones[0].tipus.localeCompare("gym") == 0) {
+    serv.push("Piscina");
+    serv.push("Spa");
+    serv.push("Sala fitness");
+  } else if (instalaciones[0].tipus.localeCompare("Campo") == 0) {
+    serv.push("Internet");
+    serv.push("Despacho arbitral");
+    serv.push("Sala antidopaje");
+    serv.push("Vallado");
 
-    } else {
-      for (var j = 0; j < instalaciones[i].dadesPropies.serveis.length; j++){
-        if(serv.includes(instalaciones[i].dadesPropies.serveis[j].nom) == false){
+  } else {
+    for (var i = 0; i < instalaciones.length; i++) {
+      for (var j = 0; j < instalaciones[i].dadesPropies.serveis.length; j++) {
+        if (serv.includes(instalaciones[i].dadesPropies.serveis[j].nom) == false) {
           serv.push(instalaciones[i].dadesPropies.serveis[j].nom);
         }
       }
@@ -73,24 +72,15 @@ function getServeisSport(instalaciones) {
 
 function getActivitatsSport(instalaciones) {
   var act = [];
-  for (var i = 0; i < instalaciones.length; i++) {
-    if(instalaciones[i].tipus.localeCompare("gym") == 0){
-      if(instalaciones[i].dadesPropies.serveis.padel == true && act.includes("Pádel") == false){
-        act.push("Pádel");
-      }
-      if(instalaciones[i].dadesPropies.serveis.tenis == true && act.includes("Tenis") == false){
-        act.push("Tenis");
-      }
-      if(instalaciones[i].dadesPropies.serveis.spinning == true && act.includes("Spinning") == false){
-        act.push("Spinning");
-      }
-    } 
-    else {
-      for (var i = 0; i < instalaciones.length; i++) {
-        for (var j = 0; j < instalaciones[i].dadesPropies.esports.length; j++){
-          if(act.includes(instalaciones[i].dadesPropies.esports[j]) == false){
-            act.push(instalaciones[i].dadesPropies.esports[j]);
-          }
+  if (instalaciones[0].tipus.localeCompare("gym") == 0) {
+    act.push("Pádel");
+    act.push("Tenis");
+    act.push("Spinning");
+  } else {
+    for (var i = 0; i < instalaciones.length; i++) {
+      for (var j = 0; j < instalaciones[i].dadesPropies.esports.length; j++) {
+        if (act.includes(instalaciones[i].dadesPropies.esports[j]) == false) {
+          act.push(instalaciones[i].dadesPropies.esports[j]);
         }
       }
     }
@@ -99,21 +89,21 @@ function getActivitatsSport(instalaciones) {
 }
 
 
-function setJsonFutbol(instalaciones){
+function setJsonFutbol(instalaciones) {
   campos = instalaciones;
 }
 
-function setJsonGimnasio(instalaciones){
+function setJsonGimnasio(instalaciones) {
   gimnasios = instalaciones;
 }
 
-function setJsonPropio(instalaciones){
+function setJsonPropio(instalaciones) {
   instPropias = instalaciones;
 }
 
-function getCapacidadesCampos(){
+function getCapacidadesCampos() {
   var arr = [];
-  for(var i = 0; i<campos.length; i++){
+  for (var i = 0; i < campos.length; i++) {
     arr.push(campos[i].dadesPropies.capacidad);
   }
   return arr;

@@ -222,6 +222,19 @@ function filtrosFutbol(instalaciones) {
     '</form>' +
     '</div>';
 
+    var servicios = document.createElement("div");
+    servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+      '<h4 class="font-weight-bold" style="color:#FF6B6B">Servicios</h4>' +
+      '<div id="orange"><span class="fa fa-minus"></span></div>' +
+      '<form>';
+    var listaServ = getServeisSport(instalaciones);
+    for (var i = 0; i < listaServ.length; i++) {
+      servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
+        listaServ[i] + '</label> </div>';
+    }
+    servicios.innerHTML += '</form>' +
+      '</div>';
+
   var capacidades = getCapacidadesCampos();
   var min = Math.min.apply(null, capacidades);
   var max = Math.max.apply(null, capacidades);
@@ -239,6 +252,7 @@ function filtrosFutbol(instalaciones) {
 
 
   filters.appendChild(cesped);
+  filters.appendChild(servicios);
   filters.appendChild(capacidad);
   divFiltros.appendChild(filters);
 
@@ -922,7 +936,6 @@ function getStars(rating) {
   return output.join('');
 }
 
-//carlos
 //Funcion que cambia el arr[num]ero de objetos que salen por cada fila segun la eleccion del usuario
 function objetosPorFila(n) {
   var elementos = document.getElementsByClassName('card-borde');
