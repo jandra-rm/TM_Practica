@@ -216,13 +216,13 @@
           "periodo": "6 meses"
         }
       ],
-      "festiu": [
+      "festiu": 
         {
-          "es-festiu": "",
+          "esFestiu": true,
           "in": "07:00",
           "out": "21:15"
         }
-      ],
+      ,
       "serveis": [
         {
           "nom": "equipos de salvamento y primeros auxilios",
@@ -415,13 +415,13 @@
         }
         
       ],
-      "festiu": [
+      "festiu": 
         {
-          "es-festiu": "",
+          "esFestiu": true,
           "in": "07:00",
           "out": "21:15"
         }
-      ],
+      ,
       "serveis": [
         {
           "nom": "alquiler de raquetas y pelotas",
@@ -606,13 +606,13 @@
           "periodo": "hora"
         }
       ],
-      "festiu": [
+      "festiu": 
         {
-          "es-festiu": "",
+          "esFestiu": true,
           "in": "07:00",
           "out": "21:15"
         }
-      ],
+      ,
       "serveis": [
         {
           "nom": "alquiler de raquetas y pelotas",

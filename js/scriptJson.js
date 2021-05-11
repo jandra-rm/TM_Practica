@@ -34,7 +34,7 @@ function getInstalacionesByNameAndSport(name, sport) {
 
 function startAutocomplete() {
   var instSport = [];
-  for (var i = 0; i < instPropias.length; i++) {
+  for (var i = 0; instPropias!= null && i < instPropias.length; i++) {
     instSport.push(instPropias[i].nom + ' - ' + instPropias[i].detall);
   }
   for (var i = 0; campos!= null && i < campos.length; i++) {
@@ -109,6 +109,14 @@ function setJsonGimnasio(instalaciones){
 
 function setJsonPropio(instalaciones){
   instPropias = instalaciones;
+}
+
+function getCapacidadesCampos(){
+  var arr = [];
+  for(var i = 0; i<campos.length; i++){
+    arr.push(campos[i].dadesPropies.capacidad);
+  }
+  return arr;
 }
 
 function creategeoJSON(instalaciones) {

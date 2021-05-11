@@ -3731,7 +3731,9 @@ input[type=button].btn-block {
   }
 }
 .custom-range::-webkit-slider-thumb:active {
-  background-color: #98f1df;
+  /*background-color: #98f1df;*/
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .custom-range::-webkit-slider-runnable-track {
   width: 100%;
@@ -10906,11 +10908,35 @@ h6 {
     left:2px;
 }
 
-.text-responsive {
-  font-size: calc(100% + 1vw + 1vh);
-  color:white;
-  margin:auto;
+
+#orden {
+  font-family: 'Montserrat';
+  position:absolute;
+  margin-top:3.7rem;
+  margin-left: 65%;
+  margin-right: 10vw; 
+  margin-bottom: 3rem;
+  font-size:2rem;
 }
+
+#menuFiltros {
+  display:inline-block;
+  margin-left: 10vw; 
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  width:30%;
+}
+
+#resultados {
+  font-family: 'Montserrat';
+  position:absolute;
+  margin-top:3rem;
+  margin-left: 40%;
+  margin-right: 40%; 
+  margin-bottom: 3rem;
+  font-size:2.6vw;
+}
+
 
 
 

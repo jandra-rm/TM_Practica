@@ -140,7 +140,9 @@ function createPortfolio(datosJson) {
         myList.removeChild(myList.lastChild);
       }
     }
+    document.getElementById("menuFiltros").innerHTML = "";
     document.getElementById("resultados").innerHTML = "";
+    document.getElementById("orden").innerHTML = "";
     show('SportPage', 'HomePage');
 
     if (b.id.localeCompare("GIMNASIO") == 0) {
@@ -155,8 +157,8 @@ function createPortfolio(datosJson) {
     } else if (b.id.localeCompare("FÚTBOL") == 0) {
       if (campos.length > 0) {
         createMap(campos);
-        //menuFiltros(campos);
-        ordenarPoer(gimnasios);
+        menuFiltros(campos);
+        ordenarPor();
         createCards(campos);
       } else {
         alert("No hay instalaciones de FÚTBOL");
@@ -201,7 +203,9 @@ function createPortfolio(datosJson) {
           myList.removeChild(myList.lastChild);
         }
       }
+      document.getElementById("menuFiltros").innerHTML = "";
       document.getElementById("resultados").innerHTML = "";
+      document.getElementById("orden").innerHTML = "";
       show('SportPage', 'HomePage');
 
       if (dep.id.localeCompare("GIMNASIO") == 0) {
@@ -216,7 +220,7 @@ function createPortfolio(datosJson) {
       } else if (dep.id.localeCompare("FÚTBOL") == 0) {
         if (campos.length > 0) {
           createMap(campos);
-          //menuFiltros(campos);
+          menuFiltros(campos);
           ordenarPor();
           createCards(campos);
         } else {
@@ -310,13 +314,16 @@ function createNavBar(datosJson) {
           myList.removeChild(myList.lastChild);
         }
       }
+      document.getElementById("menuFiltros").innerHTML = "";
       document.getElementById("resultados").innerHTML = "";
+      document.getElementById("orden").innerHTML = "";
       show('SportPage', 'HomePage');
 
       if (adep.innerText.localeCompare("GIMNASIO") == 0) {
         if (gimnasios.length > 0) {
           createMap(gimnasios);
-          //menuFiltros(gimnasios);
+          menuFiltros(gimnasios);
+          ordenarPor();
           createCards(gimnasios);
         } else {
           alert("No hay instalaciones de GIMNASIO");
@@ -324,7 +331,8 @@ function createNavBar(datosJson) {
       } else if (adep.innerText.localeCompare("FÚTBOL") == 0) {
         if (campos.length > 0) {
           createMap(campos);
-          //menuFiltros(campos);
+          menuFiltros(campos);
+          ordenarPor();
           createCards(campos);
         } else {
           alert("No hay instalaciones de FÚTBOL");
@@ -335,6 +343,7 @@ function createNavBar(datosJson) {
         if (instBySport.length > 0) {
           createMap(instBySport);
           menuFiltros(instBySport);
+          ordenarPor();
           createCards(instBySport);
         } else {
           alert("No hay instalaciones de " + adep.innerText);

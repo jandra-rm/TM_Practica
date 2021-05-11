@@ -124,7 +124,6 @@ function createMap(instalaciones) {
 
 function ordenarPor() {
   var divOrdenacion = document.createElement("div");
-  divOrdenacion.innerHTML="";
   divOrdenacion.innerHTML =
     '<span> <b>Ordenar por: <b></span>' +
     '<select name="ordenacion" id="ordenacion">' +
@@ -189,15 +188,74 @@ function menuFiltros(instalaciones) {
     filters.appendChild(actividades);
     divFiltros.appendChild(filters);
 
-    document.getElementById("resultados").appendChild(filterButton);
-    document.getElementById("resultados").appendChild(divFiltros);
+    document.getElementById("menuFiltros").appendChild(filterButton);
+    document.getElementById("menuFiltros").appendChild(divFiltros);
   }
 }
 
 function filtrosFutbol(instalaciones) {
-  
+  var filterButton = document.createElement("button");
+  filterButton.classList.add('btn', 'btn-info');
+  filterButton.setAttribute("type", "button");
+  filterButton.setAttribute("data-toggle", "collapse");
+  filterButton.setAttribute("data-target", "#filtross");
+  filterButton.setAttribute("style", "margin-right:20px; margin-top:20px;");
+  filterButton.innerHTML =
+    'Filtros: <span class="fa fa-filter pl-1"></span>';
+
+  var divFiltros = document.createElement("div");
+  divFiltros.id = "filtross";
+  divFiltros.classList.add('collapse');
+
+
+  var filters = document.createElement("div");
+  filters.classList.add('card', 'card-body');
+  filters.setAttribute("style", "text-align: left;overflow:auto");
+
+  var cesped = document.createElement("div");
+  cesped.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+    '<h4 class="font-weight-bold" style="color:#FF6B6B">Césped</h4>' +
+    '<div id="orange"><span class="fa fa-minus"></span></div>' +
+    '<form>' +
+    '<div class="form-group"> <input type="checkbox" id="Natural"> <label for="Natural">Natural</label> </div>' +
+    '<div class="form-group"> <input type="checkbox" id="Artificial"> <label for="Artificial">Artificial</label> </div>' +
+    '</form>' +
+    '</div>';
+
+  var capacidades = getCapacidadesCampos();
+  var min = Math.min.apply(null, capacidades);
+  var max = Math.max.apply(null, capacidades);
+  var capacidad = document.createElement("div");
+  capacidad.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+    '<h4 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h4>' +
+    '<div id="orange"><span class="fa fa-minus"></span></div>' +
+    '<div class="d-flex justify-content-center my-4">' +
+    '<span class="font-weight-bold mr-2 ">' + min + '</span>' +
+    '<form class="range-field w-50">' +
+    '<div class="form-group"><input class="custom-range border-0" type="range" id="capacidad" onmouseup="myFunction()" min="' + min + '" max="' + max + '" /></div>' +
+    '</form>' +
+    '<span class="font-weight-bold ml-2">' + max + '</span>' +
+    '</div>';
+
+
+  filters.appendChild(cesped);
+  filters.appendChild(capacidad);
+  divFiltros.appendChild(filters);
+
+  document.getElementById("menuFiltros").appendChild(filterButton);
+  document.getElementById("menuFiltros").appendChild(divFiltros);
 }
+
+function myFunction() {
+  console.log(document.getElementById("capacidad").value);
+}
+
 function createCards(instalaciones) {
+  if (instalaciones.length == 1) {
+    document.getElementById("resultados").innerHTML = instalaciones.length + " resultado";
+  } else {
+    document.getElementById("resultados").innerHTML = instalaciones.length + " resultados";
+  }
   var i = 0;
   //Primera iteración
   var card = document.createElement("div");
@@ -307,7 +365,8 @@ function createModal(instalacion) {
   divModalHeader.classList.add('modal-header');
 
   var h4 = document.createElement("h4");
-  h4.classList.add('modal-title', 'text-responsive');
+  h4.classList.add('modal-title', 'col-11');
+  h4.setAttribute('style', 'color: white;');
   if (instalacion.tipus.localeCompare("Campo") == 0) {
     h4.textContent = instalacion.nom + " - " + "FÚTBOL";
   } else if (instalacion.tipus.localeCompare("gym") == 0) {
@@ -404,335 +463,441 @@ function rellenarModal(instalacion) {
   var divInfo = document.createElement("div");
   divInfo.classList.add('card', 'card-body');
   divInfo.setAttribute('style', 'white-space:pre; overflow:auto');
+  
   // Cogemos el día de hoy para mostrarlo
-
-  if (instalacion.tipus.localeCompare("gym") == 0) {
-    switch (d.getDay()) {
-      case 0: buttonHorari.textContent = "Hoy : " + horari.di[0].in + " - " + horari.di[0].out;
-        break;
-      case 1: buttonHorari.textContent = "Hoy : " + horari.dm[0].in + " - " + horari.dm[0].out;
-        break;
-      case 2: buttonHorari.textContent = "Hoy : " + horari.dx[0].in + " - " + horari.dx[0].out;
-        break;
-      case 3: buttonHorari.textContent = "Hoy : " + horari.dj[0].in + " - " + horari.dj[0].out;
-        break;
-      case 4: buttonHorari.textContent = "Hoy : " + horari.dv[0].in + " - " + horari.dv[0].out;
-        break;
-      case 5: buttonHorari.textContent = "Hoy : " + horari.ds[0].in + " - " + horari.ds[0].out;
-        break;
-      case 6: buttonHorari.textContent = "Hoy : " + horari.dg[0].in + " - " + horari.dg[0].out;
-        break;
-    }
-    // Mostramos la semana al desplegar
-    divInfo.textContent = "Lunes: " + horari.di[0].in + " - " + horari.di[0].out + "\r\n";
-    divInfo.textContent += "Martes: " + horari.dm[0].in + " - " + horari.dm[0].out + "\r\n";
-    divInfo.textContent += "Miércoles: " + horari.dx[0].in + " - " + horari.dx[0].out + "\r\n";
-    divInfo.textContent += "Jueves: " + horari.dj[0].in + " - " + horari.dj[0].out + "\r\n";
-    divInfo.textContent += "Viernes: " + horari.dv[0].in + " - " + horari.dv[0].out + "\r\n";
-    divInfo.textContent += "Sábado: " + horari.ds[0].in + " - " + horari.ds[0].out + "\r\n";
-    divInfo.textContent += "Domingo: " + horari.dg[0].in + " - " + horari.dg[0].out + "\r\n";
-
+  switch (d.getDay()) {
+    case 0:
+      if (horari.dg.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.dg[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.dg[0].in + " - " + horari.dg[0].out;
+        if (horari.dg.length > 1) {
+          if (horari.dg[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.dg[1].in + " - " + horari.dg[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 1:
+      if (horari.di.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.di[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.di[0].in + " - " + horari.di[0].out;
+        if (horari.di.length > 1) {
+          if (horari.di[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.di[1].in + " - " + horari.di[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 2:
+      if (horari.dm.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.dm[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.dm[0].in + " - " + horari.dm[0].out;
+        if (horari.dm.length > 1) {
+          if (horari.dm[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.dm[1].in + " - " + horari.dm[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 3:
+      if (horari.dx.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.dx[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.dx[0].in + " - " + horari.dx[0].out;
+        if (horari.dx.length > 1) {
+          if (horari.dx[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.dx[1].in + " - " + horari.dx[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 4:
+      if (horari.dj.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.dj[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.dj[0].in + " - " + horari.dj[0].out;
+        if (horari.dj.length > 1) {
+          if (horari.dj[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.dj[1].in + " - " + horari.dj[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 5:
+      if (horari.dv.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.dv[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.dv[0].in + " - " + horari.dv[0].out;
+        if (horari.dv.length > 1) {
+          if (horari.dv[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.dv[1].in + " - " + horari.dv[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+    case 6:
+      if (horari.ds.length == 0) {
+        buttonHorari.textContent = "Hoy → cerrado";
+      } else if (horari.ds[0].in.localeCompare('-') == 0) {
+        buttonHorari.textContent = "Hoy →  cerrado";
+      } else {
+        buttonHorari.textContent = "Hoy → " + horari.ds[0].in + " - " + horari.ds[0].out;
+        if (horari.ds.length > 1) {
+          if (horari.ds[1].in.localeCompare('-') != 0) {
+            buttonHorari.textContent += ", " + horari.ds[1].in + " - " + horari.ds[1].out + "\r\n";
+          }
+        }
+      }
+      break;
+  }
+  // Mostramos la semana al desplegar
+  //LUNES
+  if (horari.di.length == 0) {
+    divInfo.textContent += "Lunes → cerrado\r\n";
+  } else if (horari.di[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Lunes →  cerrado\r\n";
   } else {
-    switch (d.getDay()) {
-      case 0: buttonHorari.textContent = "Hoy : " + horari.di[0].in + " - " + horari.di[0].out;
-        if (horari.di[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.di[1].in + " - " + horari.di[1].out + "\r\n";
-        }
-        break;
-      case 1: buttonHorari.textContent = "Hoy : " + horari.dm[0].in + " - " + horari.dm[0].out;
-        if (horari.dm[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.dm[1].in + " - " + horari.dm[1].out + "\r\n";
-        }
-        break;
-      case 2: buttonHorari.textContent = "Hoy : " + horari.dx[0].in + " - " + horari.dx[0].out;
-        if (horari.dx[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.dx[1].in + " - " + horari.dx[1].out + "\r\n";
-        }
-        break;
-      case 3: buttonHorari.textContent = "Hoy : " + horari.dj[0].in + " - " + horari.dj[0].out;
-        if (horari.dj[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.dj[1].in + " - " + horari.dj[1].out + "\r\n";
-        }
-        break;
-      case 4: buttonHorari.textContent = "Hoy : " + horari.dv[0].in + " - " + horari.dv[0].out;
-        if (horari.dv[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.dv[1].in + " - " + horari.dv[1].out + "\r\n";
-        }
-        break;
-      case 5: buttonHorari.textContent = "Hoy : " + horari.ds[0].in + " - " + horari.ds[0].out;
-        if (horari.ds[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.ds[1].in + " - " + horari.ds[1].out + "\r\n";
-        }
-        break;
-      case 6: buttonHorari.textContent = "Hoy : " + horari.dg[0].in + " - " + horari.dg[0].out;
-        if (horari.dm[1].in.localeCompare('-') != 0) {
-          divInfo.textContent += ", " + horari.dm[1].in + " - " + horari.dm[1].out + "\r\n";
-        }
-        break;
-    }
-    // Mostramos la semana al desplegar
-    divInfo.textContent = "Lunes: " + horari.di[0].in + " - " + horari.di[0].out;
-    if (horari.di[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.di[1].in + " - " + horari.di[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Martes: " + horari.dm[0].in + " - " + horari.dm[0].out;
-    if (horari.dm[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.dm[1].in + " - " + horari.dm[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Miércoles: " + horari.dx[0].in + " - " + horari.dx[0].out;
-    if (horari.dx[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.dx[1].in + " - " + horari.dx[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Jueves: " + horari.dj[0].in + " - " + horari.dj[0].out;
-    if (horari.dj[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.dj[1].in + " - " + horari.dj[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Viernes: " + horari.dv[0].in + " - " + horari.dv[0].out;
-    if (horari.dv[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.dv[1].in + " - " + horari.dv[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Sábado: " + horari.ds[0].in + " - " + horari.ds[0].out;
-    if (horari.ds[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.ds[1].in + " - " + horari.ds[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-    divInfo.textContent += "Domingo: " + horari.dg[0].in + " - " + horari.dg[0].out;
-    if (horari.dg[1].in.localeCompare('-') != 0) {
-      divInfo.textContent += ", " + horari.dg[1].in + " - " + horari.dg[1].out + "\r\n";
-    } else { divInfo.textContent += "\r\n"; }
-
-    if (instalacion.tipus.localeCompare("Campo") != 0) {
-      divInfo.textContent += "Festivos: ";
-      for (var i = 0; i < instalacion.dadesPropies.festiu.length; i++) {
-        divInfo.textContent += instalacion.dadesPropies.festiu[i].in + " - " + instalacion.dadesPropies.festiu[i].out + "\r\n";
+    divInfo.textContent += "Lunes → " + horari.di[0].in + " - " + horari.di[0].out;
+    if (horari.di.length > 1) {
+      if (horari.di[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.di[1].in + " - " + horari.di[1].out;
       }
     }
+    divInfo.textContent += "\r\n";
   }
-
-  divButton.appendChild(divInfo);
-  pHorari.appendChild(clock);
-  pHorari.appendChild(spanClock);
-  pHorari.appendChild(buttonHorari);
-  pHorari.appendChild(divButton);
-
-  buttonWeb = document.createElement("button");
-  //buttonWeb.classList('');
-
-  // Teléfono
-  var pTelf = document.createElement("p");
-  pTelf.classList.add('small');
-  var telf = document.createElement("i");
-  telf.classList.add('fas', 'fa-phone');
-  var spanTelf = document.createElement("span");
-  spanTelf.setAttribute("style", "font-size:17px");
-  spanTelf.textContent = "  " + instalacion.contacte.telf;
-  pTelf.appendChild(telf);
-  pTelf.appendChild(spanTelf);
-
-  var pDescripcio = document.createElement("p");
-  pDescripcio.setAttribute("style", "font-size:17px;text-align:justify");
-  //pDescripcio.setAttribute("style","");
-  //pDescripcio.setAttribute("text-justify","inter-word");
-  pDescripcio.textContent = instalacion.descripcio;
-
-  var divTiempo = document.createElement("div");
-  divTiempo.classList.add('container', 'shadow-lg', 'bg-white', 'rounded');
-
-  var icono = document.createElement("img");
-  icono.id = "icono-weather";
-
-  pTiempo = document.createElement("span");
-  pTiempo.setAttribute("style", "font-size:17px");
-
-  var divTemp = document.createElement("span");
-  divTemp.id = "temperatura";
-
-  var divViento = document.createElement("span");
-  divViento.id = "viento";
-
-  var divHumedad = document.createElement("span");
-  divHumedad.id = "humedad";
-
-  //Meteo
-  var lat = instalacion.geo1.lat;
-  var long = instalacion.geo1.long;
-  $.getJSON("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely,hourly,alerts&lang=es&appid=d1546bfd8c828a6a1add9c7173a462ac", function (json) {
-    //Ahora
-    $('#icono-weather').attr("src", "http://openweathermap.org/img/wn/" + json.current.weather[0].icon + "@2x.png");
-    $('#temperatura').html((Math.round((json.current.temp - 273.15) * 10) / 10) + " °C");
-    $('#viento').html("&emsp; <i class='fas fa-wind fa-1x'></i> " + (Math.round(json.current.wind_speed * 3.6)) + " kmh");
-    $('#humedad').html(" &emsp; <i class='fas fa-tint fa-1x'></i> " + json.current.humidity + "%"); // <i class="fas fa-humidity"></i>
-  });
-
-  var comentario = document.createElement("div");
-  comentario.innerHTML = "Déjanos una valoración y un comentario<br><br>";
-  comentario.setAttribute("style", "margin-top:50px; font-size:17px");
-  comentario.classList.add('container', 'bg-white', 'rounded');
-  var formulario = document.createElement("form");
-  formulario.action = "javascript:void(0);";
-  var divForm = document.createElement("div");
-  var label = document.createElement("label");
-  var input = document.createElement("input");
-  var buttonForm = document.createElement("button");
-
-  divForm.classList.add('form-group');
-  label.setAttribute("for", "email");
-  label.textContent = "Dirección email: ";
-  input.id = "email";
-  input.classList.add('form-control');
-  divForm.appendChild(label);
-  divForm.appendChild(input);
-
-  var divForm2 = document.createElement("div");
-  var label2 = document.createElement("label");
-  var input2 = document.createElement("textarea");
-
-  divForm2.classList.add('form-group');
-  label2.setAttribute("for", "email");
-  label2.textContent = "Comentario: ";
-  input2.id = "email";
-  input2.classList.add('form-control');
-  input2.setAttribute("rows", "5");
-  divForm2.appendChild(label2);
-  divForm2.appendChild(input2);
-
-  buttonForm.classList.add('btn', 'btn-info');
-  buttonForm.setAttribute("type", "submit");
-  buttonForm.textContent = "Dejar comentario";
-
-  var fieldset = document.createElement("div");
-  fieldset.setAttribute("style", "overflow:hidden");
-  var stars = 0;
-  fieldset.innerHTML =
-    '<fieldset class="rating">' +
-    '<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>' +
-    '<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>' +
-    '<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>' +
-    '<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>' +
-    '<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>' +
-    '</fieldset> <br><br><br><br>';
-
-  var servicios = document.createElement("div");
-  servicios.setAttribute("style", "font-size:17px");
-  servicios.innerHTML = "<b>Servicios de la instalación:<b> <br>";
-
-  if (instalacion.tipus.localeCompare("Campo") == 0) { // JSON de los campos de fútbol
-    servicios.innerHTML += "  Capacidad: " + instalacion.dadesPropies.capacidad + "<br>";
-    servicios.innerHTML += "  Vallado: " + instalacion.dadesPropies.vallado + "<br>";
-    servicios.innerHTML += "  Dimensiones: " + instalacion.dadesPropies.dimensiones + "<br>";
-    servicios.innerHTML += "  Internet: " + instalacion.dadesPropies.internet + "<br>";
-  }
-  else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
-    if(instalacion.dadesPropies.serveis.piscina == true){
-      servicios.innerHTML += "  Piscina<br>";
-    }
-    if(instalacion.dadesPropies.serveis.spa == true){
-      servicios.innerHTML += "  Spa<br>";
-    }
-    if(instalacion.dadesPropies.serveis.salaFitness == true){
-      servicios.innerHTML += "  Sala fitness<br>";
-    }
-    /*
-    servicios.innerHTML += "  Piscina: " + instalacion.dadesPropies.serveis.piscina + "<br>";
-    servicios.innerHTML += "  Spa: " + instalacion.dadesPropies.serveis.spa + "<br>";
-    servicios.innerHTML += "  SalaFitness: " + instalacion.dadesPropies.salaFitness + "<br>";
-    servicios.innerHTML += "  Padel: " + instalacion.dadesPropies.padel + "<br>";
-    servicios.innerHTML += "  Tennis: " + instalacion.dadesPropies.tenis + "<br>";
-    servicios.innerHTML += "  Spinning: " + instalacion.dadesPropies.spinning + "<br>";
-    */
+  //MARTES
+  if (horari.dm.length == 0) {
+    divInfo.textContent += "Martes → cerrado\r\n";
+  } else if (horari.dm[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Martes →  cerrado\r\n";
   } else {
-    for (var i = 0; i < instalacion.dadesPropies.serveis.length; i++) {
-      servicios.innerHTML +=
-        '<p>' + instalacion.dadesPropies.serveis[i].icono + '   <span>' + instalacion.dadesPropies.serveis[i].nom + '</span></p>';
+    divInfo.textContent += "Martes → " + horari.dm[0].in + " - " + horari.dm[0].out;
+    if (horari.dm.length > 1) {
+      if (horari.dm[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.dm[1].in + " - " + horari.dm[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //MIÉRCOLES
+  if (horari.dx.length == 0) {
+    divInfo.textContent += "Miércoles → cerrado\r\n";
+  } else if (horari.dx[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Miércoles →  cerrado\r\n";
+  } else {
+    divInfo.textContent += "Miércoles → " + horari.dx[0].in + " - " + horari.dx[0].out;
+    if (horari.dx.length > 1) {
+      if (horari.dx[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.dx[1].in + " - " + horari.dx[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //JUEVES
+  if (horari.dj.length == 0) {
+    divInfo.textContent += "Jueves → cerrado\r\n";
+  } else if (horari.dj[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Jueves →  cerrado\r\n";
+  } else {
+    divInfo.textContent += "Jueves → " + horari.dj[0].in + " - " + horari.dj[0].out;
+    if (horari.dj.length > 1) {
+      if (horari.dj[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.dj[1].in + " - " + horari.dj[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //VIERNES
+  if (horari.dv.length == 0) {
+    divInfo.textContent += "Viernes → cerrado\r\n";
+  } else if (horari.dv[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Viernes →  cerrado\r\n";
+  } else {
+    divInfo.textContent += "Viernes → " + horari.dv[0].in + " - " + horari.dv[0].out;
+    if (horari.dv.length > 1) {
+      if (horari.dv[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.dv[1].in + " - " + horari.dv[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //SÁBADO
+  if (horari.ds.length == 0) {
+    divInfo.textContent += "Sábado → cerrado\r\n";
+  } else if (horari.ds[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Sábado →  cerrado\r\n";
+  } else {
+    divInfo.textContent += "Sábado → " + horari.ds[0].in + " - " + horari.ds[0].out;
+    if (horari.ds.length > 1) {
+      if (horari.ds[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.ds[1].in + " - " + horari.ds[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //DOMINGO
+  if (horari.dg.length == 0) {
+    divInfo.textContent += "Domingo → cerrado\r\n";
+  } else if (horari.dg[0].in.localeCompare('-') == 0) {
+    divInfo.textContent += "Domingo →  cerrado\r\n";
+  } else {
+    divInfo.textContent += "Domingo → " + horari.dg[0].in + " - " + horari.dg[0].out;
+    if (horari.dg.length > 1) {
+      if (horari.dg[1].in.localeCompare('-') != 0) {
+        divInfo.textContent += ", " + horari.dg[1].in + " - " + horari.dg[1].out;
+      }
+    }
+    divInfo.textContent += "\r\n";
+  }
+  //FESTIVOS
+  if(instalacion.tipus.localeCompare("gym") != 0 && instalacion.tipus.localeCompare("Campo") != 0){
+    if (instalacion.dadesPropies.festiu.esFestiu == true) {
+      divInfo.textContent += "Festivos → ";
+      divInfo.textContent += instalacion.dadesPropies.festiu.in + " - " + instalacion.dadesPropies.festiu.out + "\r\n";
     }
   }
 
-  servicios.innerHTML += "<br>";
 
-  var suscripcion = document.createElement("div");
-  /*suscripcion.classList.add('container');
-  if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
-    suscripcion.innerHTML=
-    "<div class='table-responsive'>"+
-    "<table class='table table-hover'>"+
-    "<thead>"+
-      "<tr>"+
-        "<th>Individual/Familiar</th>"+
-        "<th>Cateogria</th>"+
-        "<th>Precio</th>"+
-      "</tr>"+
-    "</thead>"+
-    "<tbody>";
-    for(var i=0; i<instalacion.dadesPropies.suscripcio.length; i++){
-      suscripcion.innerHTML+= 
-      "<tr>"+
-      "<td>"+instalacion.dadesPropies.suscripcio[i].familia+"</td>"+
-      "<td>"+instalacion.dadesPropies.suscripcio[i].categoria+"</td>"+
-      "<td>"+instalacion.dadesPropies.suscripcio[i].preu+" - "+ instalacion.dadesPropies.suscripcio[i].periodo +"</td>"+
-    "</tr>";
-    }
-    suscripcion.innerHTML+=  
-    "</tbody></table></div>";
-  }*/
+divButton.appendChild(divInfo);
+pHorari.appendChild(clock);
+pHorari.appendChild(spanClock);
+pHorari.appendChild(buttonHorari);
+pHorari.appendChild(divButton);
 
-  formulario.appendChild(fieldset);
-  formulario.appendChild(divForm);
-  formulario.appendChild(divForm2);
-  formulario.appendChild(buttonForm);
-  comentario.appendChild(formulario);
+buttonWeb = document.createElement("button");
+//buttonWeb.classList('');
 
+// Teléfono
+var pTelf = document.createElement("p");
+pTelf.classList.add('small');
+var telf = document.createElement("i");
+telf.classList.add('fas', 'fa-phone');
+var spanTelf = document.createElement("span");
+spanTelf.setAttribute("style", "font-size:17px");
+spanTelf.textContent = "  " + instalacion.contacte.telf;
+pTelf.appendChild(telf);
+pTelf.appendChild(spanTelf);
 
-  /* ------- COLUMNA DERECHA ------- */
-  var visitaWeb = document.createElement("button");
-  visitaWeb.classList.add('btn', 'btn-info');
-  //visitaWeb.setAttribute("target","_blank"); //  target="_blank" -> esto hace que se vaya a otra página
-  visitaWeb.textContent = "Visita la web";
-  visitaWeb.onclick = function () {
-    window.open(instalacion.contacte.xarxes.web);
+var pDescripcio = document.createElement("p");
+pDescripcio.setAttribute("style", "font-size:17px;text-align:justify");
+//pDescripcio.setAttribute("style","");
+//pDescripcio.setAttribute("text-justify","inter-word");
+pDescripcio.textContent = instalacion.descripcio;
+
+var divTiempo = document.createElement("div");
+divTiempo.classList.add('container', 'shadow-lg', 'bg-white', 'rounded');
+
+var icono = document.createElement("img");
+icono.id = "icono-weather";
+
+pTiempo = document.createElement("span");
+pTiempo.setAttribute("style", "font-size:17px");
+
+var divTemp = document.createElement("span");
+divTemp.id = "temperatura";
+
+var divViento = document.createElement("span");
+divViento.id = "viento";
+
+var divHumedad = document.createElement("span");
+divHumedad.id = "humedad";
+
+//Meteo
+var lat = instalacion.geo1.lat;
+var long = instalacion.geo1.long;
+$.getJSON("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=minutely,hourly,alerts&lang=es&appid=d1546bfd8c828a6a1add9c7173a462ac", function (json) {
+  //Ahora
+  $('#icono-weather').attr("src", "http://openweathermap.org/img/wn/" + json.current.weather[0].icon + "@2x.png");
+  $('#temperatura').html((Math.round((json.current.temp - 273.15) * 10) / 10) + " °C");
+  $('#viento').html("&emsp; <i class='fas fa-wind fa-1x'></i> " + (Math.round(json.current.wind_speed * 3.6)) + " kmh");
+  $('#humedad').html(" &emsp; <i class='fas fa-tint fa-1x'></i> " + json.current.humidity + "%"); // <i class="fas fa-humidity"></i>
+});
+
+var comentario = document.createElement("div");
+comentario.innerHTML = "Déjanos una valoración y un comentario<br><br>";
+comentario.setAttribute("style", "margin-top:50px; font-size:17px");
+comentario.classList.add('container', 'bg-white', 'rounded');
+var formulario = document.createElement("form");
+formulario.action = "javascript:void(0);";
+var divForm = document.createElement("div");
+var label = document.createElement("label");
+var input = document.createElement("input");
+var buttonForm = document.createElement("button");
+
+divForm.classList.add('form-group');
+label.setAttribute("for", "email");
+label.textContent = "Dirección email: ";
+input.id = "email";
+input.classList.add('form-control');
+divForm.appendChild(label);
+divForm.appendChild(input);
+
+var divForm2 = document.createElement("div");
+var label2 = document.createElement("label");
+var input2 = document.createElement("textarea");
+
+divForm2.classList.add('form-group');
+label2.setAttribute("for", "email");
+label2.textContent = "Comentario: ";
+input2.id = "email";
+input2.classList.add('form-control');
+input2.setAttribute("rows", "5");
+divForm2.appendChild(label2);
+divForm2.appendChild(input2);
+
+buttonForm.classList.add('btn', 'btn-info');
+buttonForm.setAttribute("type", "submit");
+buttonForm.textContent = "Dejar comentario";
+
+var fieldset = document.createElement("div");
+fieldset.setAttribute("style", "overflow:hidden");
+var stars = 0;
+fieldset.innerHTML =
+  '<fieldset class="rating">' +
+  '<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>' +
+  '<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>' +
+  '<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>' +
+  '<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>' +
+  '<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>' +
+  '</fieldset> <br><br><br><br>';
+
+var servicios = document.createElement("div");
+servicios.setAttribute("style", "font-size:17px");
+servicios.innerHTML = "<b>Servicios de la instalación:<b> <br>";
+
+if (instalacion.tipus.localeCompare("Campo") == 0) { // JSON de los campos de fútbol
+  servicios.innerHTML += "  Capacidad: " + instalacion.dadesPropies.capacidad + "<br>";
+  servicios.innerHTML += "  Vallado: " + instalacion.dadesPropies.vallado + "<br>";
+  servicios.innerHTML += "  Dimensiones: " + instalacion.dadesPropies.dimensiones + "<br>";
+  servicios.innerHTML += "  Internet: " + instalacion.dadesPropies.internet + "<br>";
+}
+else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
+  if (instalacion.dadesPropies.serveis.piscina == true) {
+    servicios.innerHTML += "  Piscina<br>";
   }
+  if (instalacion.dadesPropies.serveis.spa == true) {
+    servicios.innerHTML += "  Spa<br>";
+  }
+  if (instalacion.dadesPropies.serveis.salaFitness == true) {
+    servicios.innerHTML += "  Sala fitness<br>";
+  }
+  /*
+  servicios.innerHTML += "  Piscina: " + instalacion.dadesPropies.serveis.piscina + "<br>";
+  servicios.innerHTML += "  Spa: " + instalacion.dadesPropies.serveis.spa + "<br>";
+  servicios.innerHTML += "  SalaFitness: " + instalacion.dadesPropies.salaFitness + "<br>";
+  servicios.innerHTML += "  Padel: " + instalacion.dadesPropies.padel + "<br>";
+  servicios.innerHTML += "  Tennis: " + instalacion.dadesPropies.tenis + "<br>";
+  servicios.innerHTML += "  Spinning: " + instalacion.dadesPropies.spinning + "<br>";
+  */
+} else {
+  for (var i = 0; i < instalacion.dadesPropies.serveis.length; i++) {
+    servicios.innerHTML +=
+      '<p>' + instalacion.dadesPropies.serveis[i].icono + '   <span>' + instalacion.dadesPropies.serveis[i].nom + '</span></p>';
+  }
+}
 
-  /* --- TWITTER --- */
-  var a = document.createElement("a");
-  a.className = "twitter-timeline";
-  a.setAttribute("data-lang", "es");
-  a.setAttribute("data-width", "400");
-  a.setAttribute("data-height", "580");
-  a.setAttribute("data-theme", "light");
-  a.href = instalacion.contacte.xarxes.twitter;
+servicios.innerHTML += "<br>";
 
-  var script = document.createElement("script");
-  script.async = true;
-  script.src = "https://platform.twitter.com/widgets.js"
-  script.charset = "utf-8;"
+var suscripcion = document.createElement("div");
+/*suscripcion.classList.add('container');
+if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
+  suscripcion.innerHTML=
+  "<div class='table-responsive'>"+
+  "<table class='table table-hover'>"+
+  "<thead>"+
+    "<tr>"+
+      "<th>Individual/Familiar</th>"+
+      "<th>Cateogria</th>"+
+      "<th>Precio</th>"+
+    "</tr>"+
+  "</thead>"+
+  "<tbody>";
+  for(var i=0; i<instalacion.dadesPropies.suscripcio.length; i++){
+    suscripcion.innerHTML+= 
+    "<tr>"+
+    "<td>"+instalacion.dadesPropies.suscripcio[i].familia+"</td>"+
+    "<td>"+instalacion.dadesPropies.suscripcio[i].categoria+"</td>"+
+    "<td>"+instalacion.dadesPropies.suscripcio[i].preu+" - "+ instalacion.dadesPropies.suscripcio[i].periodo +"</td>"+
+  "</tr>";
+  }
+  suscripcion.innerHTML+=  
+  "</tbody></table></div>";
+}*/
 
-
-  pTiempo.appendChild(divTemp);
-  pTiempo.appendChild(divViento);
-  pTiempo.appendChild(divHumedad);
-
-  divTiempo.appendChild(icono);
-
-  divTiempo.appendChild(pTiempo);
-
-
-  divCol.appendChild(pUbicacio);
-  divCol.appendChild(pHorari);
-  divCol.appendChild(pTelf);
-  divCol.appendChild(pDescripcio);
-  divCol.appendChild(servicios);
-  divCol.appendChild(divTiempo);
-  divCol.appendChild(suscripcion);
-  divCol.appendChild(comentario);
-
-  divCol2.appendChild(visitaWeb);
-  divCol2.appendChild(a);
-  divCol2.appendChild(script);
-
-  divRow.appendChild(divCol);
-  divRow.appendChild(divCol2);
-  divContainer.appendChild(divRow);
+formulario.appendChild(fieldset);
+formulario.appendChild(divForm);
+formulario.appendChild(divForm2);
+formulario.appendChild(buttonForm);
+comentario.appendChild(formulario);
 
 
-  document.getElementById('modalBody').appendChild(divContainer);
+/* ------- COLUMNA DERECHA ------- */
+var visitaWeb = document.createElement("button");
+visitaWeb.classList.add('btn', 'btn-info');
+//visitaWeb.setAttribute("target","_blank"); //  target="_blank" -> esto hace que se vaya a otra página
+visitaWeb.textContent = "Visita la web";
+visitaWeb.onclick = function () {
+  window.open(instalacion.contacte.xarxes.web);
+}
+
+/* --- TWITTER --- */
+var a = document.createElement("a");
+a.className = "twitter-timeline";
+a.setAttribute("data-lang", "es");
+a.setAttribute("data-width", "400");
+a.setAttribute("data-height", "550");
+a.setAttribute("data-theme", "light");
+a.href = instalacion.contacte.xarxes.twitter;
+
+var script = document.createElement("script");
+script.async = true;
+script.src = "https://platform.twitter.com/widgets.js"
+script.charset = "utf-8;"
+
+
+pTiempo.appendChild(divTemp);
+pTiempo.appendChild(divViento);
+pTiempo.appendChild(divHumedad);
+
+divTiempo.appendChild(icono);
+
+divTiempo.appendChild(pTiempo);
+
+
+divCol.appendChild(pUbicacio);
+divCol.appendChild(pHorari);
+divCol.appendChild(pTelf);
+divCol.appendChild(pDescripcio);
+divCol.appendChild(servicios);
+divCol.appendChild(divTiempo);
+divCol.appendChild(suscripcion);
+divCol.appendChild(comentario);
+
+divCol2.appendChild(visitaWeb);
+divCol2.appendChild(a);
+divCol2.appendChild(script);
+
+divRow.appendChild(divCol);
+divRow.appendChild(divCol2);
+divContainer.appendChild(divRow);
+
+
+document.getElementById('modalBody').appendChild(divContainer);
 
 }
 
