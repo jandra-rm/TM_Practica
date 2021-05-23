@@ -10,8 +10,6 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
 
-    <!-- Esto ha arreglado el error de bootstrap need jquery... (solo lo he puesto más arriba)-->
-    <!-- No se si ha sido esto pero cuando pulso volver arriba la consola se vuelve loca-->
     <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 
     <!-- Font Awesome icons (free version)-->
@@ -52,44 +50,49 @@
 </head>
 
 <body id="page-top">
-    <!-- Barra de navegación que se encontrará en todas las pantallas -->
+    <!-- Barra de navegación -->
     <section id="BarraNavegacion"> </section>
 
+    <!-- Pantalla Home -->
     <div id="HomePage">
         <section id="Portada"></section>
         <section class="page-section portfolio" id="Portfolio"></section>
     </div>
 
+    <!-- Pantalla del deporte concreto -->
     <div id="SportPage" style="display:none">
+        <!-- mapa-->
         <div id='map-container'>
-            <nav class='menu-ui'>
+            <nav class='menu-ui' id="findMe">
                 <a href='#' id="geolocate">Mi ubicación</a>
             </nav>
             <div id='map'></div>
         </div>
 
-        <!-- filtros + instalaciones -->
-
+        <!-- filtros y instalaciones -->
         <div class="flex-container">
-                <div id="menuFiltros"></div>
-                <div id="resultados"></div>
-                <div id="orden"></div>
-                <div class="caja-objetos cards-container" id="listado"></div>
-                
+            <div id="menuFiltros"></div>
+            <div id="resultados"></div>
+            <div id="orden"></div>
+        </div>
+        <div class="flex-container">
+            <div class="caja-objetos cards-container" id="listado"></div>
+
         </div>
     </div>
 
+    <!-- Ventana emergente con información de cada instalación -->
+    <div class="modal fade" id="myModal" role="dialog"></div>
 
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
 
-        <div class="modal fade" id="myModal" role="dialog"></div>
-
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-        <div class="scroll-to-top d-lg-none position-fixed">
-            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-                <i class="fa fa-chevron-up"></i>
-            </a>
-        </div>
-        <section id="Footer"></section>
+    <!-- Footer -->
+    <section id="Footer"></section>
 </body>
 
 </html>

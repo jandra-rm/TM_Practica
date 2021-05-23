@@ -1,4 +1,28 @@
 var map = null;
+var lat = null;
+var long = null;
+
+function inicializarPagina(instalaciones) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      lat = position.coords.latitude;
+      long = position.coords.longitude;
+    },
+    function(error) { //si soporta geo pero está bloqueada
+      if (error.code == error.PERMISSION_DENIED)
+      document.getElementById("findMe").setAttribute('style', 'display:none;');
+      document.getElementById("distOpt").setAttribute('style', 'display:none;');
+    });
+    
+  } else { //el navegador no soporta geo
+    document.getElementById("findMe").setAttribute('style', 'display:none;');
+    alert("La geolocalización no está disponible");
+  }
+  createMap(instalaciones);
+  menuFiltros(instalaciones);
+  ordenarPor(instalaciones);
+  createCards(instalaciones);
+}
 
 function createMap(instalaciones) {
   L.mapbox.accessToken = 'pk.eyJ1IjoiYWxlLXJtIiwiYSI6ImNrbnZrdHBycDAzOXoydm1wcW9qYzgxbngifQ.Aj8rXdMUqmfNkQBb0Y29Hg';
@@ -81,60 +105,82 @@ function createMap(instalaciones) {
   // http://caniuse.com/#feat=geolocation
   var myLayer2 = L.mapbox.featureLayer().addTo(map);
 
-  var geolocate = document.getElementById('geolocate');
-  if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-  } else {
-    geolocate.onclick = function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      map.locate();
-    };
-  }
-
-  // Once we've got a position, zoom and center the map
-  // on it, and add a single marker.
-  map.on('locationfound', function (e) {
-    map.flyTo([e.latlng.lat, e.latlng.lng], 15);
-    myLayer2.setGeoJSON({
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [e.latlng.lng, e.latlng.lat]
-      },
-      properties: {
-        'title': 'Estoy aquí',
-        'marker-color': '#FF6B6B',
-        'marker-size': 'medium',
-        'marker-symbol': 'pitch'
-      }
-    });
-
-
-
-
-  });
-  // If the user chooses not to allow their location
-  // to be shared, display an error message.
-  map.on('locationerror', function () {
-    alert("La geolocalización no está disponible");
-  });
-
+  document.getElementById('geolocate').onclick = function () {
+      map.flyTo([lat, long], 15);
+      myLayer2.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [long, lat]
+        },
+        properties: {
+          'title': 'Estoy aquí',
+          'marker-color': '#FF6B6B',
+          'marker-size': 'medium',
+          'marker-symbol': 'pitch'
+        }
+      });
+  };
 }
 
-function ordenarPor() {
+function ordenarPor(instalaciones) {
   var divOrdenacion = document.createElement("div");
-  divOrdenacion.innerHTML =
-    '<span> <b>Ordenar por: <b></span>' +
-    '<select name="ordenacion" id="ordenacion">' +
-    '<option value="default"></option>' +
-    '<option value="valoracion">Valoración</option>' +
-    '<option value="precio">Precio</option>' +
-    '<option value="distancia">Distancia</option>' +
-    '</select>';
+  var span = document.createElement("span");
+  var b = document.createElement("b");
+  b.innerText = "Ordenar por: ";
+  span.appendChild(b);
+
+  var sel = document.createElement("select");
+  sel.name = "ordenacion";
+  sel.id = "ordenacion";
+  sel.onchange = function () {
+    aplicarOrden(document.getElementById("ordenacion").value, instalaciones);
+  };
+  var def = document.createElement("option");
+  def.value = "default";
+
+  var val = document.createElement("option");
+  val.value = "valoracion";
+  val.innerText = "Valoración";
+
+  var prec = document.createElement("option");
+  prec.value = "precio";
+  prec.innerText = "Precio";
+
+  var dist = document.createElement("option");
+  dist.id = "distOpt";
+  dist.value = "distancia";
+  dist.innerText = "Distancia";
+
+  sel.appendChild(def);
+  sel.appendChild(val);
+  sel.appendChild(prec);
+  sel.appendChild(dist);
+
+  divOrdenacion.appendChild(span);
+  divOrdenacion.appendChild(sel);
+
   document.getElementById('orden').appendChild(divOrdenacion);
 }
 
+function aplicarOrden(valor, instalaciones) {
+  switch (valor) {
+    case "default":
+      break;
+    case "valoracion":
+      var valoraciones = getValoraciones(instalaciones);
+      orderByVal(valoraciones, instalaciones);
+      break;
+    case "precio":
+      var precios = getPrecios(instalaciones);
+      orderByPrecio(precios, instalaciones);
+      break;
+    case "distancia":
+      getDistancias(instalaciones);
+      break;
+
+  }
+}
 function menuFiltros(instalaciones) {
   if (instalaciones[0].tipus.localeCompare("Campo") == 0) {
     filtrosFutbol(instalaciones);
@@ -160,12 +206,11 @@ function menuFiltros(instalaciones) {
 
     var servicios = document.createElement("div");
     servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-      '<h4 class="font-weight-bold" style="color:#FF6B6B">Servicios</h4>' +
-      '<div id="orange"><span class="fa fa-minus"></span></div>' +
+      '<h1 class="font-weight-bold" style="color:#FF6B6B">Servicios</h1>' +
       '<form>';
     var listaServ = getServeisSport(instalaciones);
     for (var i = 0; i < listaServ.length; i++) {
-      servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
+      servicios.innerHTML += '<div class="form-group"> <input type="checkbox" name = "servicios" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
         listaServ[i] + '</label> </div>';
     }
     servicios.innerHTML += '</form>' +
@@ -173,12 +218,11 @@ function menuFiltros(instalaciones) {
 
     var actividades = document.createElement("div");
     actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-      '<h4 style="color:#FF6B6B" class="font-weight-bold">Se puede practicar</h4>' +
-      '<div id="orange"><span class="fa fa-minus"></span></div>' +
+      '<h1 style="color:#FF6B6B" class="font-weight-bold">Se puede practicar</h1>' +
       '<form>';
     var listaAct = getActivitatsSport(instalaciones);
     for (var i = 0; i < listaAct.length; i++) {
-      actividades.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaAct[i] + '"> <label for="' + listaAct[i] + '">' +
+      actividades.innerHTML += '<div class="form-group"> <input type="checkbox" name = "listaAct" id="' + listaAct[i] + '"> <label for="' + listaAct[i] + '">' +
         listaAct[i] + '</label> </div>';
     }
     actividades.innerHTML += '</form>' +
@@ -214,34 +258,31 @@ function filtrosFutbol(instalaciones) {
 
   var cesped = document.createElement("div");
   cesped.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h4 class="font-weight-bold" style="color:#FF6B6B">Césped</h4>' +
-    '<div id="orange"><span class="fa fa-minus"></span></div>' +
+    '<h1 class="font-weight-bold" style="color:#FF6B6B">Césped</h1>' +
     '<form>' +
     '<div class="form-group"> <input type="checkbox" id="Natural"> <label for="Natural">Natural</label> </div>' +
     '<div class="form-group"> <input type="checkbox" id="Artificial"> <label for="Artificial">Artificial</label> </div>' +
     '</form>' +
     '</div>';
 
-    var servicios = document.createElement("div");
-    servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-      '<h4 class="font-weight-bold" style="color:#FF6B6B">Servicios</h4>' +
-      '<div id="orange"><span class="fa fa-minus"></span></div>' +
-      '<form>';
-    var listaServ = getServeisSport(instalaciones);
-    for (var i = 0; i < listaServ.length; i++) {
-      servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
-        listaServ[i] + '</label> </div>';
-    }
-    servicios.innerHTML += '</form>' +
-      '</div>';
+  var servicios = document.createElement("div");
+  servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
+    '<h1 class="font-weight-bold" style="color:#FF6B6B">Servicios</h1>' +
+    '<form>';
+  var listaServ = getServeisSport(instalaciones);
+  for (var i = 0; i < listaServ.length; i++) {
+    servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
+      listaServ[i] + '</label> </div>';
+  }
+  servicios.innerHTML += '</form>' +
+    '</div>';
 
   var capacidades = getCapacidadesCampos();
   var min = Math.min.apply(null, capacidades);
   var max = Math.max.apply(null, capacidades);
   var capacidad = document.createElement("div");
   capacidad.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h4 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h4>' +
-    '<div id="orange"><span class="fa fa-minus"></span></div>' +
+    '<h1 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h1>' +
     '<div class="d-flex justify-content-center my-4">' +
     '<span class="font-weight-bold mr-2 ">' + min + '</span>' +
     '<form class="range-field w-50">' +
@@ -259,6 +300,113 @@ function filtrosFutbol(instalaciones) {
   document.getElementById("menuFiltros").appendChild(filterButton);
   document.getElementById("menuFiltros").appendChild(divFiltros);
 }
+
+
+function getDistancias(inst) {
+  var xmlhttp = new XMLHttpRequest();
+  var url = "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=" + lat + "," + long + "&destinations=";
+  for (l = 0; l < inst.length; l++) {
+    url += inst[l].geo1.lat + "," + inst[l].geo1.long;
+    if (l < (inst.length - 1)) url += ";";
+  }
+  url += "&travelMode=driving&key=Aq4r7Sjg24ktC2N-8CfobSzEJNwXA_wD1aZXNKP6NIC12Iuj0b7ad3iYINUgpnSt";
+
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      var myArr = JSON.parse(xmlhttp.responseText);
+      instDist = [];
+      for (l = 0; l < myArr["resourceSets"][0]["resources"][0]["results"].length; l++) {
+        instDist[l] = myArr["resourceSets"][0]["resources"][0]["results"][l]["travelDistance"];
+      }
+      
+      var indexOrderedByDist = getInstCercanas(instDist);
+      const myList = document.getElementById("listado");
+      if (myList.hasChildNodes() == true) {
+        while (myList.firstChild) {
+          myList.removeChild(myList.lastChild);
+        }
+      }
+      var instOrderedByDist = [];
+      for (var i = 0; i < inst.length; i++) {
+        instOrderedByDist.push(inst[indexOrderedByDist[0][i]]);
+      }
+      createCards(instOrderedByDist);
+      
+     return instDist;
+    }
+  };
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+
+}
+
+function getInstCercanas(distanciasSinOrdenar) {
+  var distancias = distanciasSinOrdenar.slice(); //duplicar array para tener uno ordenado y otro sin ordenar
+  distancias.sort((a, b) => a - b); //ordenar por distancia (menor a mayor)
+
+  var instCercanas = [];
+  var n;
+  for (i = 0; i < distancias.length; i++) {
+    n = distanciasSinOrdenar.indexOf(distancias[i]);
+    if (!instCercanas.includes(n)) {
+      instCercanas.push(n);
+    } else {
+      for(ind = 0; ind<distancias.length; ind ++){
+        var aux = distanciasSinOrdenar.slice(n+1, distanciasSinOrdenar.length);
+        n += 1+ aux.indexOf(distancias[i]);
+        console.log(n);
+        if (!instCercanas.includes(n)) {
+          instCercanas.push(n);
+          break;
+        }
+      }
+    }
+  }
+  return [instCercanas, distancias];
+}
+
+
+
+function orderByVal(valoracionesSinOrdenar, instalaciones){
+  var valoraciones = valoracionesSinOrdenar.slice(); //duplicar array para tener uno ordenado y otro sin ordenar
+  valoraciones.sort((a, b) => b - a); //ordenar por valoracion (mayor a menor)
+
+  var valOrdenadas = [];
+  var n;
+  for (i = 0; i < valoraciones.length; i++) {
+    n = valoracionesSinOrdenar.indexOf(valoraciones[i]);
+    if (!valOrdenadas.includes(n)) {
+      valOrdenadas.push(n);
+    } else {
+      for(ind = 0; ind<valOrdenadas.length; ind ++){
+        var aux = valoracionesSinOrdenar.slice(n+1, valoracionesSinOrdenar.length);
+        n += 1 + aux.indexOf(valoraciones[i]);
+        if (!valOrdenadas.includes(n)) {
+          valOrdenadas.push(n);
+          break;
+        }
+      }
+    }
+  }
+
+  const myList = document.getElementById("listado");
+      if (myList.hasChildNodes() == true) {
+        while (myList.firstChild) {
+          myList.removeChild(myList.lastChild);
+        }
+      }
+      var instOrderedByVal = [];
+      for (var i = 0; i < instalaciones.length; i++) {
+        instOrderedByVal.push(instalaciones[valOrdenadas[i]]);
+      }
+      createCards(instOrderedByVal);
+    
+}
+
+function orderByPrecio(preciosSinOrdenar, instalaciones){
+
+}
+
 
 function myFunction() {
   console.log(document.getElementById("capacidad").value);
@@ -310,6 +458,13 @@ function createCards(instalaciones) {
       }
     }
     createModal(inst);
+    if (inst.tipus.localeCompare("Campo") == 0) {
+      bindCmt(inst.nom,"FÚTBOL");
+    } else if (inst.tipus.localeCompare("gym") == 0) {
+      bindCmt(inst.nom,"GIMNASIO");
+    } else {
+      bindCmt(inst.nom,inst.detall);
+    }
   }
   inner.appendChild(name);
   inner.appendChild(stars);
@@ -694,7 +849,6 @@ pHorari.appendChild(buttonHorari);
 pHorari.appendChild(divButton);
 
 buttonWeb = document.createElement("button");
-//buttonWeb.classList('');
 
 // Teléfono
 var pTelf = document.createElement("p");
@@ -709,8 +863,6 @@ pTelf.appendChild(spanTelf);
 
 var pDescripcio = document.createElement("p");
 pDescripcio.setAttribute("style", "font-size:17px;text-align:justify");
-//pDescripcio.setAttribute("style","");
-//pDescripcio.setAttribute("text-justify","inter-word");
 pDescripcio.textContent = instalacion.descripcio;
 
 var divTiempo = document.createElement("div");
@@ -755,9 +907,11 @@ var buttonForm = document.createElement("button");
 
 divForm.classList.add('form-group');
 label.setAttribute("for", "email");
-label.textContent = "Dirección email: ";
-input.id = "email";
+label.textContent = "Nombre: ";
+input.id = "namebox";
+input.type="text";
 input.classList.add('form-control');
+input.setAttribute("placeholder","ejemplo: pepito");
 divForm.appendChild(label);
 divForm.appendChild(input);
 
@@ -768,15 +922,36 @@ var input2 = document.createElement("textarea");
 divForm2.classList.add('form-group');
 label2.setAttribute("for", "email");
 label2.textContent = "Comentario: ";
-input2.id = "email";
+input2.id = "txt1";
 input2.classList.add('form-control');
 input2.setAttribute("rows", "5");
+input2.setAttribute("placeholder","Introduce aquí tu comentario.");
 divForm2.appendChild(label2);
 divForm2.appendChild(input2);
+
 
 buttonForm.classList.add('btn', 'btn-info');
 buttonForm.setAttribute("type", "submit");
 buttonForm.textContent = "Dejar comentario";
+buttonForm.onclick=function(){
+  saveComment(instalacion);
+}
+
+var h4 = document.createElement("h4");
+h4.textContent="Comentarios publicados:";
+
+
+var cmts = document.createElement("div");
+cmts.classList.add('comments-container');
+
+var cmtsList = document.createElement("ul");
+cmtsList.id="cmtlist";
+cmtsList.classList.add('comments-list');
+
+cmts.appendChild(cmtsList);
+
+
+
 
 var fieldset = document.createElement("div");
 fieldset.setAttribute("style", "overflow:hidden");
@@ -810,14 +985,7 @@ else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
   if (instalacion.dadesPropies.serveis.salaFitness == true) {
     servicios.innerHTML += "  Sala fitness<br>";
   }
-  /*
-  servicios.innerHTML += "  Piscina: " + instalacion.dadesPropies.serveis.piscina + "<br>";
-  servicios.innerHTML += "  Spa: " + instalacion.dadesPropies.serveis.spa + "<br>";
-  servicios.innerHTML += "  SalaFitness: " + instalacion.dadesPropies.salaFitness + "<br>";
-  servicios.innerHTML += "  Padel: " + instalacion.dadesPropies.padel + "<br>";
-  servicios.innerHTML += "  Tennis: " + instalacion.dadesPropies.tenis + "<br>";
-  servicios.innerHTML += "  Spinning: " + instalacion.dadesPropies.spinning + "<br>";
-  */
+  
 } else {
   for (var i = 0; i < instalacion.dadesPropies.serveis.length; i++) {
     servicios.innerHTML +=
@@ -828,36 +996,37 @@ else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
 servicios.innerHTML += "<br>";
 
 var suscripcion = document.createElement("div");
-/*suscripcion.classList.add('container');
+var suscripciones = instalacion.dadesPropies.suscripcio;
+suscripcion.innerHTML="";
 if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
-  suscripcion.innerHTML=
-  "<div class='table-responsive'>"+
-  "<table class='table table-hover'>"+
-  "<thead>"+
+  suscripcion.innerHTML+=
+  "<table class='table'>"+
     "<tr>"+
       "<th>Individual/Familiar</th>"+
       "<th>Cateogria</th>"+
       "<th>Precio</th>"+
-    "</tr>"+
-  "</thead>"+
-  "<tbody>";
-  for(var i=0; i<instalacion.dadesPropies.suscripcio.length; i++){
+    "</tr>";
+  for(var i=0; i<suscripciones.length; i++){
     suscripcion.innerHTML+= 
     "<tr>"+
-    "<td>"+instalacion.dadesPropies.suscripcio[i].familia+"</td>"+
-    "<td>"+instalacion.dadesPropies.suscripcio[i].categoria+"</td>"+
-    "<td>"+instalacion.dadesPropies.suscripcio[i].preu+" - "+ instalacion.dadesPropies.suscripcio[i].periodo +"</td>"+
-  "</tr>";
+    "<td>"+suscripciones[i].familia+"</td>"+
+    "<td>"+suscripciones[i].categoria+"</td>"+
+    "<td>"+suscripciones[i].preu+" - "+ suscripciones[i].periodo +"</td>"+
+    "</tr>";
   }
   suscripcion.innerHTML+=  
-  "</tbody></table></div>";
-}*/
+  "</table>";
+  console.log(suscripcion.innerHTML);
+}
 
 formulario.appendChild(fieldset);
 formulario.appendChild(divForm);
 formulario.appendChild(divForm2);
 formulario.appendChild(buttonForm);
 comentario.appendChild(formulario);
+comentario.appendChild(h4);
+//cmts.appendChild(cmtsRow);
+//comentario.appendChild(cmts);
 
 
 /* ------- COLUMNA DERECHA ------- */
@@ -901,6 +1070,7 @@ divCol.appendChild(servicios);
 divCol.appendChild(divTiempo);
 divCol.appendChild(suscripcion);
 divCol.appendChild(comentario);
+divCol.appendChild(cmts);
 
 divCol2.appendChild(visitaWeb);
 divCol2.appendChild(a);
