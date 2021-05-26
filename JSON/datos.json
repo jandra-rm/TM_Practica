@@ -1,5 +1,4 @@
-[
-  
+[ 
   {
     "nom": "Campus Esport",
     "descripcio": "",
@@ -440,7 +439,7 @@
     "identificador": "",
     "comentari": "",
     "preu": {
-      "import": "2",
+      "import": "13.5",
       "coment-preu": ""
     },
     "contacte": {
@@ -615,12 +614,204 @@
       ,
       "serveis": [
         {
-          "nom": "alquiler de raquetas y pelotas",
+          "nom": "Alquiler de palas y pelotas",
           "icono": "<i class='fas fa-baseball-ball'></i>"
         }
       ],
       "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
     
+    }
+  },
+  {
+    "nom": "Palma Padel",
+    "descripcio": "En nuestro club podrás disfrutar de las mejores instalaciones de pádel",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "14",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971254730",
+      "email": "info@palmapadel.es",
+      "xarxes": 
+        {
+          "web":"https://www.palmapadel.es/home",
+          "facebook": "//https://www.facebook.com/PalmaPadel/",
+          "twitter": "https://twitter.com/PalmaPadel",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.4",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.palmapadel.es/public/uploads/palmapadel/logo2.png"
+    ],
+    "imatges": [
+      "https://res.cloudinary.com/playtomic/image/upload/c_limit,w_1600/v1/pro/tenants/b7d5c716-4d61-4e8c-87a7-cc3a63c038ac/palmapadel_0001",
+      "https://www.palmapadel.es/public/uploads/palmapadel/g7.jpg",
+      "https://www.palmapadel.es/public/uploads/palmapadel/g8.jpg",
+      "https://image.jimcdn.com/app/cms/image/transf/none/path/sc04bbb89ae3de159/image/i24f5fb53ecade51f/version/1527506942/image.jpg",
+      "https://internationalpadel.com/wp-content/uploads/2020/11/palma-web-730x410.jpeg"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer de Castellà la Manxa, 6",
+      "lat": 39.58638878041578,   
+      "long": 2.6227437693184132,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07013"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Alquiler de palas y pelotas",
+          "icono": "<i class='fas fa-baseball-ball'></i>"
+        },
+        {
+          "nom": "Vestuarios con duchas individuales termostáticas",
+          "icono": ""
+        },
+        {
+          "nom": "Aire acondicionado y taquillas",
+          "icono": ""
+        },
+        {
+          "nom": "Bar y Restaurante",
+          "icono": ""
+        },
+        {
+          "nom": "Tienda de ropa deportiva y palas",
+          "icono": ""
+        },
+        {
+          "nom": "Clases",
+          "icono": ""
+        }
+        
+      ],
+      "esports": []
     }
   } 
 ]

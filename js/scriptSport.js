@@ -1,19 +1,23 @@
 var map = null;
 var lat = null;
 var long = null;
+var myLayer = null;
+
 
 function inicializarPagina(instalaciones) {
+  setFullList(instalaciones);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       lat = position.coords.latitude;
       long = position.coords.longitude;
+      document.getElementById("findMe").setAttribute('style', 'display:show;');
+      document.getElementById("distOpt").setAttribute('style', 'display:show;');
     },
-    function(error) { //si soporta geo pero está bloqueada
-      if (error.code == error.PERMISSION_DENIED)
-      document.getElementById("findMe").setAttribute('style', 'display:none;');
-      document.getElementById("distOpt").setAttribute('style', 'display:none;');
-    });
-    
+      function (error) { //si soporta geo pero está bloqueada
+        if (error.code == error.PERMISSION_DENIED)
+        alert("La geolocalización está bloqueada");
+      });
+
   } else { //el navegador no soporta geo
     document.getElementById("findMe").setAttribute('style', 'display:none;');
     alert("La geolocalización no está disponible");
@@ -21,7 +25,7 @@ function inicializarPagina(instalaciones) {
   createMap(instalaciones);
   menuFiltros(instalaciones);
   ordenarPor(instalaciones);
-  createCards(instalaciones);
+  aplicarOrden(document.getElementById("ordenacion").value, instalaciones);
 }
 
 function createMap(instalaciones) {
@@ -33,7 +37,7 @@ function createMap(instalaciones) {
   map = L.mapbox.map('map')
     .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
-  var myLayer = L.mapbox.featureLayer().addTo(map);
+  myLayer = L.mapbox.featureLayer().addTo(map);
 
   map.scrollWheelZoom.disable();
 
@@ -106,20 +110,20 @@ function createMap(instalaciones) {
   var myLayer2 = L.mapbox.featureLayer().addTo(map);
 
   document.getElementById('geolocate').onclick = function () {
-      map.flyTo([lat, long], 15);
-      myLayer2.setGeoJSON({
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [long, lat]
-        },
-        properties: {
-          'title': 'Estoy aquí',
-          'marker-color': '#FF6B6B',
-          'marker-size': 'medium',
-          'marker-symbol': 'pitch'
-        }
-      });
+    map.flyTo([lat, long], 15);
+    myLayer2.setGeoJSON({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [long, lat]
+      },
+      properties: {
+        'title': 'Estoy aquí',
+        'marker-color': '#FF6B6B',
+        'marker-size': 'medium',
+        'marker-symbol': 'pitch'
+      }
+    });
   };
 }
 
@@ -134,7 +138,7 @@ function ordenarPor(instalaciones) {
   sel.name = "ordenacion";
   sel.id = "ordenacion";
   sel.onchange = function () {
-    aplicarOrden(document.getElementById("ordenacion").value, instalaciones);
+    aplicarOrden(document.getElementById("ordenacion").value, instalacionesVisibles);
   };
   var def = document.createElement("option");
   def.value = "default";
@@ -146,11 +150,15 @@ function ordenarPor(instalaciones) {
   var prec = document.createElement("option");
   prec.value = "precio";
   prec.innerText = "Precio";
+  if (instalaciones[0].tipus.localeCompare("Campo") == 0) {
+    prec.setAttribute('style', 'display:none;');
+  }
 
   var dist = document.createElement("option");
   dist.id = "distOpt";
   dist.value = "distancia";
   dist.innerText = "Distancia";
+  dist.setAttribute('style', 'display:none;');
 
   sel.appendChild(def);
   sel.appendChild(val);
@@ -166,6 +174,7 @@ function ordenarPor(instalaciones) {
 function aplicarOrden(valor, instalaciones) {
   switch (valor) {
     case "default":
+      createCards(instalaciones);
       break;
     case "valoracion":
       var valoraciones = getValoraciones(instalaciones);
@@ -206,11 +215,11 @@ function menuFiltros(instalaciones) {
 
     var servicios = document.createElement("div");
     servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-      '<h1 class="font-weight-bold" style="color:#FF6B6B">Servicios</h1>' +
+      '<h3 class="font-weight-bold" style="color:#FF6B6B">Servicios</h3>' +
       '<form>';
     var listaServ = getServeisSport(instalaciones);
     for (var i = 0; i < listaServ.length; i++) {
-      servicios.innerHTML += '<div class="form-group"> <input type="checkbox" name = "servicios" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
+      servicios.innerHTML += '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="checkbox" name = "servicios" onclick = "validarInstalaciones()" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
         listaServ[i] + '</label> </div>';
     }
     servicios.innerHTML += '</form>' +
@@ -218,11 +227,11 @@ function menuFiltros(instalaciones) {
 
     var actividades = document.createElement("div");
     actividades.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-      '<h1 style="color:#FF6B6B" class="font-weight-bold">Se puede practicar</h1>' +
+      '<h3 style="color:#FF6B6B" class="font-weight-bold">Se puede practicar</h3>' +
       '<form>';
     var listaAct = getActivitatsSport(instalaciones);
     for (var i = 0; i < listaAct.length; i++) {
-      actividades.innerHTML += '<div class="form-group"> <input type="checkbox" name = "listaAct" id="' + listaAct[i] + '"> <label for="' + listaAct[i] + '">' +
+      actividades.innerHTML += '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="checkbox" name = "actividades" onclick = "validarInstalaciones()" id="' + listaAct[i] + '"> <label for="' + listaAct[i] + '">' +
         listaAct[i] + '</label> </div>';
     }
     actividades.innerHTML += '</form>' +
@@ -258,20 +267,21 @@ function filtrosFutbol(instalaciones) {
 
   var cesped = document.createElement("div");
   cesped.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h1 class="font-weight-bold" style="color:#FF6B6B">Césped</h1>' +
+    '<h3 class="font-weight-bold" style="color:#FF6B6B">Césped</h3>' +
     '<form>' +
-    '<div class="form-group"> <input type="checkbox" id="Natural"> <label for="Natural">Natural</label> </div>' +
-    '<div class="form-group"> <input type="checkbox" id="Artificial"> <label for="Artificial">Artificial</label> </div>' +
+    '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="radio" name="cesped" checked="checked" onclick = "validarInstalacionesFutbol()" id="Cualquier"> <label for="Cualquier">Cualquiera</label> </div>' +
+    '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="radio" name="cesped" onclick = "validarInstalacionesFutbol()" id="Natural"> <label for="Natural">Natural</label> </div>' +
+    '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="radio" name="cesped" onclick = "validarInstalacionesFutbol()" id="Artificial"> <label for="Artificial">Artificial</label> </div>' +
     '</form>' +
     '</div>';
 
   var servicios = document.createElement("div");
   servicios.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h1 class="font-weight-bold" style="color:#FF6B6B">Servicios</h1>' +
+    '<h3 class="font-weight-bold" style="color:#FF6B6B">Servicios</h3>' +
     '<form>';
   var listaServ = getServeisSport(instalaciones);
   for (var i = 0; i < listaServ.length; i++) {
-    servicios.innerHTML += '<div class="form-group"> <input type="checkbox" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
+    servicios.innerHTML += '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"> <input type="checkbox" name="servicios" onclick = "validarInstalacionesFutbol()" id="' + listaServ[i] + '"> <label for="' + listaServ[i] + '">' +
       listaServ[i] + '</label> </div>';
   }
   servicios.innerHTML += '</form>' +
@@ -282,11 +292,11 @@ function filtrosFutbol(instalaciones) {
   var max = Math.max.apply(null, capacidades);
   var capacidad = document.createElement("div");
   capacidad.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h1 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h1>' +
+    '<h3 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h3>' +
     '<div class="d-flex justify-content-center my-4">' +
     '<span class="font-weight-bold mr-2 ">' + min + '</span>' +
     '<form class="range-field w-50">' +
-    '<div class="form-group"><input class="custom-range border-0" type="range" id="capacidad" onmouseup="myFunction()" min="' + min + '" max="' + max + '" /></div>' +
+    '<div class="form-group" style=font-size:1.5rem;font-family:"Montserrat"><input class="custom-range border-0" type="range" id="capacidad" onmouseup="validarInstalacionesFutbol()" min="' + min + '" max="' + max + '" /></div>' +
     '</form>' +
     '<span class="font-weight-bold ml-2">' + max + '</span>' +
     '</div>';
@@ -299,6 +309,77 @@ function filtrosFutbol(instalaciones) {
 
   document.getElementById("menuFiltros").appendChild(filterButton);
   document.getElementById("menuFiltros").appendChild(divFiltros);
+}
+
+
+function validarInstalaciones(){
+  var servicios = validarServicios();
+  var actividades = validarActividades();
+  var instCompatibles = getInstalacionesByFiltros(servicios, actividades);
+  const myList = document.getElementById("listado");
+  if (myList.hasChildNodes() == true) {
+    while (myList.firstChild) {
+      myList.removeChild(myList.lastChild);
+    }
+  }
+  if(instCompatibles.length > 0){
+    myLayer.setGeoJSON(creategeoJSON(instCompatibles));
+    aplicarOrden(document.getElementById("ordenacion").value, instCompatibles);
+  }else{
+    document.getElementById("resultados").innerHTML = instCompatibles.length + " resultados";
+  }
+  
+}
+
+function validarInstalacionesFutbol(){
+  var cesped = validarCesped();
+  var servicios = validarServicios();
+  var capacidad = document.getElementById("capacidad").value;
+  var instCompatibles = getInstalacionesByFiltrosFut(servicios, cesped, capacidad);
+  const myList = document.getElementById("listado");
+  if (myList.hasChildNodes() == true) {
+    while (myList.firstChild) {
+      myList.removeChild(myList.lastChild);
+    }
+  }
+  if(instCompatibles.length > 0){
+    myLayer.setGeoJSON(creategeoJSON(instCompatibles));
+    aplicarOrden(document.getElementById("ordenacion").value, instCompatibles);
+  }else{
+    document.getElementById("resultados").innerHTML = instCompatibles.length + " resultados";
+  }
+}
+
+function validarServicios() {
+  var checkboxes = document.getElementsByName("servicios");
+  var serviciosSelected = [];
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      serviciosSelected.push(checkboxes[i].id);
+    }
+  }
+  return serviciosSelected;
+}
+
+function validarActividades() {
+  var checkboxes = document.getElementsByName("actividades");
+  var actividadesSelected = [];
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      actividadesSelected.push(checkboxes[i].id);
+    }
+  }
+  return actividadesSelected;
+}
+
+
+function validarCesped() {
+  var radio = document.getElementsByName("cesped");
+  for(var i = 0; i<radio.length; i++){
+    if (radio[i].checked) {
+      return radio[i].id;
+    }
+  }
 }
 
 
@@ -318,7 +399,7 @@ function getDistancias(inst) {
       for (l = 0; l < myArr["resourceSets"][0]["resources"][0]["results"].length; l++) {
         instDist[l] = myArr["resourceSets"][0]["resources"][0]["results"][l]["travelDistance"];
       }
-      
+
       var indexOrderedByDist = getInstCercanas(instDist);
       const myList = document.getElementById("listado");
       if (myList.hasChildNodes() == true) {
@@ -331,8 +412,8 @@ function getDistancias(inst) {
         instOrderedByDist.push(inst[indexOrderedByDist[0][i]]);
       }
       createCards(instOrderedByDist);
-      
-     return instDist;
+
+      return instDist;
     }
   };
   xmlhttp.open("GET", url, true);
@@ -351,9 +432,9 @@ function getInstCercanas(distanciasSinOrdenar) {
     if (!instCercanas.includes(n)) {
       instCercanas.push(n);
     } else {
-      for(ind = 0; ind<distancias.length; ind ++){
-        var aux = distanciasSinOrdenar.slice(n+1, distanciasSinOrdenar.length);
-        n += 1+ aux.indexOf(distancias[i]);
+      for (ind = 0; ind < distancias.length; ind++) {
+        var aux = distanciasSinOrdenar.slice(n + 1, distanciasSinOrdenar.length);
+        n += 1 + aux.indexOf(distancias[i]);
         console.log(n);
         if (!instCercanas.includes(n)) {
           instCercanas.push(n);
@@ -367,7 +448,7 @@ function getInstCercanas(distanciasSinOrdenar) {
 
 
 
-function orderByVal(valoracionesSinOrdenar, instalaciones){
+function orderByVal(valoracionesSinOrdenar, instalaciones) {
   var valoraciones = valoracionesSinOrdenar.slice(); //duplicar array para tener uno ordenado y otro sin ordenar
   valoraciones.sort((a, b) => b - a); //ordenar por valoracion (mayor a menor)
 
@@ -378,8 +459,8 @@ function orderByVal(valoracionesSinOrdenar, instalaciones){
     if (!valOrdenadas.includes(n)) {
       valOrdenadas.push(n);
     } else {
-      for(ind = 0; ind<valOrdenadas.length; ind ++){
-        var aux = valoracionesSinOrdenar.slice(n+1, valoracionesSinOrdenar.length);
+      for (ind = 0; ind < valOrdenadas.length; ind++) {
+        var aux = valoracionesSinOrdenar.slice(n + 1, valoracionesSinOrdenar.length);
         n += 1 + aux.indexOf(valoraciones[i]);
         if (!valOrdenadas.includes(n)) {
           valOrdenadas.push(n);
@@ -390,27 +471,56 @@ function orderByVal(valoracionesSinOrdenar, instalaciones){
   }
 
   const myList = document.getElementById("listado");
-      if (myList.hasChildNodes() == true) {
-        while (myList.firstChild) {
-          myList.removeChild(myList.lastChild);
+  if (myList.hasChildNodes() == true) {
+    while (myList.firstChild) {
+      myList.removeChild(myList.lastChild);
+    }
+  }
+  var instOrderedByVal = [];
+  for (var i = 0; i < instalaciones.length; i++) {
+    instOrderedByVal.push(instalaciones[valOrdenadas[i]]);
+  }
+  createCards(instOrderedByVal);
+
+}
+
+function orderByPrecio(preciosSinOrdenar, instalaciones) {
+  var precios = preciosSinOrdenar.slice(); //duplicar array para tener uno ordenado y otro sin ordenar
+  precios.sort((a, b) => a - b); //ordenar por valoracion (menor a mayor)
+
+  var precOrdenados = [];
+  var n;
+  for (i = 0; i < precios.length; i++) {
+    n = preciosSinOrdenar.indexOf(precios[i]);
+    if (!precOrdenados.includes(n)) {
+      precOrdenados.push(n);
+    } else {
+      for (ind = 0; ind < precOrdenados.length; ind++) {
+        var aux = preciosSinOrdenar.slice(n + 1, preciosSinOrdenar.length);
+        n += 1 + aux.indexOf(precios[i]);
+        if (!precOrdenados.includes(n)) {
+          precOrdenados.push(n);
+          break;
         }
       }
-      var instOrderedByVal = [];
-      for (var i = 0; i < instalaciones.length; i++) {
-        instOrderedByVal.push(instalaciones[valOrdenadas[i]]);
-      }
-      createCards(instOrderedByVal);
-    
+    }
+  }
+
+  const myList = document.getElementById("listado");
+  if (myList.hasChildNodes() == true) {
+    while (myList.firstChild) {
+      myList.removeChild(myList.lastChild);
+    }
+  }
+  var instOrderedByPrec = [];
+  for (var i = 0; i < instalaciones.length; i++) {
+    instOrderedByPrec.push(instalaciones[precOrdenados[i]]);
+  }
+  createCards(instOrderedByPrec);
+
 }
 
-function orderByPrecio(preciosSinOrdenar, instalaciones){
 
-}
-
-
-function myFunction() {
-  console.log(document.getElementById("capacidad").value);
-}
 
 function createCards(instalaciones) {
   if (instalaciones.length == 1) {
@@ -459,11 +569,11 @@ function createCards(instalaciones) {
     }
     createModal(inst);
     if (inst.tipus.localeCompare("Campo") == 0) {
-      bindCmt(inst.nom,"FÚTBOL");
+      bindCmt(inst.nom, "FÚTBOL");
     } else if (inst.tipus.localeCompare("gym") == 0) {
-      bindCmt(inst.nom,"GIMNASIO");
+      bindCmt(inst.nom, "GIMNASIO");
     } else {
-      bindCmt(inst.nom,inst.detall);
+      bindCmt(inst.nom, inst.detall);
     }
   }
   inner.appendChild(name);
@@ -867,6 +977,7 @@ pDescripcio.textContent = instalacion.descripcio;
 
 var divTiempo = document.createElement("div");
 divTiempo.classList.add('container', 'shadow-lg', 'bg-white', 'rounded');
+divTiempo.innerHTML+="<b>El tiempo de hoy:<b>";
 
 var icono = document.createElement("img");
 icono.id = "icono-weather";
@@ -895,7 +1006,7 @@ $.getJSON("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon="
 });
 
 var comentario = document.createElement("div");
-comentario.innerHTML = "Déjanos una valoración y un comentario<br><br>";
+comentario.innerHTML = "<h4>Déjanos una valoración y un comentario:</h4><br><br>";
 comentario.setAttribute("style", "margin-top:50px; font-size:17px");
 comentario.classList.add('container', 'bg-white', 'rounded');
 var formulario = document.createElement("form");
@@ -954,20 +1065,27 @@ cmts.appendChild(cmtsList);
 
 
 var fieldset = document.createElement("div");
-fieldset.setAttribute("style", "overflow:hidden");
+fieldset.setAttribute("style", "overflow:hidden;margin-bottom:5px;");
 var stars = 0;
 fieldset.innerHTML =
-  '<fieldset class="rating">' +
-  '<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>' +
-  '<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>' +
-  '<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>' +
-  '<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>' +
-  '<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>' +
-  '</fieldset> <br><br><br><br>';
+
+'<section id="like" class="rating">'+
+  '<input type="radio" id="heart_5" name="like" value="5" onclick="setStars(5)"/>'+
+  '<label for="heart_5" title="Five">&#10084;</label>'+
+  '<input type="radio" id="heart_4" name="like" value="4" onclick="setStars(4)"/>'+
+  '<label for="heart_4" title="Four">&#10084;</label>'+
+  '<input type="radio" id="heart_3" name="like" value="3" onclick="setStars(3)"/>'+
+  '<label for="heart_3" title="Three">&#10084;</label>'+
+  '<input type="radio" id="heart_2" name="like" value="2" onclick="setStars(2)"/>'+
+  '<label for="heart_2" title="Two">&#10084;</label>'+
+  '<input type="radio" id="heart_1" name="like" value="1" onclick="setStars(1)"/>'+
+  '<label for="heart_1" title="One">&#10084;</label>'+
+'</section>';
+
 
 var servicios = document.createElement("div");
 servicios.setAttribute("style", "font-size:17px");
-servicios.innerHTML = "<b>Servicios de la instalación:<b> <br>";
+servicios.innerHTML = "<h4>Servicios de la instalación:</h4> <br>";
 
 if (instalacion.tipus.localeCompare("Campo") == 0) { // JSON de los campos de fútbol
   servicios.innerHTML += "  Capacidad: " + instalacion.dadesPropies.capacidad + "<br>";
@@ -996,32 +1114,35 @@ else if (instalacion.tipus.localeCompare("gym") == 0) { // JSON de los gimnasios
 servicios.innerHTML += "<br>";
 
 var suscripcion = document.createElement("div");
-var suscripciones = instalacion.dadesPropies.suscripcio;
-suscripcion.innerHTML="";
+suscripcion.setAttribute("style","margin-top:30px;");
+suscripcion.id="suscrp";
 if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
-  suscripcion.innerHTML+=
-  "<table class='table'>"+
-    "<tr>"+
-      "<th>Individual/Familiar</th>"+
-      "<th>Cateogria</th>"+
-      "<th>Precio</th>"+
-    "</tr>";
+  var suscripciones = instalacion.dadesPropies.suscripcio;
+  var s="";
+  s+= '<h4>Precios:</h4>'+
+  '<table class="table">'+
+    '<thead><tr>'+
+      '<th>Individual/Familiar</th>'+
+      '<th>Cateogria</th>'+
+      '<th>Precio</th>'+
+    '</tr></thead>';
   for(var i=0; i<suscripciones.length; i++){
-    suscripcion.innerHTML+= 
-    "<tr>"+
-    "<td>"+suscripciones[i].familia+"</td>"+
-    "<td>"+suscripciones[i].categoria+"</td>"+
-    "<td>"+suscripciones[i].preu+" - "+ suscripciones[i].periodo +"</td>"+
-    "</tr>";
+    s+=
+    '<tr>'+
+    '<td>'+suscripciones[i].familia+'</td>'+
+    '<td>'+suscripciones[i].categoria+'</td>'+
+    '<td>'+suscripciones[i].preu+' - '+ suscripciones[i].periodo +'</td>'+
+    '</tr>';
   }
-  suscripcion.innerHTML+=  
-  "</table>";
+  s.innerHTML+="</table>";
+  suscripcion.innerHTML=s;
   console.log(suscripcion.innerHTML);
 }
 
-formulario.appendChild(fieldset);
+
 formulario.appendChild(divForm);
 formulario.appendChild(divForm2);
+formulario.appendChild(fieldset);
 formulario.appendChild(buttonForm);
 comentario.appendChild(formulario);
 comentario.appendChild(h4);
@@ -1030,13 +1151,17 @@ comentario.appendChild(h4);
 
 
 /* ------- COLUMNA DERECHA ------- */
-var visitaWeb = document.createElement("button");
-visitaWeb.classList.add('btn', 'btn-info');
-//visitaWeb.setAttribute("target","_blank"); //  target="_blank" -> esto hace que se vaya a otra página
-visitaWeb.textContent = "Visita la web";
-visitaWeb.onclick = function () {
-  window.open(instalacion.contacte.xarxes.web);
+if(instalacion.contacte.xarxes.web.localeCompare("")!=0){
+  var visitaWeb = document.createElement("button");
+  visitaWeb.classList.add('btn', 'btn-info');
+  //visitaWeb.setAttribute("target","_blank"); //  target="_blank" -> esto hace que se vaya a otra página
+  visitaWeb.textContent = "Visita la web";
+  visitaWeb.onclick = function () {
+    window.open(instalacion.contacte.xarxes.web);
+  }
+  divCol2.appendChild(visitaWeb);
 }
+
 
 /* --- TWITTER --- */
 var a = document.createElement("a");
@@ -1072,7 +1197,7 @@ divCol.appendChild(suscripcion);
 divCol.appendChild(comentario);
 divCol.appendChild(cmts);
 
-divCol2.appendChild(visitaWeb);
+
 divCol2.appendChild(a);
 divCol2.appendChild(script);
 

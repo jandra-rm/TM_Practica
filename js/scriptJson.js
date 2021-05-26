@@ -3,6 +3,7 @@ var campos = null;
 var instPropias = null;
 var comentarios = null;
 var fullListDeporte = null;
+var instalacionesVisibles = null;
 
 function getInstalacionesBySport(instalaciones, sport) {
   var instSport = [];
@@ -103,6 +104,11 @@ function setJsonPropio(instalaciones) {
   instPropias = instalaciones;
 }
 
+function setFullList(instalaciones) {
+  fullListDeporte = instalaciones;
+  instalacionesVisibles = instalaciones;
+}
+
 function getCapacidadesCampos() {
   var arr = [];
   for (var i = 0; i < campos.length; i++) {
@@ -111,7 +117,7 @@ function getCapacidadesCampos() {
   return arr;
 }
 
-function getValoraciones(inst){
+function getValoraciones(inst) {
   var arr = [];
   for (var i = 0; i < inst.length; i++) {
     arr.push(inst[i].puntuacio);
@@ -119,13 +125,160 @@ function getValoraciones(inst){
   return arr;
 }
 
-function getPrecios(inst){
+function getPrecios(inst) {
   var arr = [];
   for (var i = 0; i < inst.length; i++) {
-    arr.push(inst[i].puntuacio);
+    arr.push(inst[i].preu.import);
   }
   return arr;
 }
+
+
+function getInstalacionesByFiltros(servicios, actividades) {
+  var inst = [];
+  var cumpleFiltros;
+  if (fullListDeporte[0].tipus.localeCompare("gym") == 0) {
+    for (var i = 0; i < fullListDeporte.length; i++) {
+      cumpleFiltros = true;
+      for (var j = 0; j < servicios.length; j++) {
+        switch (servicios[j]) {
+          case "Piscina":
+            if (fullListDeporte[i].dadesPropies.serveis.piscina == false) {
+              cumpleFiltros = false;
+            }
+            break;
+          case "Spa":
+            if (fullListDeporte[i].dadesPropies.serveis.spa == false) {
+              cumpleFiltros = false;
+            }
+            break;
+          case "Sala fitness":
+            if (fullListDeporte[i].dadesPropies.serveis.salaFitness == false) {
+              cumpleFiltros = false;
+            }
+            break;
+        }
+      }
+
+      for (var k = 0; k < actividades.length; k++) {
+        switch (actividades[k]) {
+          case "Pádel":
+            if (fullListDeporte[i].dadesPropies.serveis.padel == false) {
+              cumpleFiltros = false;
+            }
+            break;
+          case "Tenis":
+            if (fullListDeporte[i].dadesPropies.serveis.tenis == false) {
+              cumpleFiltros = false;
+            }
+            break;
+          case "Spinning":
+            if (fullListDeporte[i].dadesPropies.serveis.spinning == false) {
+              cumpleFiltros = false;
+            }
+            break;
+        }
+      }
+
+      if (cumpleFiltros) {
+        inst.push(fullListDeporte[i]);
+      }
+    }
+
+  } else {
+    var serv = [];
+    var act = [];
+    for (var i = 0; i < fullListDeporte.length; i++) {
+      serv = [];
+      act = [];
+      cumpleFiltros = true;
+      for (var j = 0; j < fullListDeporte[i].dadesPropies.serveis.length; j++) {
+        serv.push(fullListDeporte[i].dadesPropies.serveis[j].nom);
+      }
+      for (var j = 0; j < fullListDeporte[i].dadesPropies.esports.length; j++) {
+        act.push(fullListDeporte[i].dadesPropies.esports[j]);
+      }
+      for (var k = 0; k < servicios.length; k++) {
+        if (serv.includes(servicios[k]) == false) {
+          cumpleFiltros = false;
+        } 
+      }
+      for (var k = 0; k < actividades.length; k++) {
+        if (act.includes(actividades[k]) == false) {
+          cumpleFiltros = false;
+        }
+      }
+
+      if (cumpleFiltros) {
+        inst.push(fullListDeporte[i]);
+      }
+
+    }
+  }
+  instalacionesVisibles = inst;
+  return inst;
+}
+
+
+function getInstalacionesByFiltrosFut(servicios, cesped, capacidad) {
+  var inst = [];
+  var cumpleFiltros;
+  for (var i = 0; i < fullListDeporte.length; i++){
+    cumpleFiltros = true;
+    switch (cesped){
+      case "Cualquiera":
+        cumpleFiltros = true;
+        break;
+      case "Artificial":
+        if(fullListDeporte[i].detall.localeCompare("Artificial") != 0){
+          cumpleFiltros = false;
+        } 
+        break;
+      case "Natural":
+        if(fullListDeporte[i].detall.localeCompare("Natural") != 0){
+          cumpleFiltros = false;
+        } 
+        break;
+    }
+
+    if(fullListDeporte[i].dadesPropies.capacidad > capacidad){
+      cumpleFiltros = false;
+    }
+
+    for (var j = 0; j < servicios.length; j++) {
+      switch (servicios[j]) {
+        case "Internet":
+          if ((fullListDeporte[i].dadesPropies.internet).localeCompare("No") == 0) {
+            cumpleFiltros = false;
+          }
+          break;
+        case "Despacho arbitral":
+          if ((fullListDeporte[i].dadesPropies.despachoarbitral).localeCompare("No") == 0) {
+            cumpleFiltros = false;
+          }
+          break;
+        case "Sala antidopaje":
+          if ((fullListDeporte[i].dadesPropies.salaantidopaje).localeCompare("No") == 0) {
+            cumpleFiltros = false;
+          }
+          break;
+          case "Vallado":
+            if ((fullListDeporte[i].dadesPropies.vallado).localeCompare("No") == 0) {
+              cumpleFiltros = false;
+            }
+            break;
+      }
+    }
+    if (cumpleFiltros) {
+      inst.push(fullListDeporte[i]);
+    }
+
+  }
+  
+  instalacionesVisibles = inst;
+  return inst;
+}
+
 
 function creategeoJSON(instalaciones) {
   jsonObj = {};
@@ -159,6 +312,12 @@ function creategeoJSON(instalaciones) {
 
 /* -- COMENTARIOS -- */
 
+var stars=0;
+var comentarios = null;
+function setStars(n){
+  stars=n;
+}
+
 function setJsonComentario(cs) {
   comentarios = cs;
 }
@@ -186,6 +345,7 @@ function saveComment(instalacion){
   var cText = $('#txt1').val(),
       cName = $('#namebox').val(),
       cInst = instalacion.nom,
+      cVal = stars,
       cmtList = getObject('cmtlist');
 
       if (instalacion.tipus.localeCompare("Campo") == 0) {
@@ -200,27 +360,28 @@ function saveComment(instalacion){
     cmtList.push({dpt:cDpt,inst:cInst,name: cName, text: cText});
     setObject('cmtlist', cmtList);
   }else{ //Add a comment
-    setObject('cmtlist', [{dpt:cDpt,inst:cInst,name: cName, text: cText}]);
+    setObject('cmtlist', [{dpt:cDpt,inst:cInst,name: cName, text: cText,val:cVal}]);
   }
 
   bindCmt(cInst,cDpt);
 }
 
 function bindCmt(nom,esport){
+  //clearStorage();
   var cmtListElement = $('#cmtlist'),
       cmtList = getObject('cmtlist');
 
   //Out with the old
   cmtListElement.empty();
   //And in with the new
-
+  var today = new Date();
   for (var j = 0; j < comentarios.length; j++) {
     if(comentarios[j].instalacio.localeCompare(nom)==0){
       
       cmtListElement.append( $('<li><div class="comment-main-level">'+
 			'<div class="comment-avatar"><img src="https://img.icons8.com/bubbles/2x/user-male.png" alt=""></div>'+
 			'<div class="comment-box">'+
-			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ comentarios[j].nom +'</a></h6><span>hace 20 minutos</span>'+
+			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ comentarios[j].nom +'</a></h6><span>'+comentarios[j].data+"   "+getStars(comentarios[j].valoracio)+'</span>'+
 			'</div><div class="comment-content">'+ comentarios[j].comentari +'</div></div></div></li>'));
     }
   }
@@ -230,7 +391,7 @@ function bindCmt(nom,esport){
       cmtListElement.append( $('<li><div class="comment-main-level">'+
 			'<div class="comment-avatar"><img src="https://img.icons8.com/bubbles/2x/user-male.png" alt=""></div>'+
 			'<div class="comment-box">'+
-			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ k.name +'</a></h6><span>hace 20 minutos</span>'+
+			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ k.name +'</a></h6><span>'+today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear()+"   "+getStars(k.val)+'</span>'+
 			'</div><div class="comment-content">'+ k.text +'</div></div></div></li>'));
     }
   });
