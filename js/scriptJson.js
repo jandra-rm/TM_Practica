@@ -311,12 +311,7 @@ function creategeoJSON(instalaciones) {
 
 
 /* -- COMENTARIOS -- */
-
-var stars=0;
 var comentarios = null;
-function setStars(n){
-  stars=n;
-}
 
 function setJsonComentario(cs) {
   comentarios = cs;
@@ -345,7 +340,7 @@ function saveComment(instalacion){
   var cText = $('#txt1').val(),
       cName = $('#namebox').val(),
       cInst = instalacion.nom,
-      cVal = stars,
+      cVal = $("input[name='like']:checked").val(),
       cmtList = getObject('cmtlist');
 
       if (instalacion.tipus.localeCompare("Campo") == 0) {
@@ -357,7 +352,7 @@ function saveComment(instalacion){
       }
 
   if (cmtList){
-    cmtList.push({dpt:cDpt,inst:cInst,name: cName, text: cText});
+    cmtList.push({dpt:cDpt,inst:cInst,name: cName, text: cText,val:cVal});
     setObject('cmtlist', cmtList);
   }else{ //Add a comment
     setObject('cmtlist', [{dpt:cDpt,inst:cInst,name: cName, text: cText,val:cVal}]);
@@ -391,7 +386,7 @@ function bindCmt(nom,esport){
       cmtListElement.append( $('<li><div class="comment-main-level">'+
 			'<div class="comment-avatar"><img src="https://img.icons8.com/bubbles/2x/user-male.png" alt=""></div>'+
 			'<div class="comment-box">'+
-			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ k.name +'</a></h6><span>'+today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear()+"   "+getStars(k.val)+'</span>'+
+			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ k.name +'</a></h6><span>'+getStars(k.val)+'</span>'+
 			'</div><div class="comment-content">'+ k.text +'</div></div></div></li>'));
     }
   });

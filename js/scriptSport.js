@@ -1015,6 +1015,7 @@ var divForm = document.createElement("div");
 var label = document.createElement("label");
 var input = document.createElement("input");
 var buttonForm = document.createElement("button");
+buttonForm.id="dejarComentario";
 
 divForm.classList.add('form-group');
 label.setAttribute("for", "email");
@@ -1066,22 +1067,20 @@ cmts.appendChild(cmtsList);
 
 var fieldset = document.createElement("div");
 fieldset.setAttribute("style", "overflow:hidden;margin-bottom:5px;");
-var stars = 0;
 fieldset.innerHTML =
 
 '<section id="like" class="rating">'+
-  '<input type="radio" id="heart_5" name="like" value="5" onclick="setStars(5)"/>'+
+  '<input type="radio" id="heart_5" name="like" value="5" />'+
   '<label for="heart_5" title="Five">&#10084;</label>'+
-  '<input type="radio" id="heart_4" name="like" value="4" onclick="setStars(4)"/>'+
+  '<input type="radio" id="heart_4" name="like" value="4" />'+
   '<label for="heart_4" title="Four">&#10084;</label>'+
-  '<input type="radio" id="heart_3" name="like" value="3" onclick="setStars(3)"/>'+
+  '<input type="radio" id="heart_3" name="like" value="3" />'+
   '<label for="heart_3" title="Three">&#10084;</label>'+
-  '<input type="radio" id="heart_2" name="like" value="2" onclick="setStars(2)"/>'+
+  '<input type="radio" id="heart_2" name="like" value="2" />'+
   '<label for="heart_2" title="Two">&#10084;</label>'+
-  '<input type="radio" id="heart_1" name="like" value="1" onclick="setStars(1)"/>'+
+  '<input type="radio" id="heart_1" name="like" value="1" />'+
   '<label for="heart_1" title="One">&#10084;</label>'+
 '</section>';
-
 
 var servicios = document.createElement("div");
 servicios.setAttribute("style", "font-size:17px");
@@ -1116,7 +1115,7 @@ servicios.innerHTML += "<br>";
 var suscripcion = document.createElement("div");
 suscripcion.setAttribute("style","margin-top:30px;");
 suscripcion.id="suscrp";
-if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0){
+if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare("Campo") !=0 && instalacion.dadesPropies.suscripcio.length !=0){
   var suscripciones = instalacion.dadesPropies.suscripcio;
   var s="";
   s+= '<h4>Precios:</h4>'+
@@ -1137,6 +1136,8 @@ if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare
   s.innerHTML+="</table>";
   suscripcion.innerHTML=s;
   console.log(suscripcion.innerHTML);
+}else{
+  suscripcion.innerHTML="<h4>Precio:</h4><b>"+instalacion.preu.import+"€</b>";
 }
 
 
