@@ -376,7 +376,7 @@ function bindCmt(nom,esport){
       cmtListElement.append( $('<li><div class="comment-main-level">'+
 			'<div class="comment-avatar"><img src="https://img.icons8.com/bubbles/2x/user-male.png" alt=""></div>'+
 			'<div class="comment-box">'+
-			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ comentarios[j].nom +'</a></h6><span>'+comentarios[j].data+"   "+getStars(comentarios[j].valoracio)+'</span>'+
+			'<div class="comment-head"><h6 class="comment-name by-author">'+ comentarios[j].nom +'</h6><span>'+comentarios[j].data+"   "+getStars(comentarios[j].valoracio)+'</span>'+
 			'</div><div class="comment-content">'+ comentarios[j].comentari +'</div></div></div></li>'));
     }
   }
@@ -386,7 +386,7 @@ function bindCmt(nom,esport){
       cmtListElement.append( $('<li><div class="comment-main-level">'+
 			'<div class="comment-avatar"><img src="https://img.icons8.com/bubbles/2x/user-male.png" alt=""></div>'+
 			'<div class="comment-box">'+
-			'<div class="comment-head"><h6 class="comment-name by-author"><a href="http://creaticode.com/blog">'+ k.name +'</a></h6><span>'+getStars(k.val)+'</span>'+
+			'<div class="comment-head"><h6 class="comment-name by-author">'+ k.name +'</h6><span>'+today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear()+' '+getStars(k.val)+'</span>'+
 			'</div><div class="comment-content">'+ k.text +'</div></div></div></li>'));
     }
   });
