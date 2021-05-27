@@ -71,7 +71,7 @@ function myInitCode() {
       setJsonPropio(instalaciones);
       createPortfolio(instalaciones);
       createNavBar(instalaciones);
-      createJSONLD(instalaciones);
+      //createJSONLD(instalaciones);
     }
   };
   request.open("GET", url, true);

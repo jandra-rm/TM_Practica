@@ -399,7 +399,7 @@ function createJSONLD(instalaciones){
   script.setAttribute('type', 'application/ld+json');
 
   var instalacion="";
-  for (var j = 0; j < instalaciones.length-1; j++) {
+  for (var j = 0; j < instalaciones.length; j++) {
     instalacion=instalaciones[j];
     let s ={
         "@context": "https://schema.org",
