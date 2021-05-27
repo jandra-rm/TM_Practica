@@ -5,7 +5,7 @@ var myLayer = null;
 
 
 function inicializarPagina(instalaciones) {
-  //createJSONLD(instalaciones);
+  createJSONLD(instalaciones);
   setFullList(instalaciones);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
