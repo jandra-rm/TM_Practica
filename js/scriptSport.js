@@ -630,18 +630,51 @@ function createCards(instalaciones) {
   for (var k = 0; k < instalaciones.length; k++) {
     document.getElementById("stars" + instalaciones[k].nom).innerHTML = getStars(instalaciones[k].puntuacio);
   }
+
+  var s="";
+  for(var x=0; x<instalaciones.length; x++){
+    //Añadimos la información al json ld
+    s+='{'+
+      '"@context": "https://schema.org/SportsActivityLocation",'+
+      '"@type": "Organization",'+
+      '"description": "'+instalaciones[x].descripcio+'",'
+      '"address": {'+
+        '"@type": "PostalAddress",'+
+        '"streetAddress": "'+instalaciones[x].geo1.address+'",'+
+        '"addressLocality": "'+instalaciones[x].geo1.city+'",'+
+        '"addressRegion": "a",'+
+        '"postalCode": "'+instalaciones[x].geo1.zip+'",'+
+        '"addressCountry": "Spain"'+
+      '},'+
+      '"geo": {'+
+        '"@type": "GeoCoordinates",'+
+        '"latitude": "'+instalaciones[x].geo1.lat+'",'+
+        '"longitude": "'+instalaciones[x].geo1.long+'"'+
+      '},'+
+      '"openingHours": "'+instalaciones[x].horari+'",'+
+      '"contactPoint": {'+
+        '"@type": "ContactPoint",'+
+        '"telephone": "'+instalaciones[x].contacte.telf+'"'+
+      '}'+
+    '}';
+    $("#webSemantica").innerHTML+=JSON.stringify(s);
+    console.log(s);
+  }
 }
 
 
 function createModal(instalacion) {
   var divModal2 = document.createElement("div");
   divModal2.classList.add('modal-dialog', 'modal-xl', 'modal-dialog-scrollable');
+  divModal2.setAttribute("itemtype","https://schema.org/SportsActivityLocation");
 
   var divModalContent = document.createElement("div");
   divModalContent.classList.add('modal-content');
 
   var divModalHeader = document.createElement("div");
   divModalHeader.classList.add('modal-header');
+  divModalHeader.setAttribute("itemscope");
+  divModalHeader.setAttribute("itemtype","http://schema.org/SportsActivityLocation")
 
   var h4 = document.createElement("h4");
   h4.classList.add('modal-title', 'col-11');
@@ -1135,9 +1168,10 @@ if(instalacion.tipus.localeCompare("gym") !=0 && instalacion.tipus.localeCompare
   }
   s.innerHTML+="</table>";
   suscripcion.innerHTML=s;
-  console.log(suscripcion.innerHTML);
 }else{
-  suscripcion.innerHTML="<h4>Precio:</h4><b>"+instalacion.preu.import+"€</b>";
+  if(instalacion.tipus.localeCompare("Campo") !=0){
+    suscripcion.innerHTML="<h4>Precio:</h4><b>"+instalacion.preu.import+"€</b>";
+  }
 }
 
 
