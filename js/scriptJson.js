@@ -395,8 +395,8 @@ function bindCmt(nom,esport){
 }
 
 function createJSONLD(instalaciones){
-  var instalacion=null;
-  var s=null;
+  var instalacion="";
+  //var s="";
   /*for (var j = 0; j < instalaciones.length-1; j++) {
     instalacion=instalaciones[j];
     s +='{'+
@@ -425,8 +425,41 @@ function createJSONLD(instalaciones){
   }*/
 
   instalacion=instalaciones[0];
-  s +='{'+
-      '"@context": "https://schema.org",'+
+  let s ={
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "description": instalacion.descripcio,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": instalacion.geo1.address,
+        "addressLocality": instalacion.geo1.city,
+        "addressRegion": "Islas Baleares",
+        "postalCode": instalacion.geo1.zip,
+        "addressCountry": "España"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": instalacion.geo1.lat,
+        "longitude": instalacion.geo1.long,
+      },
+      "openingHours": instalacion.horari,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": instalacion.contacte.telf,
+      }
+    };
+    //$("#webSemantica").textContent+=JSON.stringify(s);
+
+    const script = document.createElement('script');
+    script.setAttribute('type', 'application/ld+json');
+    script.textContent = JSON.stringify(s);
+    document.head.appendChild(script);
+
+}
+
+/*
+
+ '"@context": "https://schema.org",'+
       '"@type": "SportsActivityLocation",'+
       '"description": "'+instalacion.descripcio+'",'
       '"address": {'+
@@ -448,12 +481,5 @@ function createJSONLD(instalaciones){
         '"telephone": "'+instalacion.contacte.telf+'"'+
       '}'+
     '}';
-    //$("#webSemantica").textContent+=JSON.stringify(s);
 
-    const script = document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.textContent = JSON.stringify(s);
-    document.head.appendChild(script);
-
-}
-
+*/
