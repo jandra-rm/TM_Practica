@@ -426,8 +426,8 @@ function createJSONLD(instalaciones){
           "telephone": instalacion.contacte.telf,
         }
       };
-      //script.textContent += JSON.stringify(s);
-      script.appendChild(s);
+      script.textContent += JSON.stringify(s);
+      //script.appendChild(s);
   }
   document.head.appendChild(script);
 
