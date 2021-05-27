@@ -42,6 +42,7 @@ function myInitCode() {
       const instGym = JSON.parse(this.responseText);
       setJsonGimnasio(instGym);
       startAutocomplete();
+      createJSONLD(instGym);
     }
   };
   reqGym.open("GET", url, true);
@@ -56,6 +57,7 @@ function myInitCode() {
       const instFutbol = JSON.parse(this.responseText);
       setJsonFutbol(instFutbol);
       startAutocomplete();
+      createJSONLD(instFutbol);
     }
   };
   reqFutbol.open("GET", url, true);
@@ -71,7 +73,7 @@ function myInitCode() {
       setJsonPropio(instalaciones);
       createPortfolio(instalaciones);
       createNavBar(instalaciones);
-      //createJSONLD(instalaciones);
+      createJSONLD(instalaciones);
     }
   };
   request.open("GET", url, true);
