@@ -428,6 +428,8 @@ function createJSONLD(instalaciones){
   let s ={
       "@context": "https://schema.org",
       "@type": "SportsActivityLocation",
+      "name": instalacion.nom,
+      "image": instalacion.imatges[0],
       "description": instalacion.descripcio,
       "address": {
         "@type": "PostalAddress",
