@@ -631,7 +631,7 @@ function createCards(instalaciones) {
     document.getElementById("stars" + instalaciones[k].nom).innerHTML = getStars(instalaciones[k].puntuacio);
   }
 
-  var s="";
+  /*var s="";
   for(var x=0; x<instalaciones.length; x++){
     //Añadimos la información al json ld
     s+='{'+
@@ -659,7 +659,7 @@ function createCards(instalaciones) {
     '}';
     $("#webSemantica").innerHTML+=JSON.stringify(s);
     console.log(s);
-  }
+  }*/
 }
 
 
@@ -723,6 +723,33 @@ function createModal(instalacion) {
   document.getElementById('myModal').appendChild(divModal2);
 
   rellenarModal(instalacion);
+
+  var s ='{'+
+      '"@context": "https://schema.org/SportsActivityLocation",'+
+      '"@type": "Organization",'+
+      '"description": "'+instalacion.descripcio+'",'
+      '"address": {'+
+        '"@type": "PostalAddress",'+
+        '"streetAddress": "'+instalacion.geo1.address+'",'+
+        '"addressLocality": "'+instalacion.geo1.city+'",'+
+        '"addressRegion": "a",'+
+        '"postalCode": "'+instalacion.geo1.zip+'",'+
+        '"addressCountry": "Spain"'+
+      '},'+
+      '"geo": {'+
+        '"@type": "GeoCoordinates",'+
+        '"latitude": "'+instalacion.geo1.lat+'",'+
+        '"longitude": "'+instalacion.geo1.long+'"'+
+      '},'+
+      //'"openingHours": "'+instalacion.horari+'",'+
+      '"contactPoint": {'+
+        '"@type": "ContactPoint",'+
+        '"telephone": "'+instalacion.contacte.telf+'"'+
+      '}'+
+    '}';
+    $("#webSemantica").textContent+=JSON.stringify(s);
+
+
 }
 
 function rellenarModal(instalacion) {
