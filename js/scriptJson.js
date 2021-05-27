@@ -395,8 +395,8 @@ function bindCmt(nom,esport){
 }
 
 function createJSONLD(instalaciones){
-  const script = document.createElement('script');
-  script.setAttribute('type', 'application/ld+json');
+  //const script = document.createElement('script');
+  //script.setAttribute('type', 'application/ld+json');
 
   var instalacion="";
   for (var j = 0; j < instalaciones.length; j++) {
@@ -426,10 +426,10 @@ function createJSONLD(instalaciones){
           "telephone": instalacion.contacte.telf,
         }
       };
-      script.textContent += JSON.stringify(s);
-      //script.appendChild(s);
+      //script.textContent += JSON.stringify(s);
+      document.getElementById("webSemantica").textContent += JSON.stringify(s);
   }
-  document.head.appendChild(script);
+  //document.head.appendChild(script);
 
 }
 
