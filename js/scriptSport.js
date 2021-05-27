@@ -724,7 +724,7 @@ function createModal(instalacion) {
 
   rellenarModal(instalacion);
 
-  var s ='{'+
+  /*var s ='{'+
       '"@context": "https://schema.org/SportsActivityLocation",'+
       '"@type": "Organization",'+
       '"description": "'+instalacion.descripcio+'",'
@@ -745,6 +745,31 @@ function createModal(instalacion) {
       '"contactPoint": {'+
         '"@type": "ContactPoint",'+
         '"telephone": "'+instalacion.contacte.telf+'"'+
+      '}'+
+    '}';
+    $("#webSemantica").textContent+=JSON.stringify(s);*/
+
+    var s ='{'+
+      '"@context": "https://schema.org/SportsActivityLocation",'+
+      '"@type": "Organization",'+
+      '"description": "hola",'
+      '"address": {'+
+        '"@type": "PostalAddress",'+
+        '"streetAddress": "0.323",'+
+        '"addressLocality": "0.343",'+
+        '"addressRegion": "a",'+
+        '"postalCode": "aaaa",'+
+        '"addressCountry": "Spain"'+
+      '},'+
+      '"geo": {'+
+        '"@type": "GeoCoordinates",'+
+        '"latitude": "0.323",'+
+        '"longitude": "0.343"'+
+      '},'+
+      //'"openingHours": "'+instalacion.horari+'",'+
+      '"contactPoint": {'+
+        '"@type": "ContactPoint",'+
+        '"telephone": "123456789"'+
       '}'+
     '}';
     $("#webSemantica").textContent+=JSON.stringify(s);
