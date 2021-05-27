@@ -398,8 +398,8 @@ function createJSONLD(instalaciones){
   //const script = document.createElement('script');
   //script.setAttribute('type', 'application/ld+json');
   var instalacion="";
-  for (var j = 0; j < instalaciones.length; j++) {
-    instalacion=instalaciones[j];
+  //for (var j = 0; j < instalaciones.length; j++) {
+    instalacion=instalaciones[0];
     let s ={
         "@context": "https://schema.org",
         "@type": "SportsActivityLocation",
@@ -426,8 +426,8 @@ function createJSONLD(instalaciones){
         }
       };
       //script.textContent += JSON.stringify(s);
-      document.getElementById("webSemantica").textContent += JSON.stringify(s);
-  }
+      document.getElementById("webSemantica").textContent = JSON.stringify(s);
+  //}
   //document.head.appendChild(script);
 
 }
