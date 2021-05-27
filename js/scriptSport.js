@@ -673,8 +673,8 @@ function createModal(instalacion) {
 
   var divModalHeader = document.createElement("div");
   divModalHeader.classList.add('modal-header');
-  divModalHeader.setAttribute("itemscope");
-  divModalHeader.setAttribute("itemtype","http://schema.org/SportsActivityLocation")
+  //divModalHeader.setAttribute("itemscope");
+  //divModalHeader.setAttribute("itemtype","http://schema.org/SportsActivityLocation")
 
   var h4 = document.createElement("h4");
   h4.classList.add('modal-title', 'col-11');
