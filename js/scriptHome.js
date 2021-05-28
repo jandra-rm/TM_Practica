@@ -9,15 +9,15 @@ const sports = [
   "VOLEIBOL",
   "BALONMANO"
 ];
-const imatges = ["assets/img/portfolio/gym.png",
-  "assets/img/portfolio/padel.png",
-  "assets/img/portfolio/natacion.png",
-  "assets/img/portfolio/tenis.png",
-  "assets/img/portfolio/golf.png",
-  "assets/img/portfolio/futbol.png",
-  "assets/img/portfolio/basket.png",
-  "assets/img/portfolio/volleyball.png",
-  "assets/img/portfolio/balonmano.png"];
+const imatges = ["assets/img/portfolio/gym.jp2",
+  "assets/img/portfolio/padel.jp2",
+  "assets/img/portfolio/natacion.jp2",
+  "assets/img/portfolio/tenis.jp2",
+  "assets/img/portfolio/golf.jp2",
+  "assets/img/portfolio/futbol.jp2",
+  "assets/img/portfolio/basket.jp2",
+  "assets/img/portfolio/volleyball.jp2",
+  "assets/img/portfolio/balonmano.jp2"];
 
 //Cuando la página esté cargada, ejecuta myInitCode
 if (document.readyState !== 'loading') {
