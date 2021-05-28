@@ -122,6 +122,7 @@ function createPortada() {
   var img = document.createElement("img");
   img.className = "logo";
   img.src = "assets/img/mallorca_sports_svg.svg";
+  img.alt = "MallorcaSports logo";
 
   div2.appendChild(img);
   div.appendChild(vid);
@@ -188,6 +189,7 @@ function createPortfolio(datosJson) {
   var im = document.createElement("img");
   im.className = 'img-fluid';
   im.src = imatges[i];
+  im.alt = sports[i];
 
   c.appendChild(d);
   b.appendChild(c);
@@ -240,6 +242,7 @@ function createPortfolio(datosJson) {
     };
     var clnim = im.cloneNode(false);
     clnim.src = imatges[i];
+    clnim.alt = sports[i];
     clnc.appendChild(clnd);
     clnb.appendChild(clnc);
     clnb.appendChild(clnim);

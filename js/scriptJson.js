@@ -241,7 +241,7 @@ function getInstalacionesByFiltrosFut(servicios, cesped, capacidad) {
         break;
     }
 
-    if(fullListDeporte[i].dadesPropies.capacidad > capacidad){
+    if(fullListDeporte[i].dadesPropies.capacidad < capacidad){
       cumpleFiltros = false;
     }
 

@@ -54,7 +54,7 @@ function createMap(instalaciones) {
       var img = images[i];
 
       slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
-        '<img src="' + img[0] + '" />' +
+        '<img src="' + img[0] + '" alt="' + feature.properties.title +'" />' +
         '<div class="caption">' + '</div>' +
         '</div>';
     }
@@ -293,7 +293,7 @@ function filtrosFutbol(instalaciones) {
   var max = Math.max.apply(null, capacidades);
   var capacidad = document.createElement("div");
   capacidad.innerHTML = '<div class="py-2 border-bottom ml-3">' +
-    '<h3 class="font-weight-bold" style="color:#FF6B6B">Capacidad</h3>' +
+    '<h3 class="font-weight-bold" style="color:#FF6B6B">Capacidad mínima</h3>' +
     '<div class="d-flex justify-content-center my-4">' +
     '<span class="font-weight-bold mr-2 ">' + min + '</span>' +
     '<form class="range-field w-50">' +
