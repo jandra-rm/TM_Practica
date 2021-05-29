@@ -46,7 +46,9 @@ function startAutocomplete() {
   for (var i = 0; gimnasios != null && i < gimnasios.length; i++) {
     instSport.push(gimnasios[i].nom + ' -  GIMNASIO');
   }
-  autocomplete(document.getElementById("myInput"), instSport);
+  if(document.getElementById("myInput") != null){
+    autocomplete(document.getElementById("myInput"), instSport);
+  }
 }
 
 function getServeisSport(instalaciones) {

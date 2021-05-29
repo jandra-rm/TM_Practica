@@ -1299,6 +1299,3 @@ function cambiarObjetosPorFila() {
     objetosPorFila(2);
   }
 }
-function resizeListado() {
-  window.addEventListener("resize", cambiarObjetosPorFila);
-}

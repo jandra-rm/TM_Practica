@@ -9,15 +9,50 @@ const sports = [
   "VOLEIBOL",
   "BALONMANO"
 ];
-const imatges = ["assets/img/portfolio/gym.jp2",
-  "assets/img/portfolio/padel.jp2",
-  "assets/img/portfolio/natacion.jp2",
-  "assets/img/portfolio/tenis.jp2",
-  "assets/img/portfolio/golf.jp2",
-  "assets/img/portfolio/futbol.jp2",
-  "assets/img/portfolio/basket.jp2",
-  "assets/img/portfolio/volleyball.jp2",
-  "assets/img/portfolio/balonmano.jp2"];
+var imatges = ["assets/img/portfolio/gym.webp",
+  "assets/img/portfolio/padel.webp",
+  "assets/img/portfolio/natacion.webp",
+  "assets/img/portfolio/tenis.webp",
+  "assets/img/portfolio/golf.webp",
+  "assets/img/portfolio/futbol.webp",
+  "assets/img/portfolio/basket.webp",
+  "assets/img/portfolio/volleyball.webp",
+  "assets/img/portfolio/balonmano.webp"];
+
+
+const imatgesJP2 = ["assets/img/portfolio/gym.jp2",
+"assets/img/portfolio/padel.jp2",
+"assets/img/portfolio/natacion.jp2",
+"assets/img/portfolio/tenis.jp2",
+"assets/img/portfolio/golf.jp2",
+"assets/img/portfolio/futbol.jp2",
+"assets/img/portfolio/basket.jp2",
+"assets/img/portfolio/volleyball.jp2",
+"assets/img/portfolio/balonmano.jp2"];
+
+
+function WebpIsSupported(callback) {
+  // If the browser doesn't has the method createImageBitmap, you can't display webp format
+  if (!window.createImageBitmap) {
+    callback(false);
+    return;
+  }
+
+  // Base64 representation of a white point image
+  var webpdata = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoCAAEAAQAcJaQAA3AA/v3AgAA=';
+
+  // Retrieve the Image in Blob Format
+  fetch(webpdata).then(function (response) {
+    return response.blob();
+  }).then(function (blob) {
+    // If the createImageBitmap method succeeds, return true, otherwise false
+    createImageBitmap(blob).then(function () {
+      callback(true);
+    }, function () {
+      callback(false);
+    });
+  });
+}
 
 //Cuando la página esté cargada, ejecuta myInitCode
 if (document.readyState !== 'loading') {
@@ -25,7 +60,7 @@ if (document.readyState !== 'loading') {
 } else {
   document.addEventListener('DOMContentLoaded', function () {
     myInitCode();
-    resizeListado();
+    window.addEventListener("resize", cambiarObjetosPorFila);
   });
 }
 
@@ -33,6 +68,11 @@ if (document.readyState !== 'loading') {
 
 //Código inicial, crea la página principal
 function myInitCode() {
+  WebpIsSupported(function (isSupported) {
+    if (! isSupported) {
+      imatges = imatgesJP2;
+    }
+  });
   //JSON gimnasios
   var reqGym = new XMLHttpRequest();
   var url = "https://lcp-tm-api.herokuapp.com/gyms.json";
@@ -71,6 +111,7 @@ function myInitCode() {
     if (this.readyState == 4 && this.status == 200) {
       const instalaciones = JSON.parse(this.responseText);
       setJsonPropio(instalaciones);
+      startAutocomplete();
       createPortfolio(instalaciones);
       createNavBar(instalaciones);
       createJSONLD(instalaciones);
@@ -162,14 +203,14 @@ function createPortfolio(datosJson) {
     show('SportPage', 'HomePage');
 
     if (b.id.localeCompare("GIMNASIO") == 0) {
-      while(gimnasios == null);
+      while (gimnasios == null);
       if (gimnasios.length > 0) {
         inicializarPagina(gimnasios);
       } else {
         alert("No hay instalaciones de GIMNASIO");
       }
     } else if (b.id.localeCompare("FÚTBOL") == 0) {
-      while(campos == null);
+      while (campos == null);
       if (campos.length > 0) {
         inicializarPagina(campos);
       } else {
@@ -409,8 +450,6 @@ function createNavBar(datosJson) {
   nav.appendChild(div1);
   document.getElementById('BarraNavegacion').appendChild(nav);
 
-  /*initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values:*/
-  startAutocomplete(datosJson);
 }
 
 //FOOTER
