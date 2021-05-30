@@ -1,13 +1,13 @@
 [ 
   {
     "nom": "Campus Esport",
-    "descripcio": "hola",
+    "descripcio": "La nostra piscina coberta fa 34x21 metres, té dos metres de profunditat, i està organitzada en 14 carrers. La temperatura de l'aigua es manté entre els 26 i els 28 graus, i la temperatura ambiental és 2 graus superiors a la de l'aigua.",
     "detall": "NATACIÓN",
     "tipus": "",
     "identificador": "",
     "comentari": "",
     "preu": {
-      "import": "3",
+      "import": "204",
       "coment-preu": ""
     },
     "contacte": {
@@ -224,16 +224,16 @@
       ,
       "serveis": [
         {
-          "nom": "equipos de salvamento y primeros auxilios",
-          "icono": "<i class='far fa-life-ring'></i>"
+          "nom": "Equipos de salvamento y primeros auxilios",
+          "icono": "<i class='fas fa-life-ring'></i>"
         },
         {
-          "nom": "cronómetro para entrenamientos",
-          "icono": "<i class='far fa-life-ring'></i>" 
+          "nom": "Cronómetro para entrenamientos",
+          "icono": "<i class='fas fa-stopwatch'></i>" 
         },
         {
-          "nom": "Vestuarios para infantes, mujeres y hombres",
-          "icono": "<i class='fas fa-shirt'></i>"
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
         }
       ],
       "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
@@ -242,13 +242,13 @@
  
   {
     "nom": "Campus Esport",
-    "descripcio": "Les pistes de Pàdel estan preparades per jugar dobles i estan equipades amb gespa artificial; quatre són de paret i quatre de vidre. La pista de Tennis compta amb paviment Green Set d'alta qualitat. Aquestes instal·lacions estan ubicades ben prop de l'edifici principal de CampusEsport, i compten amb accés exterior i proximitat a l'àrea de vestuaris",
+    "descripcio": "La pista de Tennis compta amb paviment Green Set d'alta qualitat.",
     "detall": "TENIS",
     "tipus": "",
     "identificador": "",
     "comentari": "",
     "preu": {
-      "import": "2",
+      "import": "14",
       "coment-preu": ""
     },
     "contacte": {
@@ -423,7 +423,7 @@
       ,
       "serveis": [
         {
-          "nom": "alquiler de raquetas y pelotas",
+          "nom": "Alquiler de raquetas y pelotas",
           "icono": "<i class='fas fa-baseball-ball'></i>"
         }
       ],
@@ -790,28 +790,2889 @@
           "icono": "<i class='fas fa-baseball-ball'></i>"
         },
         {
-          "nom": "Vestuarios con duchas individuales termostáticas",
-          "icono": ""
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
         },
         {
-          "nom": "Aire acondicionado y taquillas",
-          "icono": ""
+          "nom": "Taquillas",
+          "icono": "<i class='fas fa-user-lock'></i>"
         },
         {
-          "nom": "Bar y Restaurante",
-          "icono": ""
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
         },
         {
-          "nom": "Tienda de ropa deportiva y palas",
-          "icono": ""
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
         },
         {
           "nom": "Clases",
-          "icono": ""
+          "icono": "<i class='fas fa-users'></i>"
         }
-        
       ],
       "esports": []
     }
-  } 
+  },
+  {
+    "nom": "Palma Racket Club",
+    "descripcio": "Pádel & Tenis desde 1999",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "15",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971736319",
+      "email": "info@palmaracketclub.es",
+      "xarxes": 
+        {
+          "web":"https://www.palmaracketclub.es",
+          "facebook": "https://www.facebook.com/palma.racket",
+          "twitter": "https://twitter.com/palmaracket?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "3.8",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.palmaracketclub.es/wp-content/uploads/2020/10/Logo-Web1-scaled.jpg"
+    ],
+    "imatges": [
+      "https://lh3.googleusercontent.com/SbdAqRKM8zKaYAB_XHSHDPLwoD5v0UkZjqOBUXfRAcTw0Q_MBLb5UynZoLidXUL_NdOtrHy6_XBR3fB_cg=w1080-h608-p-no-v0",
+      "https://img.grouponcdn.com/deal/3n8EQa3jvX2FjfRJCnKm5tNfFRsx/3n-901x540/v1/c870x524.jpg",
+      "https://lh3.googleusercontent.com/mIsbtrKQM_ZJ0X4w8BzFKKEAS9sJFzYdUEFQ_N39u0AqVQvjYQ83vcbkK7h8lY7BUZs-0q9uKAoaVFi4KQ=w768-h768-n-o-v1"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer de Galícia, 7",
+      "lat": 39.58174765765209,   
+      "long": 2.6247906861846655,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07013"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Alquiler de palas y pelotas",
+          "icono": "<i class='fas fa-baseball-ball'></i>"
+        },
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Acceso minusválidos",
+          "icono": "<i class='fab fa-accessible-icon'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        }
+      ],
+      "esports": ["TENIS"]
+    }
+  },
+  {
+    "nom": "Palma Racket Club",
+    "descripcio": "Pádel & Tenis desde 1999",
+    "detall": "TENIS",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "16",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971736319",
+      "email": "info@palmaracketclub.es",
+      "xarxes": 
+        {
+          "web":"https://www.palmaracketclub.es",
+          "facebook": "https://www.facebook.com/palma.racket",
+          "twitter": "https://twitter.com/palmaracket?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "3.8",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.palmaracketclub.es/wp-content/uploads/2020/10/Logo-Web1-scaled.jpg"
+    ],
+    "imatges": [
+      "https://static.wixstatic.com/media/6f1263_1db2e4216530410587bb938f4bb8d101~mv2_d_1600_1200_s_2.jpeg/v1/fill/w_560,h_418,al_c,q_80,usm_0.66_1.00_0.01/WhatsApp%20Image%202017-03-14%20at%2022_59_09_jp.webp",
+      "https://lh3.googleusercontent.com/proxy/TDmQrIdVyn93BS9emqokbgEIj00YA63OO-r_lhuj0cCPuZ_dXHveHZ61osBQoUivCel-b5j8x2w_1OMF7c1jSmSckvMouSvMwVvgu3t0",
+      "https://pbs.twimg.com/profile_images/534302433573224448/DBULTPRk.jpeg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer de Galícia, 7",
+      "lat": 39.58174765765209,   
+      "long": 2.6247906861846655,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07013"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Alquiler de palas y pelotas",
+          "icono": "<i class='fas fa-baseball-ball'></i>"
+        },
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Acceso minusválidos",
+          "icono": "<i class='fab fa-accessible-icon'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        }
+      ],
+      "esports": ["PÁDEL"]
+    }
+  },
+  {
+    "nom": "Pins Padel Club",
+    "descripcio": "Rodeado de naturaleza, exclusivamente de pádel con 16 pistas, 14 dobles (9 cubiertas) y 2 individuales.",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "12",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971450574",
+      "email": "info@pinspadelclub.es",
+      "xarxes": 
+        {
+          "web":"https://pinspadelclub.com/es/",
+          "facebook": "https://es-es.facebook.com/clubdeportivopinspadel",
+          "twitter": "https://twitter.com/pinspadelclub?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDqhoJFnd6-GqNPpPDUojPWhefDLMDqcbb5WpH_I-SDFcW0kRDEixX1IiaNezz0A1p1E&usqp=CAU"
+    ],
+    "imatges": [
+      "https://www.padelen.com/assets/images/instalacion/medium/padel-pins-mallorca.jpg",
+      "https://lh3.googleusercontent.com/proxy/lyGD8V32CNiEe-Ohs_o1JQAkfwiUr-vZfU53FCm7UG_DAxAVLbJ4mPWf6Z8I4Vd9xzmSwuLjw43MQYsBr1qU8qk8_4xVHfRwMKzkz4-O8v8",
+      "https://estaticos-cdn.prensaiberica.es/clip/232334a7-a416-44b9-985d-8225df7c598d_16-9-aspect-ratio_default_0.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer Lluis Ferbal, 7",
+      "lat": 39.57594438451435,   
+      "long": 2.6190742971289556,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07014"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "23:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "23:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "23:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "23:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "23:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        }
+      ],
+      "esports": []
+    }
+  },
+  {
+    "nom": "Palma Sport & Tennis Club",
+    "descripcio": "Este moderno club social ofrece lo último en deportes, una relajante área de SPA y un bistró con productos locales frescos todos los días. ¡También es el lugar perfecto para reuniones semanales!",
+    "detall": "TENIS",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "40",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971282000",
+      "email": "info@palmatennis.es",
+      "xarxes": 
+        {
+          "web":"https://www.palmatennis.com",
+          "facebook": "https://www.facebook.com/Palma-Sport-Tennis-Club-575022032637028",
+          "twitter": "",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.6",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWkapwsNME7kKRWGkuo8yQ740PtzRQzOiGU6h1cGYrvmNH9g7SneIt6KGHE28-dv-5RoE&usqp=CAU"
+    ],
+    "imatges": [
+      "https://mptc1.files.wordpress.com/2014/05/vollbildaufzeichnung-08-07-2017-065200.jpg",
+      "https://static.seetheworld.com/image_uploader/photos/3f/original/palma-sport-and-tennis-club-palma-de-mallorca-palma-de-mallorca-897.jpg",
+      "https://www.bivaq.com/wp-content/uploads/2016/06/nak_sunlounger.jpg",
+      "https://www.bivaq.com/wp-content/uploads/2016/06/a4548903.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer Joan Maria Thomàs, 4", 
+      "lat": 39.573628910486114,   
+      "long": 2.6318080623816456,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07014"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "07:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Spa",
+          "icono": "<i class='fas fa-spa'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        },
+        {
+          "nom": "Personal trainer",
+          "icono": "<i class='fas fa-user-friends'></i>"
+        }
+      ],
+      "esports": ["YOGA, PILATES, NATACIÓN, CYCLING, RUNNING, BOXING"]
+    }
+  },
+  {
+    "nom": "Padel Factory",
+    "descripcio": "Tu club de padel indoor en Mallorca",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "7",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971432305",
+      "email": "",
+      "xarxes": 
+        {
+          "web":"https://padelfactory.es/",
+          "facebook": "https://es-es.facebook.com/padelfactorysoncastello",
+          "twitter": "https://twitter.com/padel_factory?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.4",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://padelfactory.es/wp-content/uploads/2019/11/cabecera-768x116.jpg"
+    ],
+    "imatges": [
+      "https://padelfactory.es/wp-content/uploads/2019/11/Bar.jpg",
+      "https://padelfactory.es/wp-content/uploads/2019/11/Pista.jpg",
+      "https://padelfactory.es/wp-content/uploads/2019/11/Padel-Factory-Pano.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer Gremi Teixidors, 3", 
+      "lat": 39.59868535950575,   
+      "long": 2.666403980954319,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07009"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "08:30",
+          "out": "24:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "08:30",
+          "out": "24:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "08:30",
+          "out": "24:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "08:30",
+          "out": "24:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "08:30",
+          "out": "24:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        }
+      ],
+      "esports": []
+    }
+  },
+  {
+    "nom": "Tenis Arenal",
+    "descripcio": "Tu club de tenis, pádel y muchas cosas más para toda la familia",
+    "detall": "TENIS",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "14",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "871514462",
+      "email": "tenisarenal@gmail.es",
+      "xarxes": 
+        {
+          "web":"http://www.tenisarenal.com/",
+          "facebook": "https://www.facebook.com/tenis.arenal",
+          "twitter": "",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.1",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "http://www.tenisarenal.com/wp-content/uploads/2015/08/logo_tenisarenal-_horizontal.png"
+    ],
+    "imatges": [
+      "http://www.tenisarenal.com/wp-content/uploads/2014/09/tenis-1_Fotor-1024x768.jpg",
+      "http://www.tenisarenal.com/wp-content/uploads/2014/09/pista_tenis_jugando.jpg",
+      "https://media-cdn.tripadvisor.com/media/photo-s/05/2e/19/ae/getlstd-property-photo.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer de Costa i Llobera, 1", 
+      "lat": 39.500576657954475,   
+      "long": 2.751020469883814,
+      "city": "S'Arenal, Illes Balears",
+      "Country": "España",
+      "zip": "07600"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "08:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "08:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        }
+      ],
+      "esports": ["PÁDEL, SQUASH"]
+    }
+  },
+  {
+    "nom": "Tenis Arenal",
+    "descripcio": "Tu club de tenis, pádel y muchas cosas más para toda la familia",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "12",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "871514462",
+      "email": "tenisarenal@gmail.es",
+      "xarxes": 
+        {
+          "web":"http://www.tenisarenal.com/",
+          "facebook": "https://www.facebook.com/tenis.arenal",
+          "twitter": "",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.1",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "http://www.tenisarenal.com/wp-content/uploads/2015/08/logo_tenisarenal-_horizontal.png"
+    ],
+    "imatges": [
+      "https://www.padelnest.com/pictures/pic/TI/TI6Y/TI6YB4EO5T_x.jpg",
+      "https://media-cdn.tripadvisor.com/media/photo-s/05/2e/19/ae/getlstd-property-photo.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer de Costa i Llobera, 1", 
+      "lat": 39.500576657954475,   
+      "long": 2.751020469883814,
+      "city": "S'Arenal, Illes Balears",
+      "Country": "España",
+      "zip": "07600"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "08:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "08:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "08:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        }
+      ],
+      "esports": ["TENIS, SQUASH"]
+    }
+  },
+  {
+    "nom": "Delta Tennis Club",
+    "descripcio": "Delta Tennis Cub cuenta con 6 pistas de tierra batida, tres de ellas iluminadas para poder jugar de noche, también contamos con una pista polideportiva (futbito, basquet, mini tenis...), piscina, campo de mini golf y unos amplios jardines",
+    "detall": "TENIS",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "13",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "695455693",
+      "email": "deltatennisclub@hotmail.com",
+      "xarxes": 
+        {
+          "web":"https://www.deltamallorcatennis.com/",
+          "facebook": "https://www.facebook.com/Deltatennisclub",
+          "twitter": "",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.9",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      ""
+    ],
+    "imatges": [
+      "https://static.wixstatic.com/media/05fda6_3f8f652b70bf42379296fa9c8b1a2728~mv2_d_2736_3648_s_4_2.jpg/v1/fill/w_640,h_340,al_c,q_80,usm_0.66_1.00_0.01/IMG_20180902_141143.webp",
+      "https://static.wixstatic.com/media/05fda6_14d0404d7f2a41b5b0ee01a1eee25c27~mv2_d_2736_3648_s_4_2.jpg/v1/fill/w_614,h_672,al_c,q_85,usm_0.66_1.00_0.01/IMG_20180829_135612.webp",
+      "https://static.wixstatic.com/media/05fda6_059f2d8abdde407e9133ca7c1703de4d~mv2_d_3648_2736_s_4_2.jpg/v1/fill/w_1374,h_516,al_c,q_85,usm_0.66_1.00_0.01/IMG_20180902_141623.webp"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carrer del Tudó, 4", 
+      "lat": 39.45459505077075,   
+      "long": 2.7547242204266063,
+      "city": "Puigderrós, Illes Balears",
+      "Country": "España",
+      "zip": "07609"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "21:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "12:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "-",
+          "out": "-"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Mini golf",
+          "icono": "<i class='fas fa-golf-ball'></i>"
+        }
+      ],
+      "esports": ["BALONCESTO, FÚTBOL"]
+    }
+  },
+  {
+    "nom": "Rafa Nadal Club",
+    "descripcio": "El Rafa Nadal Club pone a tu disposición sus magníficas pistas e instalaciones para que puedas disfrutarlas con amigos y familiares.",
+    "detall": "TENIS",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "55",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971171675",
+      "email": "info@rafanadalclub.com",
+      "xarxes": 
+        {
+          "web":"https://www.rafanadalclub.com/",
+          "facebook": "https://www.facebook.com/rafanadalclub",
+          "twitter": "https://twitter.com/rnadalacademy?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.8",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "http://revistatenisgrandslam.es/wp-content/uploads/IMG_20200918_174021-1024x686.png"
+    ],
+    "imatges": [
+      "https://images.neobookings.com/1535x542/cms/rafanadalclub.com/section/alquiler-de-pistas/pics/alquiler-de-pistas-6ze3j39lxp.jpeg",
+      "https://www.palladiumtravelclub.com/uploads/galerias/complejos/rafa-nadal-tennis-centre-103.jpg",
+      "https://images.neobookings.com/1535x542/cms/escentremanacor.com/section/sport-cafe/pics/sport-cafe-powz5g3w3n.jpeg",
+      "http://revistatenisgrandslam.es/wp-content/uploads/Rafa-Nadal-Club.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Ctra. Cales de Mallorca s/n, Km 1,2", 
+      "lat": 39.55964394994463,   
+      "long": 3.21633281482929,
+      "city": "Manacor, Illes Balears",
+      "Country": "España",
+      "zip": "07500"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "9:30",
+          "out": "17:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "9:30",
+          "out": "15:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        },
+        {
+          "nom": "Personal trainer",
+          "icono": "<i class='fas fa-user-friends'></i>"
+        },
+        {
+          "nom": "Spa",
+          "icono": "<i class='fas fa-spa'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Fisioterapia",
+          "icono": "<i class='fas fa-sign-language'></i>"
+        },
+        {
+          "nom": "Nutrición",
+          "icono": "<i class='fab fa-nutritionix'></i>"
+        }
+      ],
+      "esports": ["NATACIÓN, PÁDEL, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+    }
+  },
+  {
+    "nom": "Rafa Nadal Club",
+    "descripcio": "El Rafa Nadal Club pone a tu disposición sus magníficas pistas e instalaciones para que puedas disfrutarlas con amigos y familiares.",
+    "detall": "PÁDEL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "45",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971171675",
+      "email": "info@rafanadalclub.com",
+      "xarxes": 
+        {
+          "web":"https://www.rafanadalclub.com/",
+          "facebook": "https://www.facebook.com/rafanadalclub",
+          "twitter": "https://twitter.com/rnadalacademy?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.8",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "http://revistatenisgrandslam.es/wp-content/uploads/IMG_20200918_174021-1024x686.png"
+    ],
+    "imatges": [
+      "https://images.neobookings.com/1535x542/cms/rafanadalclub.com/section/alquiler-de-pistas/pics/alquiler-de-pistas-6ze3j39lxp.jpeg",
+      "https://www.palladiumtravelclub.com/uploads/galerias/complejos/rafa-nadal-tennis-centre-103.jpg",
+      "https://images.neobookings.com/633x608/cms/escentremanacor.com/section/campus/pics/campus-6ze3jmrlxp.jpeg",
+      "http://revistatenisgrandslam.es/wp-content/uploads/Rafa-Nadal-Club.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Ctra. Cales de Mallorca s/n, Km 1,2", 
+      "lat": 39.55964394994463,   
+      "long": 3.21633281482929,
+      "city": "Manacor, Illes Balears",
+      "Country": "España",
+      "zip": "07500"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "9:30",
+          "out": "17:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "9:30",
+          "out": "15:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Piscina",
+          "icono": "<i class='fas fa-swimming-pool'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        },
+        {
+          "nom": "Personal trainer",
+          "icono": "<i class='fas fa-user-friends'></i>"
+        },
+        {
+          "nom": "Spa",
+          "icono": "<i class='fas fa-spa'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Fisioterapia",
+          "icono": "<i class='fas fa-sign-language'></i>"
+        },
+        {
+          "nom": "Nutrición",
+          "icono": "<i class='fab fa-nutritionix'></i>"
+        }
+      ],
+      "esports": ["NATACIÓN, TENIS, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+    }
+  },
+  {
+    "nom": "Rafa Nadal Club",
+    "descripcio": "El Rafa Nadal Club pone a tu disposición sus magníficas pistas e instalaciones para que puedas disfrutarlas con amigos y familiares.",
+    "detall": "NATACIÓN",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "45",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971171675",
+      "email": "info@rafanadalclub.com",
+      "xarxes": 
+        {
+          "web":"https://www.rafanadalclub.com/",
+          "facebook": "https://www.facebook.com/rafanadalclub",
+          "twitter": "https://twitter.com/rnadalacademy?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.8",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "http://revistatenisgrandslam.es/wp-content/uploads/IMG_20200918_174021-1024x686.png"
+    ],
+    "imatges": [
+      "https://images.neobookings.com/633x608/cms/rafanadalclub.com/section/escuela-de-natacion/pics/escuela-de-natacion-zme4pn7egp.jpeg",
+      "https://www.palladiumtravelclub.com/uploads/galerias/complejos/rafa-nadal-tennis-centre-103.jpg",
+      "https://images.neobookings.com/633x608/cms/rafanadalclub.com/section/club-de-natacion/pics/club-de-natacion-8gep237l4n.jpeg",
+      "http://revistatenisgrandslam.es/wp-content/uploads/Rafa-Nadal-Club.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Ctra. Cales de Mallorca s/n, Km 1,2", 
+      "lat": 39.55964394994463,   
+      "long": 3.21633281482929,
+      "city": "Manacor, Illes Balears",
+      "Country": "España",
+      "zip": "07500"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "7:30",
+          "out": "21:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "9:30",
+          "out": "17:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "9:30",
+          "out": "15:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Sala fitness",
+          "icono": "<i class='fas fa-dumbbell'></i>"
+        },
+        {
+          "nom": "Personal trainer",
+          "icono": "<i class='fas fa-user-friends'></i>"
+        },
+        {
+          "nom": "Spa",
+          "icono": "<i class='fas fa-spa'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        },
+        {
+          "nom": "Fisioterapia",
+          "icono": "<i class='fas fa-sign-language'></i>"
+        },
+        {
+          "nom": "Nutrición",
+          "icono": "<i class='fab fa-nutritionix'></i>"
+        }
+      ],
+      "esports": ["TENIS, PÁDEL, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+    }
+  },
+  {
+    "nom": "Club de Golf Alcanada",
+    "descripcio": "Alcanada es el mejor club de golf Mallorca y se encuentra localizado al norte de la más grande de las islas Baleares, en la bahía de Alcudia. Casi la totalidad de sus 18 hoyos proporciona una espectacular vista del faro y del mar con lo cual está garantizado que podrás relajarte totalmente mientras permanezcas en nuestras instalaciones. Aquí gozarás de cada swing y te sentirás retado, con independencia de tu handicap.",
+    "detall": "GOLF",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "105",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971549560",
+      "email": "info@golf-alcanada.com",
+      "xarxes": 
+        {
+          "web":"https://www.golf-alcanada.com/es/",
+          "facebook": "https://www.facebook.com/alcanadagolf?fref=ts",
+          "twitter": "https://twitter.com/de_alcanada?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.golf-alcanada.com/images/banners/alcanada-golf.png"
+    ],
+    "imatges": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-s/02/92/80/f4/filename-hole-15-octo.jpg?w=600&h=300&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-s/02/92/81/01/filename-hole-1b-octo.jpg?w=600&h=300&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-s/02/92/80/f9/filename-hole-16-octo.jpg?w=600&h=300&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-s/02/92/80/e9/filename-hole-14-octo.jpg?w=600&h=300&s=1"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carretera del Faro, s/n", 
+      "lat": 39.84209715709913,   
+      "long": 3.1702775190359223,
+      "city": "Port d'Alcúdia, Illes Balears",
+      "Country": "España",
+      "zip": "07400"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        }
+      ],
+      "esports": []
+    }
+  },
+  {
+    "nom": "Golf Son Gual",
+    "descripcio": "Son Gual es un club de golf privado para miembros de gestión familiar, ubicado en 156 hectáreas de hermoso paisaje mediterráneo.",
+    "detall": "GOLF",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "119",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971785888",
+      "email": "info@son-gual.com",
+      "xarxes": 
+        {
+          "web":"https://son-gual.com/",
+          "facebook": "https://www.facebook.com/golf.mallorca",
+          "twitter": "https://twitter.com/golfsongual",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://son-gual.com/wp-content/uploads/2021/04/son-gual-golf-mallorca-logo-2021-end-svg.svg"
+    ],
+    "imatges": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/be/cb/d9/18th-hole-par-5-son-gual.jpg?w=1400&h=800&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/be/b9/80/son-gual.jpg?w=1200&h=700&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/be/cb/d7/hole-4-son-gual-golf.jpg?w=1200&h=-1&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/be/ca/ca/18th-green-clubhouse.jpg?w=1200&h=-1&s=1"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Ma 15 - Palma - Manacor, Km 11,5", 
+      "lat": 39.5759907622522,   
+      "long": 2.801017635593318,
+      "city": "Palma, Illes Balears",
+      "Country": "España",
+      "zip": "07199"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "8:30",
+          "out": "18:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        }
+      ],
+      "esports": []
+    }
+  },
+  {
+    "nom": "Golf Son Servera",
+    "descripcio": "Un paraíso del Golf - 18 Hoyos de emocionante golf.",
+    "detall": "GOLF",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "105",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971840096",
+      "email": "reservas@golfsonservera.com",
+      "xarxes": 
+        {
+          "web":"https://www.golfsonservera.com/",
+          "facebook": "https://www.facebook.com/Golfsonservera/",
+          "twitter": "https://twitter.com/GolfSonServera",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.golfsonservera.com/wp-content/uploads/2018/01/Club-Golf-Son-Servera-Logo-1.png"
+    ],
+    "imatges": [
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/07/67/d7/club-de-golf-son-servera.jpg?w=1000&h=600&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/07/6a/d8/club-de-golf-son-servera.jpg?w=1200&h=700&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/07/6a/c4/club-de-golf-son-servera.jpg?w=1200&h=700&s=1",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/07/6a/8a/club-de-golf-son-servera.jpg?w=1200&h=700&s=1"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Urb. Costa de los Pinos Calle del Golf, s/n", 
+      "lat":  39.63946128823739,   
+      "long": 3.407117780401187,  
+      "city": "Son Servera, Illes Balears",
+      "Country": "España",
+      "zip": "07550"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "8:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        }
+      ],
+      "esports": []
+    }
+  },
+  {
+    "nom": "Capdepera Golf",
+    "descripcio": "Una experiencia de paz y tranquilidad. Un oasis en la zona este de Mallorca",
+    "detall": "GOLF",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "65",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971818500",
+      "email": "info@golfcapdepera.com",
+      "xarxes": 
+        {
+          "web":"https://www.golfcapdepera.com/es/",
+          "facebook": "https://es-es.facebook.com/capdepera.golf",
+          "twitter": "https://twitter.com/capdeenjoygolf",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.4",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.golfcapdepera.com/wp-content/uploads/2017/03/Capdepera-Golf-Logo.jpg"
+    ],
+    "imatges": [
+      "https://www.golfcapdepera.com/wp-content/uploads/2017/03/Golf-Capdepera-Gallery-GolfCourse-15-1.jpg",
+      "https://www.golfcapdepera.com/wp-content/uploads/2017/03/Golf-Capdepera-Gallery-GolfCourse-7-1.jpg",
+      "https://www.golfcapdepera.com/wp-content/uploads/2017/03/Golf-Capdepera-Gallery-GolfCourse-18-1.jpg",
+      "https://www.golfcapdepera.com/wp-content/uploads/2017/03/Golf-Capdepera-Gallery-ClubHouse-2.jpg"
+      ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carretera Artà - Capdepera Km 3.5", 
+      "lat": 39.699175313073084,   
+      "long": 3.3984685423293417,
+      "city": "Artà, Illes Balears",
+      "Country": "España",
+      "zip": "07570"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "8:30",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        },
+        {
+          "nom": "Restaurante",
+          "icono": "<i class='fas fa-utensils'></i>"
+        },
+        {
+          "nom": "Clases",
+          "icono": "<i class='fas fa-users'></i>"
+        },
+        {
+          "nom": "Tienda",
+          "icono": "<i class='fas fa-store'></i>"
+        }
+      ],
+      "esports": ["DRIVING RANGE"]
+    }
+  }
 ]
