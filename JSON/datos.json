@@ -233,7 +233,7 @@
         },
         {
           "nom": "Vestuarios",
-          "icono": "<i class='fas fa-tshirt'></i>"
+          "icono": "<i class='fas fa-shirt'></i>"
         }
       ],
       "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
@@ -3674,5 +3674,1005 @@
       ],
       "esports": ["DRIVING RANGE"]
     }
+  },
+   
+  {
+    "nom": "Club Natació Palma",
+    "descripcio": "En nuestro club podrás disfrutar de las mejores instalaciones de natación",
+    "detall": "NATACIÓN",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "14",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "+34971763939",
+      "email": "cnpalma@gmail.com",
+      "xarxes": 
+        {
+          "web":"http://www.cnpalma.org/",
+          "facebook": "",
+          "twitter": "https://twitter.com/cnpalma?lang=es",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "3.5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://lh3.googleusercontent.com/proxy/9OuNGTTIZCeCDSK9htMJzmaRqiNnxNN-jVN6gzwjZJSkNkF77oYMzrVN7kYdTAvM-RWud0L2-BqnohrpBx1A9G2ri1yIecH54YZoOq1yWRfpVk1n7Q"
+    ],
+    "imatges": [
+      "https://estaticos-cdn.prensaiberica.es/clip/f7c05c1c-1847-431f-8ba0-ebafeacc1c5b_16-9-aspect-ratio_default_0.jpg",
+      "https://lh3.googleusercontent.com/proxy/UP9_zlU64rxtXyWtLRX7y0YpR5tfgEVwu3hyGRVK_DAC4tjo84HLA5a0PId4flZBJT4ondoook2teHhtA8G4yb4jrw7FU6KwJ7geKUFvll_Z0b96qTOKw8MJMDhCOc8OmTHdyobEr_1HNLw8giymWCQ2"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Carretera Valldemossa, 2",
+      "lat": 39.58638878041578,   
+      "long": 2.6227437693184132,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07010"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "07:00",
+          "out": "17:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "07:00",
+          "out": "17:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "07:00",
+          "out": "17:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "07:00",
+          "out": "17:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "07:00",
+          "out": "17:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "08:00",
+          "out": "14:30"
+        },
+        {
+          "in": "17:00",
+          "out": "20:00"
+        }
+      ],
+      "dg": [
+        {
+          "in": "08:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+        {
+          "categoria": "Todos",
+          "familia": "individual",
+          "preu": 35,
+          "periodo": "mes"
+        },
+        {
+          "categoria": "Todos",
+          "familia": "familiar",
+          "preu": 43.5,
+          "periodo": "mes"
+        }
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        }
+      ],
+      "esports": []
+    }
+  } ,
+  {
+    "nom": "Duet Sports Portitxol",
+    "descripcio": "En la zona más carismática de Palma, justo al lado del mar, dispones de unas magníficas instalaciones deportivas con la última tecnología y con un gran abanico de servicios y actividades para todas las edades. No te preocupes si vienes de lejos disponemos de 185 plazas  de parking.",
+    "detall": "NATACIÓN",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "21",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971254730",
+      "email": "portitxol@duetsports.com",
+      "xarxes": 
+        {
+          "web":"https://www.duetsports.com/",
+          "facebook": "",
+          "twitter": "https://twitter.com/duetsports?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3Aduetsports%7Ctwgr%5EeyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdHdlZXRfZW1iZWRfOTU1NSI6eyJidWNrZXQiOiJodGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VtYmVkX2NsaWNrYWJpbGl0eV8xMjEwMiI6eyJidWNrZXQiOiJjb250cm9sIiwidmVyc2lvbiI6bnVsbH19&ref_url=https%3A%2F%2Fwww.duetsports.com%2F",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "5",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.duetsports.com/plantillas/duet2016/img/logo.png"
+    ],
+    "imatges": [
+      "https://portitxol.duetsports.com/cache/media/Image/cabeceras/3.piscina%2Bsauna%20spa-jpg/3.piscina%2Bsauna%20spa-2016-12-22_11_57_44-fixe1500-300-C-000.jpg",
+      "https://www.tugimnasio.es/wp-content/uploads/2021/01/AF1QipNmvGwqR3loDVceHPwiRfJ0BxqLOHxEvrN1sGl5w408-h240-k-no-pi0-ya320-ro0-fo100.jpeg",
+      "https://uh.gsstatic.es/sfAttachPlugin/getCachedContent/id/162702/width/400/height/320"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Calle Cuba, 7",
+      "lat": 39.563003388090266,    
+      "long": 2.674151373015324,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07006"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "06:45",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "06:45",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "06:45",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "06:45",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "06:45",
+          "out": "22:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "08:00",
+          "out": "20:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "14:00"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Aparcamiento gratis",
+          "icono": "<i class='fas fa-car'></i>"
+        },
+        {
+          "nom": "Nutrición",
+          "icono": "<i class='fas fa-apple-alt'></i>"
+        },
+        {
+          "nom": "Entrenador personal",
+          "icono": "<i class='fas fa-swimmer'></i>"
+        },
+        {
+          "nom": "Café",
+          "icono": "<i class='fas fa-coffee'></i>"
+        }
+      ],
+      "esports": ["PÁDEL"]
+    }
+  } ,
+  {
+    "nom": "La Salle",
+    "descripcio": "Disponemos de dos piscinas climatizadas para utilización de los usuarios.",
+    "detall": "NATACIÓN",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "46",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971 60 63 82",
+      "email": "palmapls@lasallevp.es",
+      "xarxes": 
+        {
+          "web":"https://poliesportiulasallepalma.es",
+          "facebook": "",
+          "twitter": "",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.4",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://www.palmapadel.es/public/uploads/palmapadel/logo2.png"
+    ],
+    "imatges": [
+      "https://www.poliesportiulasallepalma.es/wp-content/uploads/2019/11/Piscina7-e1573507082960.jpg",
+      "https://www.poliesportiulasallepalma.es/wp-content/uploads/2019/11/Piscina4-e1573506880338.jpg",
+      "https://www.poliesportiulasallepalma.es/wp-content/uploads/2019/11/Piscina3-e1573665950274.jpg",
+      "https://www.poliesportiulasallepalma.es/wp-content/uploads/et_temp/IMG_3307-3121181_1080x675.jpg"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Camí de son Rapinya, Palma de Mallorca",
+      "lat": 39.58431657459211,   
+      "long": 2.6184977284390247 ,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07013"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "22:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+      ],
+      "festiu": 
+        {
+          "esFestiu": false,
+          "in": "",
+          "out": ""
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        },
+        {
+          "nom": "Entrenador personal",
+          "icono": "<i class='fas fa-swimmer'></i>"
+        },
+        {
+          "nom": "Cafetería",
+          "icono": "<i class='fas fa-coffee'></i>"
+        }
+      ],
+      "esports": ["HOCKEY","FÚTBOL SALA","BALLET"]
+    }
+  } ,
+
+  {
+    "nom": "Campus Esport",
+    "descripcio": "Ofrecemos las mejores intalaciones de calidad.",
+    "detall": "BALONCESTO",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "3",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971172554",
+      "email": "recepcio@campusesport.com",
+      "xarxes": 
+        {
+          "web":"https://campusesport.com",
+          "facebook": "https://www.facebook.com/Campusesport/",
+          "twitter": "https://twitter.com/Campusesport",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.3",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://campusesport.com/images/logos/logo.png"
+    ],
+    "imatges": [
+      "https://campusesport.com/imagen/30/34612edc/1140/0/1.png",
+      "https://campusesport.com/imagen/29/7c03c86f/1140/0/3.png"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Cra. de Valldemossa km. 7.5 (campus universitari)",
+      "lat": 39.64276117908073,
+      "long": 2.646393874157131,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07122"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "20:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "20:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 175.5,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 215,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 355,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 300,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 474,
+          "periodo": "año"
+        },
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 198,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 204,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 208,
+          "periodo": "6 meses"
+        }
+      ],
+      "festiu": 
+        {
+          "esFestiu": true,
+          "in": "07:00",
+          "out": "21:15"
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        }
+      ],
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
+    }
+  },
+  
+  {
+    "nom": "Campus Esport",
+    "descripcio": "",
+    "detall": "VOLEIBOL",
+    "tipus": "",
+    "identificador": "",
+    "comentari": "",
+    "preu": {
+      "import": "3",
+      "coment-preu": ""
+    },
+    "contacte": {
+      "telf": "971172554",
+      "email": "recepcio@campusesport.com",
+      "xarxes": 
+        {
+          "web":"https://campusesport.com",
+          "facebook": "https://www.facebook.com/Campusesport/",
+          "twitter": "https://twitter.com/Campusesport",
+          "tripadvisor": ""
+        }
+      
+    },
+    "puntuacio": "4.3",
+    "visualitzacions": "",
+    "likes": 0,
+    "icones": [
+      "https://campusesport.com/images/logos/logo.png",
+      "https://campusesport.com/images/logos/logo.png"
+    ],
+    "imatges": [
+      "https://campusesport.com/imagen/30/34612edc/1140/0/1.png",
+      "https://campusesport.com/imagen/29/7c03c86f/1140/0/3.png"
+    ],
+    "videos": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "audio": [
+      {
+        "tipus": "",
+        "url": ""
+      }
+    ],
+    "geo1": {
+      "address": "Cra. de Valldemossa km. 7.5 (campus universitari)",
+      "lat": 39.64276117908073,
+      "long": 2.646393874157131,
+      "city": "Palma de Mallorca, Illes Balears",
+      "Country": "España",
+      "zip": "07122"
+    },
+    "geo2": {
+      "address": "",
+      "lat": 0,
+      "long": 0,
+      "city": "",
+      "Country": "",
+      "zip": ""
+    },
+    "ruta": [
+      {
+        "lat": 0,
+        "long": 0,
+        "imatge": {
+          "link": "",
+          "descripcio": ""
+        }
+      }
+    ],
+    "horari": {
+      "di": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dm": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dx": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dj": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dv": [
+        {
+          "in": "07:00",
+          "out": "21:15"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "ds": [
+        {
+          "in": "09:00",
+          "out": "20:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ],
+      "dg": [
+        {
+          "in": "09:00",
+          "out": "20:30"
+        },
+        {
+          "in": "-",
+          "out": "-"
+        }
+      ]
+    },
+    "calendari": {
+      "startDataEvent": "",
+      "startTimeEvent": "",
+      "endDataEvent": "",
+      "endTimeEvent": ""
+    },
+    "dadesPropies": {
+      "suscripcio": [
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 175.5,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 215,
+          "periodo": "año"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 355,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 300,
+          "periodo": "año"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 474,
+          "periodo": "año"
+        },
+        {
+          "categoria": "alumno",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "individual",
+          "preu": 124,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "UIB",
+          "familia": "familiar",
+          "preu": 198,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "individual",
+          "preu": 204,
+          "periodo": "6 meses"
+        },
+        {
+          "categoria": "No UIB",
+          "familia": "familiar",
+          "preu": 208,
+          "periodo": "6 meses"
+        }
+      ],
+      "festiu": 
+        {
+          "esFestiu": true,
+          "in": "07:00",
+          "out": "21:15"
+        }
+      ,
+      "serveis": [
+        {
+          "nom": "Vestuarios",
+          "icono": "<i class='fas fa-tshirt'></i>"
+        }
+      ],
+      "esports": ["TENIS","NATACIÓN","PÁDEL","FÚTBOL","BALONCESTO","BALONMANO","FÚTBOL SALA","ZUMBA","PILATES","YOGA","CYCLING","WALKING"]
+    }
   }
+
 ]
