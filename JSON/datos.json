@@ -1587,7 +1587,7 @@
           "icono": "<i class='fas fa-user-friends'></i>"
         }
       ],
-      "esports": ["YOGA, PILATES, NATACIÓN, CYCLING, RUNNING, BOXING"]
+      "esports": ["YOGA", "PILATES", "NATACIÓN", "CYCLING", "RUNNING", "BOXING"]
     }
   },
   {
@@ -1949,7 +1949,7 @@
           "icono": "<i class='fas fa-dumbbell'></i>"
         }
       ],
-      "esports": ["PÁDEL, SQUASH"]
+      "esports": ["PÁDEL", "SQUASH"]
     }
   },
   {
@@ -2133,7 +2133,7 @@
           "icono": "<i class='fas fa-dumbbell'></i>"
         }
       ],
-      "esports": ["TENIS, SQUASH"]
+      "esports": ["TENIS", "SQUASH"]
     }
   },
   {
@@ -2318,7 +2318,7 @@
           "icono": "<i class='fas fa-golf-ball'></i>"
         }
       ],
-      "esports": ["BALONCESTO, FÚTBOL"]
+      "esports": ["BALONCESTO", "FÚTBOL"]
     }
   },
   {
@@ -2528,7 +2528,7 @@
           "icono": "<i class='fab fa-nutritionix'></i>"
         }
       ],
-      "esports": ["NATACIÓN, PÁDEL, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+      "esports": ["NATACIÓN", "PÁDEL", "FÚTBOL", "SQUASH", "PILATES", "CYCLING", "RUNNING"]
     }
   },
   {
@@ -2738,7 +2738,7 @@
           "icono": "<i class='fab fa-nutritionix'></i>"
         }
       ],
-      "esports": ["NATACIÓN, TENIS, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+      "esports": ["NATACIÓN", "TENIS", "FÚTBOL", "SQUASH", "PILATES", "CYCLING", "RUNNING"]
     }
   },
   {
@@ -2944,7 +2944,7 @@
           "icono": "<i class='fab fa-nutritionix'></i>"
         }
       ],
-      "esports": ["TENIS, PÁDEL, FÚTBOL, SQUASH, PILATES, CYCLING, RUNNING"]
+      "esports": ["TENIS", "PÁDEL", "FÚTBOL", "SQUASH", "PILATES", "CYCLING", "RUNNING"]
     }
   },
   {
